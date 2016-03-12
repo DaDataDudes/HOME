@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 import styles from './FormPage.css';
 import Input from 'components/Input';
 import Dropdown from 'components/Dropdown';
-import List from 'components/List';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class FormPage extends Component {

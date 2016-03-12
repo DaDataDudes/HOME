@@ -1,16 +1,17 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute, browserHistory } from 'react-router';
 import App from 'containers/App';
-import Home from 'containers/Home';
+import Login from 'containers/Login';
+import Dashboard from 'containers/Dashboard';
 import FormPage from 'containers/FormPage';
-import Counter from 'containers/Counter';
 import NotFound from 'containers/NotFound';
 
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={Home} />
+  <Route path="/" component={App} history={browserHistory}>
+    <IndexRoute component={Login} />
+    <Route path="login" component={Login} />
+    <Route path="dashboard" component={Dashboard} />
     <Route path="form" component={FormPage} />
-    <Route path="counter" component={Counter} />
     <Route path="*" component={NotFound} />
   </Route>
 );
