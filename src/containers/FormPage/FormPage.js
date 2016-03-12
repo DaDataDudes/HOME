@@ -15,10 +15,9 @@ class FormPage extends Component {
       age : null,
       social : '',
       ethnicity : '',
-      currentLiving : '',
-      currentLivingStatus:'',
-      currentLivingShelterName:'',
-      familyMembers : null, 
+      shelterStatus : false,
+      shelterName:'',
+      familyMembersTotal : null, 
       familyMembersAdult : [],
       familyMembersChildren : [], 
       homelessDate : null,
@@ -29,10 +28,7 @@ class FormPage extends Component {
       govBenefits : {
         //research benefits
       },
-      education : {
-        school : '',
-        training : '',
-      },
+      educationLevel: '', 
       geoLocation : '', 
       count : null,
     };
@@ -80,17 +76,59 @@ class FormPage extends Component {
         />
         <Input
           className={styles.input}
-          placeholder=""
+          placeholder="Social Security Number"
           onChange={this._onInputChange}
           value={this.state.social}
           name="social"
         />
         <Input
           className={styles.input}
-          placeholder="Current Living"
+          placeholder="Shelter Status"
           onChange={this._onInputChange}
-          value={this.state.currentLiving}
-          name="currentLiving"
+          value={this.state.shelterStatus}
+          name="shelterStatus"
+        />
+        <Input
+          className={styles.input}
+          placeholder="Shelter Name"
+          onChange={this._onInputChange}
+          value={this.state.shelterName}
+          name="shelterName"
+        />
+        <Input
+          className={styles.input}
+          placeholder="Total Family Members"
+          onChange={this._onInputChange}
+          value={this.state.familyMembersTotal}
+          name="familyMembersTotal"
+        />
+        <Input
+          className={styles.input}
+          placeholder="Total Family Members"
+          onChange={this._onInputChange}
+          value={this.state.familyMembersAdult}
+          name="familyMembersTotal"
+        />
+        <Input
+          className={styles.input}
+          placeholder="Total Family Members"
+          onChange={this._onInputChange}
+          value={this.state.familyMembersTotal}
+          name="familyMembersTotal"
+        />
+        <Input
+          className={styles.input}
+          placeholder="Number of Adults"
+          onChange={this._onInputChange}
+          value={this.state.familyMembersTotal}
+          name="familyMembersAdult"
+        />
+        <Input
+          className={styles.input}
+          placeholder="Number of Children"
+          onChange={this._onInputChange}
+          value={this.state.familyMembersTotal}
+          name="familyMembersChildren"
         />
       </div>
     );
