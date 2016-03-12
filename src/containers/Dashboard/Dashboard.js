@@ -11,21 +11,23 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-  // TODO: Get data first before D3 renders
-  this.props.dispatch(getChartData());
-  const x = d3.scale.linear()
-      .domain([0, d3.max(data)])
-      .range([0, 320]);
-
-  d3.select('.chart')
-    .selectAll('div')
-      .data()
-    .enter().append('div')
-      .style('width', function(d) { return x(d) + 'px'; })
-      .style('height', 10 + 'px')
+    this.props.dispatch(getChartData());
   }
 
   render() {
+    const { chartData } = this.props;
+    if (chartData) {
+      const x = d3.scale.linear()
+          .domain([0, d3.max(chartData)])
+          .range([0, 320]);
+
+      d3.select('.chart')
+        .selectAll('div')
+          .data(chartData)
+        .enter().append('div')
+          .style('width', function(d) { return x(d) + 'px'; })
+          .style('height', 10 + 'px')
+    }
     return (
       <div className={styles}>
         <h1>Dashboard</h1>
@@ -36,7 +38,9 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps(state) {
-  return {...state};
+  return {
+    chartData: state.chartData.data,
+  };
 }
 
 export default connect(mapStateToProps)(Dashboard);
