@@ -17,6 +17,7 @@ class FormPage extends Component {
     this._onSubmit = this._onSubmit.bind(this);
     this._onBlur = this._onBlur.bind(this);
     this._formState = {
+      key: null,
       firstName : '',
       lastName : '',
       age : null,
@@ -376,7 +377,13 @@ class FormPage extends Component {
       otherDisability: event.target.otherDisability.value
     });
 
-    this.props.dispatch(firebase.createDocument(this.state));
+    if (this.state.key) {
+      this.props.dispatch(firebase.updateDocument({
+        key: this.state.key
+      }, this.state));
+    } else {
+      this.props.dispatch(firebase.createDocument(this.state));
+    }
     this.setState(this._formState);
   }
 
