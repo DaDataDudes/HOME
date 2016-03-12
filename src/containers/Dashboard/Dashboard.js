@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getChartData } from 'actions/charts';
 import d3 from 'd3';
+// import BarChart from 'componenets/charts/BarChart';
 import styles from './Dashboard.css';
 
 class Dashboard extends Component {
@@ -15,6 +16,7 @@ class Dashboard extends Component {
 
   render() {
     const { chartData } = this.props;
+
     if (chartData) {
       const x = d3.scale.linear()
         .domain([0, d3.max(chartData)])
@@ -25,11 +27,13 @@ class Dashboard extends Component {
         .data(chartData)
         .enter()
         .append('div')
+        .classed(styles.bar, true)
         .style('width', (d) => `${x(d)}px`)
-        .style('height', 10);
+        .style('height', `10px`);
     }
+
     return (
-      <div className={styles}>
+      <div className={styles.chart}>
         <h1>Dashboard</h1>
         <div className="chart"></div>
       </div>
