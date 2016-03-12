@@ -1,15 +1,23 @@
 import React, { PropTypes } from 'react';
 
-const Input = ({ id, className, type, placeholder, name, value, onChange, onKeyDown }) => (
-  <input id={id}
-    className={className}
-    type={type}
-    placeholder={placeholder}
-    name={name}
-    value={value}
-    onChange={onChange}
-    onKeyDown={onKeyDown}
-  />
+const Input = ({ id, className, type, placeholder, name, text, value, onChange, onKeyDown }) => (
+  <div>
+    <label
+      type={type}
+      htmlFor={name}
+    > {text}
+    </label>
+    <input id={id}
+      className={className}
+      type={type}
+      placeholder={placeholder}
+      name={name}
+      text={text}
+      value={value}
+      onChange={onChange}
+      onKeyDown={onKeyDown}
+    />
+  </div>
 );
 
 Input.defaultProps = {
