@@ -47,7 +47,6 @@ class FormPage extends Component {
       otherDisability: '',
       checkInRecord: [],
       geoLocation : '',
-      count : null,
       questions: {
         familyMembersAdult: 'How many ADULTS are in your household?',
         familyMembersChildren: 'How many CHILDREN UNDER 18?',
@@ -346,15 +345,6 @@ class FormPage extends Component {
     const adultCount = event.target.familyMembersAdult.value;
     const childrenCount = event.target.familyMembersChildren.value;
 
-    //goal is to render object data / edit it / flag a check-in
-    let count;
-
-    if (this.state.count == null) {
-      count = 1;
-    } else {
-      count+1;
-    }
-
     this.setState({
       ...this.state,
       firstName: event.target.firstName.value,
@@ -383,8 +373,7 @@ class FormPage extends Component {
       onTheStreets: event.target.onTheStreets.value,
       mentalHealthDisability: event.target.mentalHealthDisability.value,
       alcoholDrugProblem: event.target.alcoholDrugProblem.value,
-      otherDisability: event.target.otherDisability.value,
-      count: count
+      otherDisability: event.target.otherDisability.value
     });
 
     this.props.dispatch(firebase.createDocument(this.state));
