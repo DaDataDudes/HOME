@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './FormPage.css';
+import { firebase } from 'actions/firebase';
 import Input from 'components/Input';
 import Dropdown from 'components/Dropdown';
+import Checkbox from 'components/Checkbox';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class FormPage extends Component {
@@ -11,6 +13,7 @@ class FormPage extends Component {
     super();
     this._onInputChange = this._onInputChange.bind(this);
     this._onInputEnter = this._onInputEnter.bind(this);
+    this._onCheckboxChange = this._onCheckboxChange.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
     this.state = {
       firstName : '',
@@ -34,7 +37,7 @@ class FormPage extends Component {
       benefitUnemployment : false,
       benefitTanf : false,
       benefitSsi : false,
-      veteran : false,
+      veteran : null,
       educationLevel: '',
       homelessCount: null,
       onTheStreets: null,
@@ -55,6 +58,36 @@ class FormPage extends Component {
         alcoholDrugProblem: 'Do you have an alcohol or drug problem that limits your ability to work or perform activities of daily living?',
         otherDisability: 'Do you have a physical, developmental, or other disability that limits your ability to work or perform activities of daily living?'
       },
+      genderOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value: 'male',
+          text:'Male'
+        },
+        {
+          value: 'female',
+          text:'Female'
+        },
+        {
+          value: 'transgenderMaleToFemale',
+          text:'Transgender: Male to Female'
+        },
+        {
+          value: 'transgenderFemaleToMale',
+          text:'Transgender: Female to Male'
+        },
+        {
+          value: 'unknown',
+          text:'Unknown'
+        },
+        {
+          value: 'refused',
+          text:'Refused'
+        }
+      ],
       ethnicities: [
         {
           value: '',
@@ -77,11 +110,11 @@ class FormPage extends Component {
           text: 'Asian'
         },
         {
-          value: 'american indian',
+          value: 'americanIndian',
           text: 'American Indian/Alaska Native'
         },
         {
-          value: 'native hawaiian',
+          value: 'nativeHawaiian',
           text: 'Native Hawaiian'
         },
         {
@@ -96,13 +129,89 @@ class FormPage extends Component {
           value: 'unknown',
           text: 'Unknown'
         }
-      ]
+      ],
+      generalOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value:'yes',
+          text: 'Yes' 
+        },
+        {
+          value:'no',
+          text: 'No' 
+        },
+        {
+          value:'unknown',
+          text: 'Unknown' 
+        },
+        {
+          value:'refused',
+          text: 'Refused' 
+        }
+      ],
+      homelessDateOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value:'lessThanYear',
+          text: 'Less than 1 year' 
+        },
+        {
+          value:'oneYearOrLonger',
+          text: '1 year or longer' 
+        },
+        {
+          value:'unknown',
+          text: 'Unknown' 
+        },
+        {
+          value:'refused',
+          text: 'Refused' 
+        }
+      ],
+      homelessCountOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value:'oneToThreeTimes',
+          text: '1-3 times' 
+        },
+        {
+          value:'fourOrMoreTimes',
+          text: '4 or more times' 
+        },
+        {
+          value:'unknown',
+          text: 'Unknown' 
+        },
+        {
+          value:'refused',
+          text: 'Refused' 
+        }
+      ],
     };
+  }
+
+  componentWillMount() {
+    this.props.dispatch(firebase.registerListeners());
   }
 
   _onInputChange(event) {
     var nameAttr = event.target.getAttribute('name');
     this.setState({ [nameAttr]: event.target.value });
+  }
+
+  _onCheckboxChange(event) {
+    var nameAttr = event.target.getAttribute('name');
+    console.log('event.target.value',event.target.value);
+    this.setState({ [nameAttr]: (event.target.value === 'false')});
   }
 
   _onInputEnter(event) {
@@ -149,8 +258,9 @@ class FormPage extends Component {
       mentalHealthDisability: event.target.mentalHealthDisability.value,
       alcoholDrugProblem: event.target.alcoholDrugProblem.value,
       otherDisability: event.target.otherDisability.value
-    })
+    });
 
+    this.props.dispatch(firebase.createDocument(this.state));
     console.log('this.state', this.state);
   }
 
@@ -158,7 +268,6 @@ class FormPage extends Component {
     const {
       questions
     } = this.state;
-
     return (
       <form className='homeless-form' onSubmit={this._onSubmit}>
         <Grid className={styles.base}>
@@ -184,6 +293,7 @@ class FormPage extends Component {
               />
             </Col>
           </Row>
+
           <Row>
             <Col xs={6} className={styles.inputSpacing}>
               <Input
@@ -196,13 +306,12 @@ class FormPage extends Component {
               />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
-              <Input
-                className={styles.input}
-                text="Gender"
-                name="gender"
-                onChange={this._onInputChange}
-                value={this.state.gender}
-                placeholder="gender"
+              <Dropdown
+              onChange={this._onInputChange}
+              items={this.state.genderOptions}
+              name="gender"
+              text="Gender"
+              className={styles.dropDown}
               />
             </Col>
           </Row>
@@ -282,13 +391,34 @@ class FormPage extends Component {
               />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
+              <Dropdown
+                className={styles.dropDown}
+                text="Are you a U.S Military Veteran"
+                name="veteran"
+                items={this.state.generalOptions}
+                onChange={this._onInputChange} />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                text="Are you a U.S. Military Veteran?"
-                name="benefitVeteran"
+                text="What is your highest completed education level?"
+                name="educationLevel"
                 onChange={this._onInputChange}
+                value={this.state.educationLevel}
+                placeholder="education"
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Checkbox
+                id="benefitVeteran"
+                text="Please select all benefits that you are currently receiving"
+                className={styles.input}
+                onChange={this._onCheckboxChange}
                 value={this.state.benefitVeteran}
-                placeholder="veteran"
+                checked={(this.state.benefitVeteran) ? 'checked' : ''}
+                name="benefitVeteran"
               />
             </Col>
           </Row>
@@ -315,7 +445,7 @@ class FormPage extends Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={6} className={styles.inputSpacing}>
+            <Col xs={12} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
                 text="EBT"
@@ -323,16 +453,6 @@ class FormPage extends Component {
                 onChange={this._onInputChange}
                 value={this.state.benefitEbt}
                 placeholder="EBT"
-              />
-            </Col>
-            <Col xs={6} className={styles.inputSpacing}>
-              <Input
-                className={styles.input}
-                text="What is your highest completed education level?"
-                name="educationLevel"
-                onChange={this._onInputChange}
-                value={this.state.educationLevel}
-                placeholder="education"
               />
             </Col>
           </Row>
@@ -381,43 +501,35 @@ class FormPage extends Component {
           <Row>
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.homelessDate}</p>
-              <Input
-                className={styles.input}
-                placeholder="Date of Homelessness"
+              <Dropdown
                 onChange={this._onInputChange}
-                value={this.state.homelessDate}
+                items={this.state.homelessDateOptions}
                 name="homelessDate"
               />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.homelessCount}</p>
-              <Input
-                className={styles.input}
-                placeholder="Homeless Count"
-                onChange={this._onInputChange}
-                value={this.state.homelessCount}
-                name="homelessCount"
+              <Dropdown
+              onChange={this._onInputChange}
+              items={this.state.homelessCountOptions}
+              name="homelessCount"
               />
             </Col>
           </Row>
           <Row>
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.onTheStreets}</p>
-              <Input
-                className={styles.input}
-                placeholder="On the Streets"
+              <Dropdown
                 onChange={this._onInputChange}
-                value={this.state.onTheStreets}
+                items={this.state.generalOptions}
                 name="onTheStreets"
               />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.mentalHealthDisability}</p>
-              <Input
-                className={styles.input}
-                placeholder="Mental Health Disability"
+              <Dropdown
                 onChange={this._onInputChange}
-                value={this.state.mentalHealthDisability}
+                items={this.state.generalOptions}
                 name="mentalHealthDisability"
               />
             </Col>
@@ -425,23 +537,19 @@ class FormPage extends Component {
           <Row>
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.alcoholDrugProblem}</p>
-              <Input
-                className={styles.input}
-                placeholder="Alcohol/Drug Problem"
+              <Dropdown
                 onChange={this._onInputChange}
-                value={this.state.alcoholDrugProblem}
+                items={this.state.generalOptions}
                 name="alcoholDrugProblem"
-              />
+              /> 
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.otherDisability}</p>
-              <Input
-                className={styles.input}
-                placeholder="Other Disability"
+              <Dropdown
                 onChange={this._onInputChange}
-                value={this.state.otherDisability}
+                items={this.state.generalOptions}
                 name="otherDisability"
-              />
+              />              
             </Col>
           </Row>
         </Grid>
@@ -457,7 +565,7 @@ class FormPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    todo: state.todo
+    documents: state.documents.list
   };
 }
 
