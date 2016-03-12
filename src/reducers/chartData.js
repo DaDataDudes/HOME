@@ -1,4 +1,4 @@
-import { GET_DATA_SUCCESS } from '../actions/charts';
+import { GET_DATA_SUCCESS, UPDATE_DATA_SUCCESS } from 'actions/charts';
 
 const initialState = {
   data: null,
@@ -7,6 +7,11 @@ const initialState = {
 export default function chartData(state = initialState, action = {}) {
   switch (action.type) {
     case GET_DATA_SUCCESS:
+      return {
+        ...state,
+        data: action.data,
+      };
+    case UPDATE_DATA_SUCCESS:
       return {
         ...state,
         data: action.data,
