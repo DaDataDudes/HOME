@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getChartData, updateChartData } from 'actions/charts';
-import BarChart from 'components/charts/BarChart';
+import Map from 'components/charts/Map';
 import styles from './Dashboard.css';
 
 class Dashboard extends Component {
@@ -19,19 +19,13 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { chartData } = this.props;
-
-    let Chart;
-    if (chartData) {
-      Chart = <BarChart data={chartData} width={500} height={300} />;
-    }
+    // const { chartData } = this.props;
 
     return (
       <div className={styles.chart}>
         <h1>Dashboard</h1>
-        <div className="chart">
-          {Chart}
-          <button onClick={this._updateData}>Update Data</button>
+        <div className="map">
+          <Map data={[1, 2, 3]} />
         </div>
       </div>
     );
