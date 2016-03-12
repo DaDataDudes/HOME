@@ -303,7 +303,15 @@ class FormPage extends Component {
 
     const adultCount = event.target.familyMembersAdult.value;
     const childrenCount = event.target.familyMembersChildren.value;
-    const count = (this.state.count == null) ? 1 : this.state.count+1;
+
+    //goal is to render object data / edit it / flag a check-in
+    const count;
+
+    if (this.state.count == null) {
+      count = 1;
+    } else {
+      count+1;
+    }
 
     console.log('count',count);
 
