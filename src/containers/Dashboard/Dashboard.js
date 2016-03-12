@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { getChartData, updateChartData } from 'actions/charts';
+import Map from 'components/charts/Map';
 import styles from './Dashboard.css';
-
-import { browserHistory } from 'react-router';
-import { getChartData } from 'actions/charts';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
+    this._updateData = this._updateData.bind(this);
   }
 
   componentDidMount() {
     this.props.dispatch(getChartData());
+  }
+
+  _updateData() {
+    this.props.dispatch(updateChartData());
   }
 
   render() {
@@ -22,15 +26,8 @@ class Dashboard extends Component {
           .domain([0, d3.max(chartData)])
           .range([0, 320]);
 
-      d3.select('.chart')
-        .selectAll('div')
-          .data(chartData)
-        .enter().append('div')
-          .style('width', function(d) { return x(d) + 'px'; })
-          .style('height', 10 + 'px')
-    }
     return (
-      <div className={styles}>
+      <div className={styles.chart}>
         <h1>Dashboard</h1>
         <div className="sidebar">
           <Link to="/dashboard/humanList">Table</Link>
