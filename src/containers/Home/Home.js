@@ -53,7 +53,7 @@ class Home extends Component {
 
 function mapStateToProps(state) {
   return {
-    todo: state.todo
+    documents: state.documents.list
   };
 }
 
