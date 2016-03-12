@@ -1,0 +1,54 @@
+@value primary, secondary, lite, liteDark, white from "variables.css";
+
+.base {
+  position: absolute 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(#1f2124, 0.9);
+  border-top: 4px solid primary;
+  padding: .5rem 2rem;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 550px;
+}
+
+.heading {
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+
+.textInput {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+  color: liteDark;
+  box-shadow: 0 2px 3px 1px rgba(#000, 0.3);
+}
+
+.forgot {
+  color: lite;
+  font-size: .8rem;
+  a {
+    color: secondary;
+  }
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: primary;
+  border: 0;
+  outline: 0;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 2rem 0;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px 1px rgba(#000, 0.3);
+}
