@@ -14,8 +14,8 @@ class FormPage extends Component {
     this.state = {
       name : '',
       age : null,
-      social : '',
       ethnicity : '',
+      social : '',
       shelterStatus : false,
       shelterName:'',
       familyMembersTotal : null,
@@ -32,8 +32,6 @@ class FormPage extends Component {
       benefitTanf : false,
       benefitSsi : false,
       veteran : false,
-      govBenefits : {
-      },
       educationLevel: '',
       geoLocation : '',
       count : null,
@@ -58,29 +56,69 @@ class FormPage extends Component {
     this.setState({
       name: event.target.name.value,
       age: event.target.age.value,
-      social: event.target.social.value,
       ethnicity: event.target.ethnicity.value,
+      social: event.target.social.value,
       shelterStatus: event.target.shelterStatus.value,
       shelterName:event.target.sshelterName.value,
-      familyMembersTotal: event.target.familyMembersTotal.value
-      familyMembersAdult: event.target.familyMembersAdult.value
-      familyMembersChildren: event.target.familyMembersChildren.value
-      homelessDate: event.target.homelessDate.value
-      employmentStatus: event.target.employmentStatus.value
-      employmentCurPay: event.target.employmentCurPay.value
-      employmentLastEmployed: event.target.employmentLastEmployed.value
-      benefitVeteran: event.target.benefitVeteran.value
-      benefitWelfare: event.target.benefitWelfare.value
-      benefitEbt: event.target.benefitEbt.value
-      benefitUnemployement: event.target.benefitUnemployement.value
-      benefitTanf: event.target.benefitTanf.value
-      benefitSsi: event.target.benefitSsi.value
-      educationLevel: event.target.educationLevel.value
+      familyMembersTotal: event.target.familyMembersTotal.value,
+      familyMembersAdult: event.target.familyMembersAdult.value,
+      familyMembersChildren: event.target.familyMembersChildren.value,
+      homelessDate: event.target.homelessDate.value,
+      employmentStatus: event.target.employmentStatus.value,
+      employmentCurPay: event.target.employmentCurPay.value,
+      employmentLastEmployed: event.target.employmentLastEmployed.value,
+      benefitVeteran: event.target.benefitVeteran.value,
+      benefitWelfare: event.target.benefitWelfare.value,
+      benefitEbt: event.target.benefitEbt.value,
+      benefitUnemployement: event.target.benefitUnemployement.value,
+      benefitTanf: event.target.benefitTanf.value,
+      benefitSsi: event.target.benefitSsi.value,
+      educationLevel: event.target.educationLevel.value,
     })
   }
 
   render() {
+    console.log('this.state',this.state);
     // const { todo: { items } } = this.props;
+
+    const ethnicities = [
+      {
+        value: 'hawaiian',
+        text: 'Hawaiian'
+      },
+      {
+        value: 'white',
+        text: 'White'
+      },
+      {
+        value: 'black',
+        text: 'Black/African-American'
+      },
+      {
+        value: 'asian',
+        text: 'Asian'
+      },
+      {
+        value: 'american indian',
+        text: 'American Indian/Alaska Native'
+      },
+      {
+        value: 'native hawaiian',
+        text: 'Native Hawaiian'
+      },
+      {
+        value: 'other',
+        text: 'Other Pacific Islander'
+      },
+      {
+        value: 'multiple',
+        text: 'Multiple Races'
+      },
+      {
+        value: 'unknown',
+        text: 'Unknown'
+      }
+    ]
 
     return (
       <form className='homeless-form' onSubmit={this._onSubmit}>
@@ -99,6 +137,11 @@ class FormPage extends Component {
             value={this.state.age}
             name="age"
           />
+          <select name="ethnicity">
+            {ethnicities.map(item => {
+              return <option value={item.value}>{item.text}</option>;
+            })}
+          </select>
           <Input
             className={styles.input}
             placeholder="Ethnicity"
