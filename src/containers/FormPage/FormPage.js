@@ -15,6 +15,7 @@ class FormPage extends Component {
     this._onInputEnter = this._onInputEnter.bind(this);
     this._onCheckboxChange = this._onCheckboxChange.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
+    this._onBlur = this._onBlur.bind(this);
     this._formState = {
       firstName : '',
       lastName : '',
@@ -282,6 +283,12 @@ class FormPage extends Component {
     this.setState({ [nameAttr]: (event.target.value === 'false')});
   }
 
+  _onBlur(event) {
+    var oldState = this.props.documents.filter(current => current.social == this.state.social);
+    console.log('oldState',oldState);
+    this.setState(oldState[0]);
+  }
+
   _onInputEnter(event) {
     const item = event.target.value.trim();
 
@@ -296,6 +303,9 @@ class FormPage extends Component {
 
     const adultCount = event.target.familyMembersAdult.value;
     const childrenCount = event.target.familyMembersChildren.value;
+    const count = (this.state.count == null) ? 1 : this.state.count+1;
+
+    console.log('count',count);
 
     this.setState({
       ...this.state,
@@ -325,12 +335,13 @@ class FormPage extends Component {
       onTheStreets: event.target.onTheStreets.value,
       mentalHealthDisability: event.target.mentalHealthDisability.value,
       alcoholDrugProblem: event.target.alcoholDrugProblem.value,
-      otherDisability: event.target.otherDisability.value
+      otherDisability: event.target.otherDisability.value,
+      count: count
     });
 
     this.props.dispatch(firebase.createDocument(this.state));
     this.setState(this._formState);
-    console.log('this.state', this.state);
+    console.log('this.state', this.state.count);
   }
 
   render() {
@@ -344,6 +355,17 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
+                text="Social Security Number"
+                name="social"
+                onChange={this._onInputChange}
+                value={this.state.social}
+                placeholder="SSN"
+                onBlur={this._onBlur}
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+             <Input
+                className={styles.input}
                 text="First Name"
                 name="firstName"
                 onChange={this._onInputChange}
@@ -351,6 +373,9 @@ class FormPage extends Component {
                 placeholder="first"
               />
             </Col>
+          </Row>
+
+          <Row>
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
@@ -361,9 +386,6 @@ class FormPage extends Component {
                 placeholder="last"
               />
             </Col>
-          </Row>
-
-          <Row>
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
@@ -374,18 +396,18 @@ class FormPage extends Component {
                 placeholder="age"
               />
             </Col>
-            <Col xs={6} className={styles.inputSpacing}>
-              <Dropdown
-              onChange={this._onInputChange}
-              items={this.state.genderOptions}
-              value={this.state.gender}
-              name="gender"
-              text="Gender"
-              className={styles.dropDown}
-              />
-            </Col>
           </Row>
           <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Dropdown
+                onChange={this._onInputChange}
+                items={this.state.genderOptions}
+                value={this.state.gender}
+                name="gender"
+                text="Gender"
+                className={styles.dropDown}
+                />
+            </Col>
             <Col xs={6} className={styles.inputSpacing}>
               <Dropdown
                 className={styles.dropDown}
@@ -394,16 +416,6 @@ class FormPage extends Component {
                 items={this.state.ethnicities}
                 value={this.state.ethnicity}
                 onChange={this._onInputChange} />
-            </Col>
-            <Col xs={6} className={styles.inputSpacing}>
-              <Input
-                className={styles.input}
-                text="Social Security Number"
-                name="social"
-                onChange={this._onInputChange}
-                value={this.state.social}
-                placeholder="SSN"
-              />
             </Col>
           </Row>
           <Row>
