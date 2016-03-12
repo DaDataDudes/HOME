@@ -9,8 +9,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
-    "flexboxgrid": "^6.3.0",
+    "d3": "^3.5.16",
     "firebase": "2.4.1",
+    "flexboxgrid": "^6.3.0",
     "lodash": "^4.6.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",

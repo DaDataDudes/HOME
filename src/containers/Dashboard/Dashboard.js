@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styles from './Dashboard.css';
-
-import { browserHistory } from 'react-router';
 import { getChartData } from 'actions/charts';
+import d3 from 'd3';
+import styles from './Dashboard.css';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -17,16 +16,17 @@ class Dashboard extends Component {
   render() {
     const { chartData } = this.props;
     if (chartData) {
-      const x = d3.scale.linear()
-          .domain([0, d3.max(chartData)])
-          .range([0, 320]);
+      const x = d3.scale.linear()
+        .domain([0, d3.max(chartData)])
+        .range([0, 320]);
 
-      d3.select('.chart')
-        .selectAll('div')
-          .data(chartData)
-        .enter().append('div')
-          .style('width', function(d) { return x(d) + 'px'; })
-          .style('height', 10 + 'px')
+      d3.select('.chart')
+        .selectAll('div')
+        .data(chartData)
+        .enter()
+        .append('div')
+        .style('width', (d) => `${x(d)}px`)
+        .style('height', 10);
     }
     return (
       <div className={styles}>
