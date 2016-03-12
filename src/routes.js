@@ -11,8 +11,9 @@ export default (
   <Route path="/" component={App} history={browserHistory}>
     <IndexRoute component={Login} />
     <Route path="login" component={Login} />
-    <Route path="dashboard" component={Dashboard} />
-    <Route path="humanList" component={HumanList} />
+    <Route path="dashboard" component={Dashboard} >
+      <Route path="humanList" component={HumanList} />
+    </Route>
     <Route path="form" component={FormPage} />
     <Route path="*" component={NotFound} />
   </Route>

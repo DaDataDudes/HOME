@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import styles from './Dashboard.css';
 
 import { browserHistory } from 'react-router';
@@ -15,7 +16,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { chartData } = this.props;
+    const { children, chartData } = this.props;
     if (chartData) {
       const x = d3.scale.linear()
           .domain([0, d3.max(chartData)])
@@ -31,6 +32,10 @@ class Dashboard extends Component {
     return (
       <div className={styles}>
         <h1>Dashboard</h1>
+        <div className="sidebar">
+          <Link to="/dashboard/humanList">Table</Link>
+        </div>
+        {children}
         <div className="chart"></div>
       </div>
     );
