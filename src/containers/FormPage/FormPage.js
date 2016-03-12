@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './FormPage.css';
 import Input from 'components/Input';
+import Dropdown from 'components/Dropdown';
 import List from 'components/List';
 
 class FormPage extends Component {
@@ -35,6 +36,48 @@ class FormPage extends Component {
       educationLevel: '',
       geoLocation : '',
       count : null,
+      ethnicities: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value: 'hawaiian',
+          text: 'Hawaiian'
+        },
+        {
+          value: 'white',
+          text: 'White'
+        },
+        {
+          value: 'black',
+          text: 'Black/African-American'
+        },
+        {
+          value: 'asian',
+          text: 'Asian'
+        },
+        {
+          value: 'american indian',
+          text: 'American Indian/Alaska Native'
+        },
+        {
+          value: 'native hawaiian',
+          text: 'Native Hawaiian'
+        },
+        {
+          value: 'other',
+          text: 'Other Pacific Islander'
+        },
+        {
+          value: 'multiple',
+          text: 'Multiple Races'
+        },
+        {
+          value: 'unknown',
+          text: 'Unknown'
+        }
+      ]
     };
   }
 
@@ -54,6 +97,7 @@ class FormPage extends Component {
 
   _onSubmit(event) {
     this.setState({
+      ...this.state,
       name: event.target.name.value,
       age: event.target.age.value,
       ethnicity: event.target.ethnicity.value,
@@ -78,48 +122,6 @@ class FormPage extends Component {
   }
 
   render() {
-    console.log('this.state',this.state);
-    // const { todo: { items } } = this.props;
-
-    const ethnicities = [
-      {
-        value: 'hawaiian',
-        text: 'Hawaiian'
-      },
-      {
-        value: 'white',
-        text: 'White'
-      },
-      {
-        value: 'black',
-        text: 'Black/African-American'
-      },
-      {
-        value: 'asian',
-        text: 'Asian'
-      },
-      {
-        value: 'american indian',
-        text: 'American Indian/Alaska Native'
-      },
-      {
-        value: 'native hawaiian',
-        text: 'Native Hawaiian'
-      },
-      {
-        value: 'other',
-        text: 'Other Pacific Islander'
-      },
-      {
-        value: 'multiple',
-        text: 'Multiple Races'
-      },
-      {
-        value: 'unknown',
-        text: 'Unknown'
-      }
-    ]
-
     return (
       <form className='homeless-form' onSubmit={this._onSubmit}>
         <div className={styles.base}>
@@ -137,18 +139,10 @@ class FormPage extends Component {
             value={this.state.age}
             name="age"
           />
-          <select name="ethnicity">
-            {ethnicities.map(item => {
-              return <option value={item.value}>{item.text}</option>;
-            })}
-          </select>
-          <Input
-            className={styles.input}
-            placeholder="Ethnicity"
-            onChange={this._onInputChange}
-            value={this.state.ethnicity}
+          <Dropdown
             name="ethnicity"
-          />
+            items={this.state.ethnicities}
+            onChange={this._onInputChange} />
           <Input
             className={styles.input}
             placeholder="Social Security Number"
