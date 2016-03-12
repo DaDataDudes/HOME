@@ -4,6 +4,7 @@ const Dropdown = ({
   id,
   name,
   items,
+  text,
   className,
   placeholder,
   value,
@@ -13,11 +14,10 @@ const Dropdown = ({
   <div>
     <label
       htmlFor={name}
-    > {name}
+    > {text}
     </label>
     <select id={id} name={name}
       className={className}
-      placeholder={placeholder}
       value={value}
       onChange={onChange}
       onKeyDown={onKeyDown}

@@ -166,7 +166,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="First Name"
+                text="First Name"
+                name="firstName"
                 onChange={this._onInputChange}
                 value={this.state.firstName}
                 placeholder="first"
@@ -175,7 +176,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="Last Name"
+                text="Last Name"
+                name="lastName"
                 onChange={this._onInputChange}
                 value={this.state.lastName}
                 placeholder="last"
@@ -186,7 +188,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="Age"
+                text="Age"
+                name="age"
                 onChange={this._onInputChange}
                 value={this.state.age}
                 placeholder="age"
@@ -195,7 +198,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="Gender"
+                text="Gender"
+                name="gender"
                 onChange={this._onInputChange}
                 value={this.state.gender}
                 placeholder="gender"
@@ -206,15 +210,16 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Dropdown
                 className={styles.dropDown}
-                name="Ethnicity"
-                placeholder="ethnicity"
+                text="Ethnicity"
+                name="ethnicity"
                 items={this.state.ethnicities}
                 onChange={this._onInputChange} />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="Social Security Number"
+                text="Social Security Number"
+                name="social"
                 onChange={this._onInputChange}
                 value={this.state.social}
                 placeholder="SSN"
@@ -225,7 +230,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="Are you currently in a shelter?"
+                text="Are you currently in a shelter?"
+                name="shelterStatus"
                 onChange={this._onInputChange}
                 value={this.state.shelterStatus}
                 placeholder="shelter"
@@ -234,7 +240,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="Name of current shelter"
+                text="Name of current shelter"
+                name="shelterName"
                 onChange={this._onInputChange}
                 value={this.state.shelterName}
                 placeholder="shelter name"
@@ -245,7 +252,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="Are you currently employed?"
+                text="Are you currently employed?"
+                name="employmentStatus"
                 onChange={this._onInputChange}
                 value={this.state.employmentStatus}
                 placeholder="employment"
@@ -254,7 +262,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="What is your current family income?"
+                text="What is your current family income?"
+                name="employmentCurPay"
                 onChange={this._onInputChange}
                 value={this.state.employmentCurPay}
                 placeholder="income"
@@ -265,7 +274,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="When were you last employed?"
+                text="When were you last employed?"
+                name="employmentLastEmployed"
                 onChange={this._onInputChange}
                 value={this.state.employmentLastEmployed}
                 placeholder="last employement"
@@ -274,7 +284,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="Are you a U.S. Military Veteran?"
+                text="Are you a U.S. Military Veteran?"
+                name="benefitVeteran"
                 onChange={this._onInputChange}
                 value={this.state.benefitVeteran}
                 placeholder="veteran"
@@ -285,7 +296,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="Unemployment"
+                text="Unemployment"
+                name="benefitUnemployment"
                 onChange={this._onInputChange}
                 value={this.state.benefitUnemployment}
                 placeholder="unemployment"
@@ -294,7 +306,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="Welfare"
+                text="Welfare"
+                name="benefitWelfare"
                 onChange={this._onInputChange}
                 value={this.state.benefitWelfare}
                 placeholder="welfare"
@@ -305,7 +318,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="EBT"
+                text="EBT"
+                name="benefitEbt"
                 onChange={this._onInputChange}
                 value={this.state.benefitEbt}
                 placeholder="EBT"
@@ -314,7 +328,8 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
-                name="What is your highest completed education level?"
+                text="What is your highest completed education level?"
+                name="educationLevel"
                 onChange={this._onInputChange}
                 value={this.state.educationLevel}
                 placeholder="education"
@@ -395,6 +410,8 @@ class FormPage extends Component {
                 value={this.state.onTheStreets}
                 name="onTheStreets"
               />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.mentalHealthDisability}</p>
               <Input
                 className={styles.input}
@@ -415,6 +432,8 @@ class FormPage extends Component {
                 value={this.state.alcoholDrugProblem}
                 name="alcoholDrugProblem"
               />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.otherDisability}</p>
               <Input
                 className={styles.input}
