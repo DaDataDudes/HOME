@@ -56,6 +56,7 @@ class FormPage extends Component {
         onTheStreets: 'Were you on the street, beach, park, or in an emergency shelter each time?',
         mentalHealthDisability: 'Do you have a mental health disability that limits your ability to work or perform activities of daily living?',
         alcoholDrugProblem: 'Do you have an alcohol or drug problem that limits your ability to work or perform activities of daily living?',
+        governmentBenefits: 'Select all Benefits that you are currently receiving:',
         otherDisability: 'Do you have a physical, developmental, or other disability that limits your ability to work or perform activities of daily living?'
       },
       genderOptions: [
@@ -130,6 +131,42 @@ class FormPage extends Component {
           text: 'Unknown'
         }
       ],
+      yesNoOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value:'yes',
+          text: 'Yes'
+        },
+        {
+          value:'no',
+          text: 'No'
+          }
+      ],
+      numberOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value:'oneToTwo',
+          text: '1 - 2'
+        },
+        {
+          value:'threeToFour',
+          text: '3 - 4'
+        },
+        {
+          value:'fiveToSix',
+          text: '5 - 6'
+        },
+        {
+          value:'max',
+          text: '7+'
+        }
+      ],
       generalOptions: [
         {
           value: '',
@@ -137,19 +174,49 @@ class FormPage extends Component {
         },
         {
           value:'yes',
-          text: 'Yes' 
+          text: 'Yes'
         },
         {
           value:'no',
-          text: 'No' 
+          text: 'No'
         },
         {
           value:'unknown',
-          text: 'Unknown' 
+          text: 'Unknown'
         },
         {
           value:'refused',
-          text: 'Refused' 
+          text: 'Refused'
+        }
+      ],
+      educationOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value:'ged',
+          text: 'GED'
+        },
+        {
+          value:'highSchool',
+          text: 'High School'
+        },
+        {
+          value:'someCollege',
+          text: 'Some College'
+        },
+        {
+          value:'associate',
+          text: 'Associate'
+        },
+        {
+          value:'bachelors',
+          text: 'Bachelors'
+        },
+        {
+          value:'masters',
+          text: 'Masters'
         }
       ],
       homelessDateOptions: [
@@ -159,19 +226,19 @@ class FormPage extends Component {
         },
         {
           value:'lessThanYear',
-          text: 'Less than 1 year' 
+          text: 'Less than 1 year'
         },
         {
           value:'oneYearOrLonger',
-          text: '1 year or longer' 
+          text: '1 year or longer'
         },
         {
           value:'unknown',
-          text: 'Unknown' 
+          text: 'Unknown'
         },
         {
           value:'refused',
-          text: 'Refused' 
+          text: 'Refused'
         }
       ],
       homelessCountOptions: [
@@ -181,19 +248,19 @@ class FormPage extends Component {
         },
         {
           value:'oneToThreeTimes',
-          text: '1-3 times' 
+          text: '1-3 times'
         },
         {
           value:'fourOrMoreTimes',
-          text: '4 or more times' 
+          text: '4 or more times'
         },
         {
           value:'unknown',
-          text: 'Unknown' 
+          text: 'Unknown'
         },
         {
           value:'refused',
-          text: 'Refused' 
+          text: 'Refused'
         }
       ],
     };
@@ -337,13 +404,12 @@ class FormPage extends Component {
           </Row>
           <Row>
             <Col xs={6} className={styles.inputSpacing}>
-              <Input
-                className={styles.input}
-                text="Are you currently in a shelter?"
-                name="shelterStatus"
+              <Dropdown
                 onChange={this._onInputChange}
-                value={this.state.shelterStatus}
-                placeholder="shelter"
+                items={this.state.yesNoOptions}
+                name="shelterStatus"
+                text="Are you currently in a shelter?"
+                className={styles.dropDown}
               />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
@@ -359,13 +425,12 @@ class FormPage extends Component {
           </Row>
           <Row>
             <Col xs={6} className={styles.inputSpacing}>
-              <Input
-                className={styles.input}
-                text="Are you currently employed?"
-                name="employmentStatus"
+              <Dropdown
                 onChange={this._onInputChange}
-                value={this.state.employmentStatus}
-                placeholder="employment"
+                items={this.state.yesNoOptions}
+                name="employmentStatus"
+                text="Are you currently employed?"
+                className={styles.dropDown}
               />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
@@ -401,101 +466,105 @@ class FormPage extends Component {
           </Row>
           <Row>
             <Col xs={6} className={styles.inputSpacing}>
-              <Input
-                className={styles.input}
+              <Dropdown
+                className={styles.dropDown}
                 text="What is your highest completed education level?"
                 name="educationLevel"
-                onChange={this._onInputChange}
-                value={this.state.educationLevel}
-                placeholder="education"
-              />
+                items={this.state.educationOptions}
+                onChange={this._onInputChange} />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
-              <Checkbox
-                id="benefitVeteran"
-                text="Please select all benefits that you are currently receiving"
+            <p>{questions.governmentBenefits}</p>
+            <Row>
+              <Col xs={6} className={styles.inputSpacing}>
+                <Checkbox
+                  id="benefitVeteran"
+                  text="Veterans"
+                  className={styles.input}
+                  onChange={this._onCheckboxChange}
+                  value={this.state.benefitVeteran}
+                  checked={(this.state.benefitVeteran) ? 'checked' : ''}
+                  name="benefitVeteran"
+                />
+              </Col>
+              <Col xs={6} className={styles.inputSpacing}>
+                 <Checkbox
+                  id="benefitUnemployment"
+                  text="Unemployement"
+                  className={styles.input}
+                  onChange={this._onCheckboxChange}
+                  value={this.state.benefitUnemployment}
+                  checked={(this.state.benefitUnemployment) ? 'checked' : ''}
+                  name="benefitUnemployment"
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={6} className={styles.inputSpacing}>
+               <Checkbox
+                id="benefitWelfare"
+                text="Welfare"
                 className={styles.input}
                 onChange={this._onCheckboxChange}
-                value={this.state.benefitVeteran}
-                checked={(this.state.benefitVeteran) ? 'checked' : ''}
-                name="benefitVeteran"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={6} className={styles.inputSpacing}>
-              <Input
-                className={styles.input}
-                text="Unemployment"
-                name="benefitUnemployment"
-                onChange={this._onInputChange}
-                value={this.state.benefitUnemployment}
-                placeholder="unemployment"
-              />
-            </Col>
-            <Col xs={6} className={styles.inputSpacing}>
-              <Input
-                className={styles.input}
-                text="Welfare"
-                name="benefitWelfare"
-                onChange={this._onInputChange}
                 value={this.state.benefitWelfare}
-                placeholder="welfare"
+                checked={(this.state.benefitWelfare) ? 'checked' : ''}
+                name="benefitWelfare"
               />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} className={styles.inputSpacing}>
-              <Input
-                className={styles.input}
+              </Col>
+              <Col xs={6} className={styles.inputSpacing}>
+               <Checkbox
+                id="benefitEbt"
                 text="EBT"
-                name="benefitEbt"
-                onChange={this._onInputChange}
-                value={this.state.benefitEbt}
-                placeholder="EBT"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={6} className={styles.inputSpacing}>
-              <Input
                 className={styles.input}
-                placeholder="Temporary assistance for needy families (TANF)"
-                onChange={this._onInputChange}
+                onChange={this._onCheckboxChange}
+                value={this.state.benefitEbt}
+                checked={(this.state.benefitEbt) ? 'checked' : ''}
+                name="benefitEbt"
+              />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={6} className={styles.inputSpacing}>
+               <Checkbox
+                id="benefitTanf"
+                text="TANF"
+                className={styles.input}
+                onChange={this._onCheckboxChange}
                 value={this.state.benefitTanf}
+                checked={(this.state.benefitTanf) ? 'checked' : ''}
                 name="benefitTanf"
               />
-            </Col>
-            <Col xs={6} className={styles.inputSpacing}>
-              <Input
+              </Col>
+              <Col xs={6} className={styles.inputSpacing}>
+               <Checkbox
+                id="benefitSsi"
+                text="SSI"
                 className={styles.input}
-                placeholder="SSI"
-                onChange={this._onInputChange}
+                onChange={this._onCheckboxChange}
                 value={this.state.benefitSsi}
+                checked={(this.state.benefitSsi) ? 'checked' : ''}
                 name="benefitSsi"
               />
+              </Col>
+            </Row>
             </Col>
           </Row>
           <Row>
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.familyMembersAdult}</p>
-              <Input
-                className={styles.input}
-                placeholder="Adult Family Members"
-                onChange={this._onInputChange}
-                value={this.state.familyMembersAdult}
+              <Dropdown
+                className={styles.dropDown}
                 name="familyMembersAdult"
-              />
+                items={this.state.numberOptions}
+                onChange={this._onInputChange} />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.familyMembersChildren}</p>
-              <Input
-                className={styles.input}
-                placeholder="Children Family Members"
-                onChange={this._onInputChange}
-                value={this.state.familyMembersChildren}
+              <Dropdown
+                className={styles.dropDown}
                 name="familyMembersChildren"
-              />
+                items={this.state.numberOptions}
+                onChange={this._onInputChange} />
             </Col>
           </Row>
           <Row>
@@ -541,7 +610,7 @@ class FormPage extends Component {
                 onChange={this._onInputChange}
                 items={this.state.generalOptions}
                 name="alcoholDrugProblem"
-              /> 
+              />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.otherDisability}</p>
@@ -549,7 +618,7 @@ class FormPage extends Component {
                 onChange={this._onInputChange}
                 items={this.state.generalOptions}
                 name="otherDisability"
-              />              
+              />
             </Col>
           </Row>
         </Grid>
