@@ -15,19 +15,19 @@ class FormPage extends Component {
     this._onInputEnter = this._onInputEnter.bind(this);
     this._onCheckboxChange = this._onCheckboxChange.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
-    this.state = {
+    this._formState = {
       firstName : '',
       lastName : '',
       age : null,
-      gender : null,
+      gender : '',
       ethnicity : '',
       social : '',
-      shelterStatus : false,
+      shelterStatus : '',
       shelterName:'',
       familyMembersTotal : null,
       familyMembersAdult : [],
       familyMembersChildren : [],
-      homelessDate : null,
+      homelessDate : '',
       employmentStatus : false,
       employmentCurPay : null,
       employmentLastEmployed : '',
@@ -37,13 +37,13 @@ class FormPage extends Component {
       benefitUnemployment : false,
       benefitTanf : false,
       benefitSsi : false,
-      veteran : null,
+      veteran : '',
       educationLevel: '',
-      homelessCount: null,
-      onTheStreets: null,
-      mentalHealthDisability: null,
-      alcoholDrugProblem: null,
-      otherDisability: null,
+      homelessCount: '',
+      onTheStreets: '',
+      mentalHealthDisability: '',
+      alcoholDrugProblem: '',
+      otherDisability: '',
       geoLocation : '',
       count : null,
       questions: {
@@ -264,6 +264,7 @@ class FormPage extends Component {
         }
       ],
     };
+    this.state = this._formState;
   }
 
   componentWillMount() {
@@ -328,6 +329,7 @@ class FormPage extends Component {
     });
 
     this.props.dispatch(firebase.createDocument(this.state));
+    this.setState(this._formState);
     console.log('this.state', this.state);
   }
 
@@ -336,7 +338,7 @@ class FormPage extends Component {
       questions
     } = this.state;
     return (
-      <form className='homeless-form' onSubmit={this._onSubmit}>
+      <form className='homeless-form' ref='homelessForm' onSubmit={this._onSubmit}>
         <Grid className={styles.base}>
           <Row>
             <Col xs={6} className={styles.inputSpacing}>
@@ -376,6 +378,7 @@ class FormPage extends Component {
               <Dropdown
               onChange={this._onInputChange}
               items={this.state.genderOptions}
+              value={this.state.gender}
               name="gender"
               text="Gender"
               className={styles.dropDown}
@@ -389,6 +392,7 @@ class FormPage extends Component {
                 text="Ethnicity"
                 name="ethnicity"
                 items={this.state.ethnicities}
+                value={this.state.ethnicity}
                 onChange={this._onInputChange} />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
@@ -407,6 +411,7 @@ class FormPage extends Component {
               <Dropdown
                 onChange={this._onInputChange}
                 items={this.state.yesNoOptions}
+                value={this.state.shelterStatus}
                 name="shelterStatus"
                 text="Are you currently in a shelter?"
                 className={styles.dropDown}
@@ -428,6 +433,7 @@ class FormPage extends Component {
               <Dropdown
                 onChange={this._onInputChange}
                 items={this.state.yesNoOptions}
+                value={this.state.employmentStatus}
                 name="employmentStatus"
                 text="Are you currently employed?"
                 className={styles.dropDown}
@@ -460,6 +466,7 @@ class FormPage extends Component {
                 className={styles.dropDown}
                 text="Are you a U.S Military Veteran"
                 name="veteran"
+                value={this.state.veteran}
                 items={this.state.generalOptions}
                 onChange={this._onInputChange} />
             </Col>
@@ -471,6 +478,7 @@ class FormPage extends Component {
                 text="What is your highest completed education level?"
                 name="educationLevel"
                 items={this.state.educationOptions}
+                value={this.state.educationLevel}
                 onChange={this._onInputChange} />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
@@ -556,6 +564,7 @@ class FormPage extends Component {
                 className={styles.dropDown}
                 name="familyMembersAdult"
                 items={this.state.numberOptions}
+                value={this.state.familyMembersAdult}
                 onChange={this._onInputChange} />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
@@ -564,6 +573,7 @@ class FormPage extends Component {
                 className={styles.dropDown}
                 name="familyMembersChildren"
                 items={this.state.numberOptions}
+                value={this.state.familyMembersChildren}
                 onChange={this._onInputChange} />
             </Col>
           </Row>
@@ -574,6 +584,7 @@ class FormPage extends Component {
                 onChange={this._onInputChange}
                 items={this.state.homelessDateOptions}
                 name="homelessDate"
+                value={this.state.homelessDate}
               />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
@@ -582,6 +593,7 @@ class FormPage extends Component {
               onChange={this._onInputChange}
               items={this.state.homelessCountOptions}
               name="homelessCount"
+              value={this.state.homelessCount}
               />
             </Col>
           </Row>
@@ -592,6 +604,7 @@ class FormPage extends Component {
                 onChange={this._onInputChange}
                 items={this.state.generalOptions}
                 name="onTheStreets"
+                value={this.state.onTheStreets}
               />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
@@ -600,6 +613,7 @@ class FormPage extends Component {
                 onChange={this._onInputChange}
                 items={this.state.generalOptions}
                 name="mentalHealthDisability"
+                value={this.state.mentalHealthDisability}
               />
             </Col>
           </Row>
@@ -610,6 +624,7 @@ class FormPage extends Component {
                 onChange={this._onInputChange}
                 items={this.state.generalOptions}
                 name="alcoholDrugProblem"
+                value={this.state.alcoholDrugProblem}
               />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
@@ -618,6 +633,7 @@ class FormPage extends Component {
                 onChange={this._onInputChange}
                 items={this.state.generalOptions}
                 name="otherDisability"
+                value={this.state.otherDisability}
               />
             </Col>
           </Row>
