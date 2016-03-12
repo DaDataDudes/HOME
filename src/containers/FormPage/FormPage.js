@@ -18,17 +18,13 @@ class FormPage extends Component {
       currentLiving : '',
       currentLivingStatus:'',
       currentLivingShelterName:'',
-      familyMembers : {
-        total : null,
-        adult : [],
-        children : [], 
-      },
+      familyMembers : null, 
+      familyMembersAdult : [],
+      familyMembersChildren : [], 
       homelessDate : null,
-      employment : {
-        status : '',
-        curPay : null,
-        lastEmployed : '',
-      },
+      employmentStatus : false,
+      employmentCurPay : null,
+      employmentLastEmployed : '',
       veteran : false,
       govBenefits : {
         //research benefits
@@ -79,22 +75,22 @@ class FormPage extends Component {
           className={styles.input}
           placeholder="Ethnicity"
           onChange={this._onInputChange}
-          value={this.state.social}
-          name="social"
+          value={this.state.ethnicity}
+          name="ethnicity"
         />
         <Input
           className={styles.input}
-          placeholder="Social"
+          placeholder=""
           onChange={this._onInputChange}
           value={this.state.social}
           name="social"
         />
         <Input
           className={styles.input}
-          placeholder="Social"
+          placeholder="Current Living"
           onChange={this._onInputChange}
-          value={this.state.social}
-          name="social"
+          value={this.state.currentLiving}
+          name="currentLiving"
         />
       </div>
     );
