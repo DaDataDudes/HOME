@@ -5,20 +5,28 @@ const Dropdown = ({
   name,
   items,
   className,
+  placeholder,
   value,
   onChange,
   onKeyDown
 }) => (
-  <select id={id} name={name}
-    className={className}
-    value={value}
-    onChange={onChange}
-    onKeyDown={onKeyDown}
-  >
-    {items.map(item => {
-      return <option value={item.value}>{item.text}</option>;
-    })}
-  </select>
+  <div>
+    <label
+      htmlFor={name}
+    > {name}
+    </label>
+    <select id={id} name={name}
+      className={className}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      onKeyDown={onKeyDown}
+    >
+      {items.map(item => {
+        return <option value={item.value}>{item.text}</option>;
+      })}
+    </select>
+  </div>
 );
 
 Dropdown.defaultProps = {
