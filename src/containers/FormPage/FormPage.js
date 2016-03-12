@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './FormPage.css';
+import { firebase } from 'actions/firebase';
 import Input from 'components/Input';
 import Dropdown from 'components/Dropdown';
 import { Grid, Row, Col } from 'react-flexbox-grid';
@@ -100,6 +101,10 @@ class FormPage extends Component {
     };
   }
 
+  componentWillMount() {
+    this.props.dispatch(firebase.registerListeners());
+  }
+
   _onInputChange(event) {
     var nameAttr = event.target.getAttribute('name');
     this.setState({ [nameAttr]: event.target.value });
@@ -149,8 +154,9 @@ class FormPage extends Component {
       mentalHealthDisability: event.target.mentalHealthDisability.value,
       alcoholDrugProblem: event.target.alcoholDrugProblem.value,
       otherDisability: event.target.otherDisability.value
-    })
+    });
 
+    this.props.dispatch(firebase.createDocument(this.state));
     console.log('this.state', this.state);
   }
 
@@ -408,7 +414,7 @@ class FormPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    todo: state.todo
+    documents: state.documents.list
   };
 }
 
