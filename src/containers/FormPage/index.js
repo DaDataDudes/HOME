@@ -1,1 +1,3 @@
-index.js
+import component from './FormPage';
+
+export default component;

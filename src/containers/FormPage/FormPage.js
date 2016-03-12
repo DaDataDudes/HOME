@@ -11,40 +11,40 @@ class FormPage extends Component {
     this._onInputChange = this._onInputChange.bind(this);
     this._onInputEnter = this._onInputEnter.bind(this);
     this.state = {
-      name :
-      age :
-      social :
-      ethnicity :
-      curLive : {
-        status :
-        shelName :
-      }
+      name : '', 
+      age : null,
+      social : '',
+      ethnicity : '',
+      currentLiving : '',
+      currentLivingStatus:'',
+      currentLivingShelterName:'',
       familyMembers : {
-        total :
-        adult : []
-        children : []
-      }
-      homelessDate :
-      employementStatus : {
-        status :
-        curPay :
-        lastEmployed :
-      }
-      veteran :
+        total : null,
+        adult : [],
+        children : [], 
+      },
+      homelessDate : null,
+      employment : {
+        status : '',
+        curPay : null,
+        lastEmployed : '',
+      },
+      veteran : false,
       govBenefits : {
         //research benefits
-      }
+      },
       education : {
-        school :
-        training :
-      }
-      geoLocation :
-      count :
+        school : '',
+        training : '',
+      },
+      geoLocation : '', 
+      count : null,
     };
   }
 
   _onInputChange(event) {
-    this.setState({ inputValue: event.target.value });
+    var nameAttr = event.target.getAttribute('name');
+    this.setState({ [nameAttr]: event.target.value });
   }
 
   _onInputEnter(event) {
@@ -57,22 +57,45 @@ class FormPage extends Component {
   }
 
   render() {
-    const { todo: { items } } = this.props;
-    console.log(items);
+    // const { todo: { items } } = this.props;
 
     return (
       <div className={styles.base}>
-        <div className={styles.inputContainer}>
-          <Input
-            className={styles.input}
-            placeholder="Enter new item"
-            onChange={this._onInputChange}
-            onKeyDown={this._onInputEnter}
-            value={this.state.inputValue}
-          />
-        </div>
-        <List items={items} />
-        <Link to="/counter">Counter</Link>
+        <Input
+          className={styles.input}
+          placeholder="Name"
+          onChange={this._onInputChange}
+          value={this.state.name}
+          name="name"
+        />
+        <Input
+          className={styles.input}
+          placeholder="Age"
+          onChange={this._onInputChange}
+          value={this.state.age}
+          name="age"
+        />
+        <Input
+          className={styles.input}
+          placeholder="Ethnicity"
+          onChange={this._onInputChange}
+          value={this.state.social}
+          name="social"
+        />
+        <Input
+          className={styles.input}
+          placeholder="Social"
+          onChange={this._onInputChange}
+          value={this.state.social}
+          name="social"
+        />
+        <Input
+          className={styles.input}
+          placeholder="Social"
+          onChange={this._onInputChange}
+          value={this.state.social}
+          name="social"
+        />
       </div>
     );
   }
