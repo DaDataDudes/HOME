@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import styles from './FormPage.css';
 import Input from 'components/Input';
 import List from 'components/List';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class FormPage extends Component {
   constructor() {
@@ -123,32 +124,42 @@ class FormPage extends Component {
     return (
       <form className='homeless-form' onSubmit={this._onSubmit}>
         <div className={styles.base}>
-          <Input
-            className={styles.input}
-            placeholder="Name"
-            onChange={this._onInputChange}
-            value={this.state.name}
-            name="name"
-          />
-          <Input
-            className={styles.input}
-            placeholder="Age"
-            onChange={this._onInputChange}
-            value={this.state.age}
-            name="age"
-          />
-          <select name="ethnicity" className="dropDown">
-            {ethnicities.map(item => {
-              return <option value={item.value}>{item.text}</option>;
-            })}
-          </select>
-          <Input
-            className={styles.input}
-            placeholder="Ethnicity"
-            onChange={this._onInputChange}
-            value={this.state.ethnicity}
-            name="ethnicity"
-          />
+          <Row>
+            <Col xs={6}>
+              <Input
+                className={styles.input}
+                placeholder="Name"
+                onChange={this._onInputChange}
+                value={this.state.name}
+                name="name"
+              />
+            </Col>
+            <Col xs={6}>
+              <Input
+                className={styles.input}
+                placeholder="Age"
+                onChange={this._onInputChange}
+                value={this.state.age}
+                name="age"
+              />
+            </Col>
+          </Row>
+          <div className="rows">
+            <div className="columns">
+              <select name="ethnicity" className={styles.dropDown}>
+                {ethnicities.map(item => {
+                  return <option value={item.value}>{item.text}</option>;
+                })}
+              </select>
+              <Input
+                className={styles.input}
+                placeholder="Ethnicity"
+                onChange={this._onInputChange}
+                value={this.state.ethnicity}
+                name="ethnicity"
+              />
+            </div>
+          </div>
           <Input
             className={styles.input}
             placeholder="Social Security Number"
