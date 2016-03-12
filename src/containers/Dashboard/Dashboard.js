@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { getChartData, updateChartData } from 'actions/charts';
-import Map from 'components/charts/Map';
+import Header from 'components/Header';
 import styles from './Dashboard.css';
 
 class Dashboard extends Component {
@@ -24,10 +24,7 @@ class Dashboard extends Component {
 
     return (
       <div className={styles.chart}>
-        <header>
-          HOME
-          {username}
-        </header>
+        <Header branding="HOME" username={username} />
         <h1>Dashboard</h1>
         <div className="sidebar">
           <Link to="/dashboard/humanList">Table</Link>

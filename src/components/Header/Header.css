@@ -1,0 +1,33 @@
+@value lite, liteDark, white from "variables.css";
+
+.base {
+  background: liteDark;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ccc;
+  padding: 1rem 2.5rem;
+  letter-spacing: .1rem;
+}
+
+.user {
+  text-align: right;
+  line-height: 3.5rem;
+  padding-right: 2.5rem;
+  color: #fff;
+  letter-spacing: .1rem;
+  text-transform: capitalize;
+  font-size: .8rem;
+}
+
+.userImg {
+  display: inline-block;
+  margin-bottom: -7px;
+}
+
+.username {
+  display: inline-block;
+  margin-left: .75rem;
+}
