@@ -26,6 +26,7 @@ class Dashboard extends Component {
           .domain([0, d3.max(chartData)])
           .range([0, 320]);
 
+    }
     return (
       <div className={styles.chart}>
         <h1>Dashboard</h1>
@@ -38,7 +39,6 @@ class Dashboard extends Component {
     );
   }
 }
-
 function mapStateToProps(state) {
   return {
     chartData: state.chartData.data,
