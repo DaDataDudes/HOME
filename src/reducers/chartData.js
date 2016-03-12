@@ -1,6 +1,12 @@
-import { GET_DATA_SUCCESS, UPDATE_DATA_SUCCESS } from 'actions/charts';
+import {
+  GET_DATA_SUCCESS,
+  UPDATE_DATA_SUCCESS,
+  GET_CHOROINFO_SUCCESS,
+  UPDATE_CHOROINFO_SUCCESS
+} from 'actions/charts';
 
 const initialState = {
+  info: { location: 'Hawaii' },
   data: null,
 };
 
@@ -15,6 +21,11 @@ export default function chartData(state = initialState, action = {}) {
       return {
         ...state,
         data: action.data,
+      };
+    case UPDATE_CHOROINFO_SUCCESS:
+      return {
+        ...state,
+        info: action.info,
       };
     default:
       return state;

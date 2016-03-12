@@ -4,6 +4,7 @@ import topojson from 'topojson';
 import Svg from 'components/charts/Svg';
 
 const hawaii = require('assets/hawaii-topojson.json');
+let tool;
 
 const quantize = d3.scale.quantize()
   .domain([0, 100])
@@ -26,33 +27,23 @@ function randomRgb() {
   return `rgb(${randomNum(0, 255)}, ${randomNum(0, 255)}, ${randomNum(0, 255)})`;
 }
 
-const Map = ({ data, width = 500, height = 500 }) => {
-  // if (!mapData || !data) {
-  //   return false;
-  // }
-
+const Map = ({ updateInfo, data, info, width = 500, height = 500 }) => {
   const counties = topojson.feature(hawaii, hawaii.objects.hi_ct).features;
-
-  console.log('mapData', counties);
-
-  // counties.forEach(function(ct) {
-  //   ct["name"] = ct_names_map[ct.id];
-  //   ct["county"] = ct_counties_map[ct.id];
-  //   console.log('counties ct: ', ct);
-  // });
-
-
   return (
-    <Svg width={width} height={height}>
-      <g className="counties">
-        {counties.map((county, i) => {
-          console.log(county);
-          return (
-            <path key={i} d={pathGenerator(county)} className={quantize(randomNum())} fill={randomRgb()} />
-          );
-        })}
-      </g>
-    </Svg>
+    <div>
+      <div className="county-info">
+        <h1>{info.location}</h1>
+      </div>
+      <Svg width={width} height={height}>
+        <g className="counties">
+          {counties.map((county, i) => {
+            return (
+              <path key={i} d={pathGenerator(county)} name={county.id} className={quantize(randomNum())} fill={randomRgb()} onMouseOver={updateInfo} />
+            );
+          })}
+        </g>
+      </Svg>
+    </div>
   );
 };
 
