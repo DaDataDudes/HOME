@@ -7,12 +7,12 @@ import {
   UPDATE_DOCUMENT_SUCCESS,
 } from './action-types';
 
-export function createDocument(title) {
+export function createDocument(document) {
   return (dispatch, getState) => {
     const { firebase } = getState();
 
     firebase.child(`documents`)
-      .push({completed: false, title}, error => {
+      .push(document, error => {
         if (error) {
           console.error('ERROR @ createDocument :', error);
           dispatch({
@@ -47,7 +47,7 @@ export function undeleteDocument() {
     const document = documents.deleted;
 
     firebase.child(`documents/${document.key}`)
-      .set({completed: document.completed, title: document.title}, error => {
+      .set(document, error => {
         if (error) {
           console.error('ERROR @ undeleteDocument :', error);
         }
