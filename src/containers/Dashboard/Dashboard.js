@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styles from './Dashboard.css';
 
 import { browserHistory } from 'react-router';
-const data = [1,3,4,6,3];
+import { getChartData } from 'actions/charts';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -11,13 +11,15 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+  // TODO: Get data first before D3 renders
+  this.props.dispatch(getChartData());
   const x = d3.scale.linear()
       .domain([0, d3.max(data)])
       .range([0, 320]);
 
   d3.select('.chart')
     .selectAll('div')
-      .data(data)
+      .data()
     .enter().append('div')
       .style('width', function(d) { return x(d) + 'px'; })
       .style('height', 10 + 'px')
