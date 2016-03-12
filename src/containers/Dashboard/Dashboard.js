@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getChartData } from 'actions/charts';
 import d3 from 'd3';
 // import BarChart from 'componenets/charts/BarChart';
+import { getChartData, updateChartData } from 'actions/charts';
 import styles from './Dashboard.css';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
+    this._updateData = this._updateData.bind(this);
   }
 
   componentDidMount() {
     this.props.dispatch(getChartData());
+  }
+
+  _updateData() {
+    this.props.dispatch(updateChartData());
   }
 
   render() {
@@ -36,6 +41,7 @@ class Dashboard extends Component {
       <div className={styles.chart}>
         <h1>Dashboard</h1>
         <div className="chart"></div>
+          <button onClick={this._updateData}>Update Data</button>
       </div>
     );
   }
