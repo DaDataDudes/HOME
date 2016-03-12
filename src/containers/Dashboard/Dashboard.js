@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import d3 from 'd3';
-// import BarChart from 'componenets/charts/BarChart';
 import { getChartData, updateChartData } from 'actions/charts';
+import BarChart from 'components/charts/BarChart';
 import styles from './Dashboard.css';
 
 class Dashboard extends Component {
@@ -22,26 +21,18 @@ class Dashboard extends Component {
   render() {
     const { chartData } = this.props;
 
+    let Chart;
     if (chartData) {
-      const x = d3.scale.linear()
-        .domain([0, d3.max(chartData)])
-        .range([0, 320]);
-
-      d3.select('.chart')
-        .selectAll('div')
-        .data(chartData)
-        .enter()
-        .append('div')
-        .classed(styles.bar, true)
-        .style('width', (d) => `${x(d)}px`)
-        .style('height', `10px`);
+      Chart = <BarChart data={chartData} width={500} height={300} />;
     }
 
     return (
       <div className={styles.chart}>
         <h1>Dashboard</h1>
-        <div className="chart"></div>
+        <div className="chart">
+          {Chart}
           <button onClick={this._updateData}>Update Data</button>
+        </div>
       </div>
     );
   }
