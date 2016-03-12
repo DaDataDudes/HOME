@@ -5,6 +5,7 @@ import styles from './FormPage.css';
 import Input from 'components/Input';
 import Dropdown from 'components/Dropdown';
 import List from 'components/List';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class FormPage extends Component {
   constructor() {
@@ -162,23 +163,26 @@ class FormPage extends Component {
     return (
       <form className='homeless-form' onSubmit={this._onSubmit}>
         <div className={styles.base}>
-          <div>
-            <Input
-              className={styles.input}
-              placeholder="First Name"
-              onChange={this._onInputChange}
-              value={this.state.firstName}
-              name="firstName"
-            />
-
-            <Input
-              className={styles.input}
-              placeholder="Last Name"
-              onChange={this._onInputChange}
-              value={this.state.lastName}
-              name="lastName"
-            />
-          </div>
+          <Row>
+            <Col xs={6}>
+              <Input
+                className={styles.input}
+                placeholder="First Name"
+                onChange={this._onInputChange}
+                value={this.state.firstName}
+                name="firstName"
+              />
+            </Col>
+            <Col xs={6}>
+              <Input
+                className={styles.input}
+                placeholder="Last Name"
+                onChange={this._onInputChange}
+                value={this.state.lastName}
+                name="lastName"
+              />
+            </Col>
+          </Row>
 
           <div>
             <Input
