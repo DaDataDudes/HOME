@@ -137,7 +137,7 @@ class FormPage extends Component {
             value={this.state.age}
             name="age"
           />
-          <select name="ethnicity">
+          <select name="ethnicity" className="dropDown">
             {ethnicities.map(item => {
               return <option value={item.value}>{item.text}</option>;
             })}
