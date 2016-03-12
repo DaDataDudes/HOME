@@ -6,8 +6,11 @@ import counter from 'reducers/counter';
 import todo from 'reducers/todo';
 import documents from 'reducers/documents';
 import auth from 'reducers/auth';
+import chartData from 'reducers/chartData';
 
 const rootReducer = combineReducers({
+  auth,
+  chartData,
   counter,
   todo,
   documents,
