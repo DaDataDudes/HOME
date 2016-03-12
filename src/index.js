@@ -12,7 +12,7 @@ import 'normalize.css';
 import 'app.css';
 
 const store = configureStore({
-  firebase: new Firebase(FIREBASE_URL)
+  firebase: new Firebase(FIREBASE_URL),
 });
 const history = syncHistoryWithStore(hashHistory, store);
 

@@ -20,15 +20,14 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { children, chartData } = this.props;
-    if (chartData) {
-      const x = d3.scale.linear()
-          .domain([0, d3.max(chartData)])
-          .range([0, 320]);
+    const { children, auth: { username } } = this.props;
 
-    }
     return (
       <div className={styles.chart}>
+        <header>
+          HOME
+          {username}
+        </header>
         <h1>Dashboard</h1>
         <div className="sidebar">
           <Link to="/dashboard/humanList">Table</Link>
@@ -42,6 +41,7 @@ class Dashboard extends Component {
 function mapStateToProps(state) {
   return {
     chartData: state.chartData.data,
+    auth: state.auth,
   };
 }
 
