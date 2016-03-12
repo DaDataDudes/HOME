@@ -11,29 +11,31 @@ class FormPage extends Component {
     this._onInputChange = this._onInputChange.bind(this);
     this._onInputEnter = this._onInputEnter.bind(this);
     this.state = {
-      name : '', 
+      name : '',
       age : null,
       social : '',
       ethnicity : '',
       currentLiving : '',
       currentLivingStatus:'',
       currentLivingShelterName:'',
-      familyMembers : null, 
+      familyMembers : null,
       familyMembersAdult : [],
-      familyMembersChildren : [], 
+      familyMembersChildren : [],
       homelessDate : null,
       employmentStatus : false,
       employmentCurPay : null,
       employmentLastEmployed : '',
-      veteran : false,
-      govBenefits : {
-        //research benefits
-      },
+      benefitVeteran : false,
+      benefitWelfare : false,
+      benefitEbt : false,
+      benefitUnemployement : false,
+      benefitTanf : false,
+      benefitSsi : false,
       education : {
         school : '',
         training : '',
       },
-      geoLocation : '', 
+      geoLocation : '',
       count : null,
     };
   }
