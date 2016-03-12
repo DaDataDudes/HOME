@@ -162,9 +162,9 @@ class FormPage extends Component {
 
     return (
       <form className='homeless-form' onSubmit={this._onSubmit}>
-        <div className={styles.base}>
+        <Grid className={styles.base}>
           <Row>
-            <Col xs={6}>
+            <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
                 placeholder="First Name"
@@ -173,7 +173,7 @@ class FormPage extends Component {
                 name="firstName"
               />
             </Col>
-            <Col xs={6}>
+            <Col xs={6} className={styles.inputSpacing}>
               <Input
                 className={styles.input}
                 placeholder="Last Name"
@@ -183,225 +183,254 @@ class FormPage extends Component {
               />
             </Col>
           </Row>
-
-          <div>
-            <Input
-              className={styles.input}
-              placeholder="Age"
-              onChange={this._onInputChange}
-              value={this.state.age}
-              name="age"
-            />
-
-            <Input
-              className={styles.input}
-              placeholder="Gender"
-              onChange={this._onInputChange}
-              value={this.state.gender}
-              name="gender"
-            />
-          </div>
-
-          <div>
-            <Dropdown
-              name="ethnicity"
-              items={this.state.ethnicities}
-              onChange={this._onInputChange} />
-          </div>
-
-          <div>
-            <Input
-              className={styles.input}
-              placeholder="Social Security Number"
-              onChange={this._onInputChange}
-              value={this.state.social}
-              name="social"
-            />
-          </div>
-
-          <div>
-            <Input
-              className={styles.input}
-              placeholder="Shelter Status"
-              onChange={this._onInputChange}
-              value={this.state.shelterStatus}
-              name="shelterStatus"
-            />
-            <Input
-              className={styles.input}
-              placeholder="Shelter Name"
-              onChange={this._onInputChange}
-              value={this.state.shelterName}
-              name="shelterName"
-            />
-          </div>
-
-          <div>
-            <Input
-              className={styles.input}
-              placeholder="Employment Status"
-              onChange={this._onInputChange}
-              value={this.state.employmentStatus}
-              name="employmentStatus"
-            />
-            <Input
-              className={styles.input}
-              placeholder="Current Pay"
-              onChange={this._onInputChange}
-              value={this.state.employmentCurPay}
-              name="employmentCurPay"
-            />
-          </div>
-
-          <div>
-            <Input
-              className={styles.input}
-              placeholder="Employment Last Employed"
-              onChange={this._onInputChange}
-              value={this.state.employmentLastEmployed}
-              name="employmentLastEmployed"
-            />
-            <Input
-              className={styles.input}
-              placeholder="Unemployment"
-              onChange={this._onInputChange}
-              value={this.state.benefitUnemployment}
-              name="benefitUnemployment"
-            />
-          </div>
-
-          <div>
-            <Input
-              className={styles.input}
-              placeholder="Veteran Benefits"
-              onChange={this._onInputChange}
-              value={this.state.benefitVeteran}
-              name="benefitVeteran"
-            />
-            <Input
-              className={styles.input}
-              placeholder="Welfare"
-              onChange={this._onInputChange}
-              value={this.state.benefitWelfare}
-              name="benefitWelfare"
-            />
-          </div>
-
-          <div>
-            <Input
-              className={styles.input}
-              placeholder="EBT"
-              onChange={this._onInputChange}
-              value={this.state.benefitEbt}
-              name="benefitEbt"
-            />
-            <Input
-              className={styles.input}
-              placeholder="Education Level"
-              onChange={this._onInputChange}
-              value={this.state.educationLevel}
-              name="educationLevel"
-            />
-          </div>
-
-          <div>
-            <Input
-              className={styles.input}
-              placeholder="Temporary assistance for needy families (TANF)"
-              onChange={this._onInputChange}
-              value={this.state.benefitTanf}
-              name="benefitTanf"
-            />
-            <Input
-              className={styles.input}
-              placeholder="SSI"
-              onChange={this._onInputChange}
-              value={this.state.benefitSsi}
-              name="benefitSsi"
-            />
-          </div>
-
-          <div>
-            <p>{questions.familyMembersAdult}</p>
-            <Input
-              className={styles.input}
-              placeholder="Adult Family Members"
-              onChange={this._onInputChange}
-              value={this.state.familyMembersAdult}
-              name="familyMembersAdult"
-            />
-
-            <p>{questions.familyMembersChildren}</p>
-            <Input
-              className={styles.input}
-              placeholder="Children Family Members"
-              onChange={this._onInputChange}
-              value={this.state.familyMembersChildren}
-              name="familyMembersChildren"
-            />
-          </div>
-
-          <div>
-            <p>{questions.homelessDate}</p>
-            <Input
-              className={styles.input}
-              placeholder="Date of Homelessness"
-              onChange={this._onInputChange}
-              value={this.state.homelessDate}
-              name="homelessDate"
-            />
-
-            <p>{questions.homelessCount}</p>
-            <Input
-              className={styles.input}
-              placeholder="Homeless Count"
-              onChange={this._onInputChange}
-              value={this.state.homelessCount}
-              name="homelessCount"
-            />
-          </div>
-
-          <div>
-            <p>{questions.onTheStreets}</p>
-            <Input
-              className={styles.input}
-              placeholder="On the Streets"
-              onChange={this._onInputChange}
-              value={this.state.onTheStreets}
-              name="onTheStreets"
-            />
-
-            <p>{questions.mentalHealthDisability}</p>
-            <Input
-              className={styles.input}
-              placeholder="Mental Health Disability"
-              onChange={this._onInputChange}
-              value={this.state.mentalHealthDisability}
-              name="mentalHealthDisability"
-            />
-          </div>
-
-          <div>
-            <p>{questions.alcoholDrugProblem}</p>
-            <Input
-              className={styles.input}
-              placeholder="Alcohol/Drug Problem"
-              onChange={this._onInputChange}
-              value={this.state.alcoholDrugProblem}
-              name="alcoholDrugProblem"
-            />
-
-            <p>{questions.otherDisability}</p>
-            <Input
-              className={styles.input}
-              placeholder="Other Disability"
-              onChange={this._onInputChange}
-              value={this.state.otherDisability}
-              name="otherDisability"
-            />
-          </div>
-        </div>
-        <button type="submit"> Check-In </button>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Age"
+                onChange={this._onInputChange}
+                value={this.state.age}
+                name="age"
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Gender"
+                onChange={this._onInputChange}
+                value={this.state.gender}
+                name="gender"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Dropdown
+                className={styles.dropDown}
+                name="ethnicity"
+                items={this.state.ethnicities}
+                onChange={this._onInputChange} />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Social Security Number"
+                onChange={this._onInputChange}
+                value={this.state.social}
+                name="social"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Shelter Status"
+                onChange={this._onInputChange}
+                value={this.state.shelterStatus}
+                name="shelterStatus"
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Shelter Name"
+                onChange={this._onInputChange}
+                value={this.state.shelterName}
+                name="shelterName"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Employment Status"
+                onChange={this._onInputChange}
+                value={this.state.employmentStatus}
+                name="employmentStatus"
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Current Pay"
+                onChange={this._onInputChange}
+                value={this.state.employmentCurPay}
+                name="employmentCurPay"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Employment Last Employed"
+                onChange={this._onInputChange}
+                value={this.state.employmentLastEmployed}
+                name="employmentLastEmployed"
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Unemployment"
+                onChange={this._onInputChange}
+                value={this.state.benefitUnemployment}
+                name="benefitUnemployment"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Veteran Benefits"
+                onChange={this._onInputChange}
+                value={this.state.benefitVeteran}
+                name="benefitVeteran"
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Welfare"
+                onChange={this._onInputChange}
+                value={this.state.benefitWelfare}
+                name="benefitWelfare"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="EBT"
+                onChange={this._onInputChange}
+                value={this.state.benefitEbt}
+                name="benefitEbt"
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Education Level"
+                onChange={this._onInputChange}
+                value={this.state.educationLevel}
+                name="educationLevel"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="Temporary assistance for needy families (TANF)"
+                onChange={this._onInputChange}
+                value={this.state.benefitTanf}
+                name="benefitTanf"
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <Input
+                className={styles.input}
+                placeholder="SSI"
+                onChange={this._onInputChange}
+                value={this.state.benefitSsi}
+                name="benefitSsi"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <p className={styles.input}>{questions.familyMembersAdult}</p>
+              <Input
+                className={styles.input}
+                placeholder="Adult Family Members"
+                onChange={this._onInputChange}
+                value={this.state.familyMembersAdult}
+                name="familyMembersAdult"
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <p className={styles.input}>{questions.familyMembersChildren}</p>
+              <Input
+                className={styles.input}
+                placeholder="Children Family Members"
+                onChange={this._onInputChange}
+                value={this.state.familyMembersChildren}
+                name="familyMembersChildren"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <p className={styles.input}>{questions.homelessDate}</p>
+              <Input
+                className={styles.input}
+                placeholder="Date of Homelessness"
+                onChange={this._onInputChange}
+                value={this.state.homelessDate}
+                name="homelessDate"
+              />
+            </Col>
+            <Col xs={6} className={styles.inputSpacing}>
+              <p className={styles.input}>{questions.homelessCount}</p>
+              <Input
+                className={styles.input}
+                placeholder="Homeless Count"
+                onChange={this._onInputChange}
+                value={this.state.homelessCount}
+                name="homelessCount"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <p className={styles.input}>{questions.onTheStreets}</p>
+              <Input
+                className={styles.input}
+                placeholder="On the Streets"
+                onChange={this._onInputChange}
+                value={this.state.onTheStreets}
+                name="onTheStreets"
+              />
+              <p className={styles.input}>{questions.mentalHealthDisability}</p>
+              <Input
+                className={styles.input}
+                placeholder="Mental Health Disability"
+                onChange={this._onInputChange}
+                value={this.state.mentalHealthDisability}
+                name="mentalHealthDisability"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={6} className={styles.inputSpacing}>
+              <p className={styles.input}>{questions.alcoholDrugProblem}</p>
+              <Input
+                className={styles.input}
+                placeholder="Alcohol/Drug Problem"
+                onChange={this._onInputChange}
+                value={this.state.alcoholDrugProblem}
+                name="alcoholDrugProblem"
+              />
+              <p className={styles.input}>{questions.otherDisability}</p>
+              <Input
+                className={styles.input}
+                placeholder="Other Disability"
+                onChange={this._onInputChange}
+                value={this.state.otherDisability}
+                name="otherDisability"
+              />
+            </Col>
+          </Row>
+        </Grid>
+        <Row center="xs">
+          <Col xs={1}>
+            <button type="submit"> Check-In </button>
+          </Col>
+        </Row>
       </form>
     );
   }
