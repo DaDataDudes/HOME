@@ -30,14 +30,8 @@ class FormPage extends Component {
       benefitUnemployement : false,
       benefitTanf : false,
       benefitSsi : false,
-      education : {
-        school : '',
-        training : '',
-      },
-      geoLocation : '',
       veteran : false,
       govBenefits : {
-        //research benefits
       },
       educationLevel: '',
       geoLocation : '',
