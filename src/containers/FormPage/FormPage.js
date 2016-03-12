@@ -45,6 +45,7 @@ class FormPage extends Component {
       mentalHealthDisability: '',
       alcoholDrugProblem: '',
       otherDisability: '',
+      checkInRecord: [],
       geoLocation : '',
       count : null,
       questions: {
@@ -263,7 +264,7 @@ class FormPage extends Component {
           value:'refused',
           text: 'Refused'
         }
-      ],
+      ]
     };
     this.state = this._formState;
   }
@@ -284,9 +285,50 @@ class FormPage extends Component {
   }
 
   _onBlur(event) {
-    var oldState = this.props.documents.filter(current => current.social == this.state.social);
-    console.log('oldState',oldState);
-    this.setState(oldState[0]);
+    var oldState = this.props.documents.find(current => current.social == this.state.social);
+
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const firstRecord = {
+      month,
+      year,
+      checkInCount: 1
+    };
+
+    let checkInRecord;
+
+    if (oldState) {
+      let existingRecord = oldState.checkInRecord ?
+        oldState.checkInRecord.slice() :
+        [];
+
+      const dateFoundIndex = existingRecord.findIndex(r =>
+        r.month === month && r.year === year);
+
+      if (dateFoundIndex > -1) {
+        existingRecord[dateFoundIndex].checkInCount += 1;
+        checkInRecord = existingRecord;
+      } else {
+        checkInRecord = [
+          ...existingRecord,
+          firstRecord
+        ];
+      }
+
+      this.setState({
+        ...oldState,
+        checkInRecord
+      });
+
+    } else {
+      this.setState({
+        ...this.state,
+        checkInRecord: [
+          firstRecord
+        ]
+      });
+    }
   }
 
   _onInputEnter(event) {
@@ -312,8 +354,6 @@ class FormPage extends Component {
     } else {
       count+1;
     }
-
-    console.log('count',count);
 
     this.setState({
       ...this.state,
@@ -349,13 +389,13 @@ class FormPage extends Component {
 
     this.props.dispatch(firebase.createDocument(this.state));
     this.setState(this._formState);
-    console.log('this.state', this.state.count);
   }
 
   render() {
     const {
       questions
     } = this.state;
+
     return (
       <form className='homeless-form' ref='homelessForm' onSubmit={this._onSubmit}>
         <Grid className={styles.base}>
