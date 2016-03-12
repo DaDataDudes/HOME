@@ -35,7 +35,7 @@ class FormPage extends Component {
       benefitUnemployment : false,
       benefitTanf : false,
       benefitSsi : false,
-      veteran : false,
+      veteran : null,
       educationLevel: '',
       homelessCount: null,
       onTheStreets: null,
@@ -56,6 +56,36 @@ class FormPage extends Component {
         alcoholDrugProblem: 'Do you have an alcohol or drug problem that limits your ability to work or perform activities of daily living?',
         otherDisability: 'Do you have a physical, developmental, or other disability that limits your ability to work or perform activities of daily living?'
       },
+      genderOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value: 'male',
+          text:'Male'
+        },
+        {
+          value: 'female',
+          text:'Female'
+        },
+        {
+          value: 'transgenderMaleToFemale',
+          text:'Transgender: Male to Female'
+        },
+        {
+          value: 'transgenderFemaleToMale',
+          text:'Transgender: Female to Male'
+        },
+        {
+          value: 'unknown',
+          text:'Unknown'
+        },
+        {
+          value: 'refused',
+          text:'Refused'
+        }
+      ],
       ethnicities: [
         {
           value: '',
@@ -78,11 +108,11 @@ class FormPage extends Component {
           text: 'Asian'
         },
         {
-          value: 'american indian',
+          value: 'americanIndian',
           text: 'American Indian/Alaska Native'
         },
         {
-          value: 'native hawaiian',
+          value: 'nativeHawaiian',
           text: 'Native Hawaiian'
         },
         {
@@ -97,7 +127,73 @@ class FormPage extends Component {
           value: 'unknown',
           text: 'Unknown'
         }
-      ]
+      ],
+      generalOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value:'yes',
+          text: 'Yes' 
+        },
+        {
+          value:'no',
+          text: 'No' 
+        },
+        {
+          value:'unknown',
+          text: 'Unknown' 
+        },
+        {
+          value:'refused',
+          text: 'Refused' 
+        }
+      ],
+      homelessDateOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value:'lessThanYear',
+          text: 'Less than 1 year' 
+        },
+        {
+          value:'oneYearOrLonger',
+          text: '1 year or longer' 
+        },
+        {
+          value:'unknown',
+          text: 'Unknown' 
+        },
+        {
+          value:'refused',
+          text: 'Refused' 
+        }
+      ],
+      homelessCountOptions: [
+        {
+          value: '',
+          text: '--'
+        },
+        {
+          value:'oneToThreeTimes',
+          text: '1-3 times' 
+        },
+        {
+          value:'fourOrMoreTimes',
+          text: '4 or more times' 
+        },
+        {
+          value:'unknown',
+          text: 'Unknown' 
+        },
+        {
+          value:'refused',
+          text: 'Refused' 
+        }
+      ],
     };
   }
 
@@ -198,11 +294,9 @@ class FormPage extends Component {
               name="age"
             />
 
-            <Input
-              className={styles.input}
-              placeholder="Gender"
+            <Dropdown
               onChange={this._onInputChange}
-              value={this.state.gender}
+              items={this.state.genderOptions}
               name="gender"
             />
           </div>
@@ -211,6 +305,11 @@ class FormPage extends Component {
             <Dropdown
               name="ethnicity"
               items={this.state.ethnicities}
+              onChange={this._onInputChange} />
+
+            <Dropdown
+              name="veteran"
+              items={this.state.generalOptions}
               onChange={this._onInputChange} />
           </div>
 
@@ -348,60 +447,48 @@ class FormPage extends Component {
 
           <div>
             <p>{questions.homelessDate}</p>
-            <Input
-              className={styles.input}
-              placeholder="Date of Homelessness"
+            <Dropdown
               onChange={this._onInputChange}
-              value={this.state.homelessDate}
+              items={this.state.homelessDateOptions}
               name="homelessDate"
             />
 
             <p>{questions.homelessCount}</p>
-            <Input
-              className={styles.input}
-              placeholder="Homeless Count"
+            <Dropdown
               onChange={this._onInputChange}
-              value={this.state.homelessCount}
+              items={this.state.homelessCountOptions}
               name="homelessCount"
             />
           </div>
 
           <div>
             <p>{questions.onTheStreets}</p>
-            <Input
-              className={styles.input}
-              placeholder="On the Streets"
+            <Dropdown
               onChange={this._onInputChange}
-              value={this.state.onTheStreets}
+              items={this.state.generalOptions}
               name="onTheStreets"
             />
 
             <p>{questions.mentalHealthDisability}</p>
-            <Input
-              className={styles.input}
-              placeholder="Mental Health Disability"
+            <Dropdown
               onChange={this._onInputChange}
-              value={this.state.mentalHealthDisability}
+              items={this.state.generalOptions}
               name="mentalHealthDisability"
             />
           </div>
 
           <div>
             <p>{questions.alcoholDrugProblem}</p>
-            <Input
-              className={styles.input}
-              placeholder="Alcohol/Drug Problem"
+            <Dropdown
               onChange={this._onInputChange}
-              value={this.state.alcoholDrugProblem}
+              items={this.state.generalOptions}
               name="alcoholDrugProblem"
             />
 
             <p>{questions.otherDisability}</p>
-            <Input
-              className={styles.input}
-              placeholder="Other Disability"
+            <Dropdown
               onChange={this._onInputChange}
-              value={this.state.otherDisability}
+              items={this.state.generalOptions}
               name="otherDisability"
             />
           </div>
