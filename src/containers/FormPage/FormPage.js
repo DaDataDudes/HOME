@@ -5,6 +5,7 @@ import styles from './FormPage.css';
 import { firebase } from 'actions/firebase';
 import Input from 'components/Input';
 import Dropdown from 'components/Dropdown';
+import Checkbox from 'components/Checkbox';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 class FormPage extends Component {
@@ -12,6 +13,7 @@ class FormPage extends Component {
     super();
     this._onInputChange = this._onInputChange.bind(this);
     this._onInputEnter = this._onInputEnter.bind(this);
+    this._onCheckboxChange = this._onCheckboxChange.bind(this);
     this._onSubmit = this._onSubmit.bind(this);
     this.state = {
       firstName : '',
@@ -206,6 +208,12 @@ class FormPage extends Component {
     this.setState({ [nameAttr]: event.target.value });
   }
 
+  _onCheckboxChange(event) {
+    var nameAttr = event.target.getAttribute('name');
+    console.log('event.target.value',event.target.value);
+    this.setState({ [nameAttr]: (event.target.value === 'false')});
+  }
+
   _onInputEnter(event) {
     const item = event.target.value.trim();
 
@@ -260,7 +268,6 @@ class FormPage extends Component {
     const {
       questions
     } = this.state;
-
     return (
       <form className='homeless-form' onSubmit={this._onSubmit}>
         <div className={styles.base}>
@@ -375,11 +382,12 @@ class FormPage extends Component {
           </div>
 
           <div>
-            <Input
+            <Checkbox
+              id="benefitVeteran"
               className={styles.input}
-              placeholder="Veteran Benefits"
-              onChange={this._onInputChange}
+              onChange={this._onCheckboxChange}
               value={this.state.benefitVeteran}
+              checked={(this.state.benefitVeteran) ? 'checked' : ''}
               name="benefitVeteran"
             />
             <Input
