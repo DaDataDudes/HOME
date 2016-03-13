@@ -1,6 +1,19 @@
+@value primary, liteDark from "variables.css";
+
+.form {
+  border-top: 4px solid primary;
+  padding-top: 1rem;
+}
+
 .base {
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
+}
+
+.heading {
+  text-align: center;
+  color: liteDark;
 }
 
 .input {

@@ -1,1 +1,1 @@
-export const FIREBASE_URL = 'https://home-ddd.firebaseio.com/';
+export const FIREBASE_URL = 'https://home-ddd3.firebaseio.com/';

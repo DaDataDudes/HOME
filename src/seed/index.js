@@ -6,10 +6,10 @@
 var Firebase = require('firebase');
 var casual = require('casual');
 var FIREBASE_URL_DB = 'counties';
-var FIREBASE_URL = 'https://home-ddd.firebaseio.com/' + FIREBASE_URL_DB;
+var FIREBASE_URL = 'https://home-ddd3.firebaseio.com/' + FIREBASE_URL_DB;
 var firebase = new Firebase(FIREBASE_URL);
 var i = 0;
-var MOCK_COUNT = 5;
+var MOCK_COUNT = 1;
 
 // mock selections for seeding
 var counties = require('./counties.json');
@@ -28,7 +28,7 @@ var geolocation = ['21.4307732,-158.1727855', '21.4300338,-158.1886537', '21.446
                      '21.267555,-157.821828'];
 var coin_flip = ["yes", "no"];
 var date = {
-  month: 'December',
+  month: 12,
   year: 2015,
 };
 

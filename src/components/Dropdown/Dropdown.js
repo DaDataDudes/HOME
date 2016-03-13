@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import styles from './Dropdown.css';
 
 const Dropdown = ({
   id,
@@ -11,7 +12,7 @@ const Dropdown = ({
   onChange,
   onKeyDown
 }) => (
-  <div>
+  <div className={styles.base}>
     <label
       htmlFor={name}
     > {text}

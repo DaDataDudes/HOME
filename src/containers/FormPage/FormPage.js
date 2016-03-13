@@ -404,7 +404,8 @@ class FormPage extends Component {
     } = this.state;
 
     return (
-      <form className='homeless-form' ref='homelessForm' onSubmit={this._onSubmit}>
+      <form className={styles.form} ref='homelessForm' onSubmit={this._onSubmit}>
+        <h1 className={styles.heading}>HOME</h1>
         <Grid className={styles.base}>
           <Row>
             <Col xs={6} className={styles.inputSpacing}>
@@ -716,11 +717,13 @@ class FormPage extends Component {
             </Col>
           </Row>
         </Grid>
-        <Row center="xs">
-          <Col xs={1}>
-            <button type="submit"> Check-In </button>
-          </Col>
-        </Row>
+        <Grid>
+          <Row center="xs">
+            <Col>
+              <button type="submit"> Check-In </button>
+            </Col>
+          </Row>
+        </Grid>
       </form>
     );
   }
