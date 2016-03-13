@@ -39,6 +39,7 @@ class Choropleth extends Component {
 function mapStateToProps(state) {
   return {
     info: state.chartData.info,
+    totals: state.chartData.choroInfo
   };
 }
 
