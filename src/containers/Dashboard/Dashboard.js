@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { getChartData, updateChartData } from 'actions/charts';
 import Header from 'components/Header';
+import Sidebar from 'components/Sidebar';
 import styles from './Dashboard.css';
 
 class Dashboard extends Component {
@@ -25,10 +26,7 @@ class Dashboard extends Component {
     return (
       <div className={styles.chart}>
         <Header branding="HOME" username={username} />
-        <h1>Dashboard</h1>
-        <div className="sidebar">
-          <Link to="/dashboard/humanList">Table</Link>
-        </div>
+        <Sidebar />
         {children}
         <div className="chart"></div>
       </div>

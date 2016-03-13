@@ -1,0 +1,24 @@
+@value primary, liteGray, liteDark from "variables.css";
+
+.base {
+  width: 300px;
+  height: calc(100vh - 60px);
+  border-right: 1px solid liteGray;
+}
+
+.item {
+  border-bottom: 1px solid liteGray;
+  a {
+    padding: 1.5rem;
+    display: block;
+    text-decoration: none;
+    color: liteDark;
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    &:hover {
+      color: primary;
+    }
+  }
+}
