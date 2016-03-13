@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react';
+import styles from './Input.css';
 
 const Input = ({ id, className, type, placeholder, name, text, value, onChange, onKeyDown, onBlur }) => (
-  <div>
+  <div className={styles.base}>
     <label
       type={type}
       htmlFor={name}
-    > {text}
+    >
+      {text}
     </label>
     <input id={id}
       className={className}
@@ -22,7 +24,7 @@ const Input = ({ id, className, type, placeholder, name, text, value, onChange, 
 );
 
 Input.defaultProps = {
-  type: 'text'
+  type: 'text',
 };
 
 Input.propTypes = {
@@ -32,7 +34,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
-  onKeyDown: PropTypes.func
+  onKeyDown: PropTypes.func,
 };
 
 export default Input;
