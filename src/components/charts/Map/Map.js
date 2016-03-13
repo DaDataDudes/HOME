@@ -67,7 +67,7 @@ function fillColor(total) {
     if (color > 2000){
       return 'rgb(222,235,247)';
     }
-    if (color > 300){
+    if (color > 1000){
       return 'rgb(247,251,255)';
     }
     return '#C0C0C0';
