@@ -9,27 +9,27 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json-loader',
       },
       {
-        test: /\.jpe?g$|\.gif$|\.png$/i,
+        test: /\.jpe?g$|\.gif$|\.svg|\.png$/i,
         loader: 'url-loader?limit=10000',
-      }
-    ]
+      },
+    ],
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   resolve: {
     root: path.resolve('src'),
     modulesDirectories: ['node_modules'],
-    extensions: ['', '.js', '.json']
+    extensions: ['', '.js', '.json'],
   },
   plugins: [],
-  externals: {}
+  externals: {},
 };

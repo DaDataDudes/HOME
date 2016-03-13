@@ -1,3 +1,4 @@
+import Firebase from 'firebase';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -6,9 +7,13 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import routes from 'routes';
 import configureStore from 'store';
-import 'app.global.css';
+import { FIREBASE_URL } from 'config';
+import 'normalize.css';
+import 'app.css';
 
-const store = configureStore();
+const store = configureStore({
+  firebase: new Firebase(FIREBASE_URL),
+});
 const history = syncHistoryWithStore(hashHistory, store);
 
 render(
