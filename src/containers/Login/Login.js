@@ -23,7 +23,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className={styles}>
+      <div className={styles.base}>
         <LoginForm handleSubmit={this.handleSubmit} />
       </div>
     );

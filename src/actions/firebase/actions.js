@@ -5,6 +5,10 @@ import {
   DELETE_DOCUMENT_SUCCESS,
   UPDATE_DOCUMENT_ERROR,
   UPDATE_DOCUMENT_SUCCESS,
+  UPDATE_COUNT_SUCCESS,
+  UPDATE_COUNTY_SUCCESS,
+  UPDATE_COUNTY_ERROR,
+  CREATE_COUNTY_SUCCESS,
 } from './action-types';
 
 export function createDocument(document) {
@@ -72,6 +76,25 @@ export function updateDocument(document, changes) {
   };
 }
 
+
+export function updateCounty(county, changes) {
+  return (dispatch, getState) => {
+    const { firebase } = getState();
+
+    firebase.child(`counties/${county.key}`)
+      .update(changes, error => {
+        if (error) {
+          console.error('ERROR @ updateCounty :', error);
+          dispatch({
+            type: UPDATE_COUNTY_ERROR,
+            payload: error,
+          });
+        }
+      });
+  };
+}
+
+
 export function registerListeners() {
   return (dispatch, getState) => {
     const { firebase }  = getState();
@@ -89,6 +112,19 @@ export function registerListeners() {
 
     ref.on('child_removed', snapshot => dispatch({
       type: DELETE_DOCUMENT_SUCCESS,
+      payload: _recordFromSnapShot(snapshot),
+    }));
+
+  };
+}
+
+export function registerListenersCounties() {
+  return (dispatch, getState) => {
+    const { firebase }  = getState();
+    const ref = firebase.child(`counties`);
+
+    ref.on('child_changed', snapshot => dispatch({
+      type: UPDATE_COUNT_SUCCESS,
       payload: _recordFromSnapShot(snapshot),
     }));
 

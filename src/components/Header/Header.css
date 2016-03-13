@@ -1,0 +1,36 @@
+@value lite, liteDark, white from "variables.css";
+
+.base {
+  background: liteDark;
+  box-shadow: inset 0 -15px 15px -15px rgba(#000, 0.25);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1rem 0;
+  letter-spacing: .1rem;
+  a {
+    color: #ccc;
+    text-decoration: none;
+  }
+}
+
+.user {
+  text-align: right;
+  line-height: 3.5rem;
+  color: #fff;
+  letter-spacing: .1rem;
+  text-transform: capitalize;
+  font-size: .8rem;
+}
+
+.userImg {
+  display: inline-block;
+  margin-bottom: -7px;
+}
+
+.username {
+  display: inline-block;
+  margin-left: .75rem;
+}

@@ -1,9 +1,10 @@
-.chart {
-  font: 10px sans-serif;
-  padding: 3px;
-  margin: 1px;
-}
+@value primary from "variables.css";
 
-.bar {
-  background: orange;
+.main {
+  border-top: 4px solid primary;
+  float: right;
+  width: calc(100% - 300px);
+  height: calc(100vh - 60px);
+  padding: 1.5rem;
+  overflow-y: scroll;
 }

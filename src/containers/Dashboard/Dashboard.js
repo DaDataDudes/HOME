@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import { getChartData, updateChartData } from 'actions/charts';
-import Map from 'components/charts/Map';
+import Header from 'components/Header';
+import Sidebar from 'components/Sidebar';
 import styles from './Dashboard.css';
 
 class Dashboard extends Component {
@@ -20,21 +20,15 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { children, chartData } = this.props;
-    if (chartData) {
-      const x = d3.scale.linear()
-          .domain([0, d3.max(chartData)])
-          .range([0, 320]);
+    const { children, auth: { username } } = this.props;
 
-    }
     return (
       <div className={styles.chart}>
-        <h1>Dashboard</h1>
-        <div className="sidebar">
-          <Link to="/dashboard/humanList">Table</Link>
+        <Header branding="HOME" username={username} />
+        <Sidebar />
+        <div className={styles.main}>
+          {children}
         </div>
-        {children}
-        <div className="chart"></div>
       </div>
     );
   }
@@ -42,6 +36,7 @@ class Dashboard extends Component {
 function mapStateToProps(state) {
   return {
     chartData: state.chartData.data,
+    auth: state.auth,
   };
 }
 
