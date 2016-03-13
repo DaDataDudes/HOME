@@ -2,6 +2,7 @@ export const GET_DATA_SUCCESS = 'GET_DATA';
 export const UPDATE_DATA_SUCCESS = 'UPDATE_DATA_SUCCESS';
 export const GET_CHOROINFO_SUCCESS = 'GET_CHOROINFO_SUCCESS';
 export const UPDATE_CHOROINFO_SUCCESS = 'UPDATE_CHOROINFO_SUCCESS';
+import choroInfo from 'seed/counties';
 
 export function updateChoroInfo(info) {
   return {
@@ -10,10 +11,10 @@ export function updateChoroInfo(info) {
   };
 }
 
-export function getChoroInfo(info) {
+export function getChoroInfo() {
   return {
     type: GET_CHOROINFO_SUCCESS,
-    info,
+    choroInfo,
   };
 }
 

@@ -6,16 +6,20 @@ import {
 } from 'actions/charts';
 
 const initialState = {
-  info: { location: 'Hawaii' },
+  info: {
+    id: 0,
+    location: 'Hawaii',
+    total: 0,
+  },
   data: null,
 };
 
 export default function chartData(state = initialState, action = {}) {
   switch (action.type) {
-    case GET_DATA_SUCCESS:
+    case GET_CHOROINFO_SUCCESS:
       return {
         ...state,
-        data: action.data,
+        choroInfo: action.choroInfo,
       };
     case UPDATE_DATA_SUCCESS:
       return {
