@@ -7,9 +7,12 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 500;
-  color: #ccc;
   padding: 1rem 2.5rem;
   letter-spacing: .1rem;
+  a {
+    color: #ccc;
+    text-decoration: none;
+  }
 }
 
 .user {
