@@ -23,16 +23,6 @@ function randomNum(min = 1, max = 100) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// .q0-9 { fill:'rgb(247,251,255)'; }
-// .q1-9 { fill:'rgb(222,235,247)'; }
-// .q2-9 { fill:'rgb(198,219,239)'; }
-// .q3-9 { fill:'rgb(158,202,225)'; }
-// .q4-9 { fill:'rgb(107,174,214)'; }
-// .q5-9 { fill:'rgb(66,146,198)'; }
-// .q6-9 { fill:'rgb(33,113,181)'; }
-// .q7-9 { fill:'rgb(8,81,156)'; }
-// .q8-9 { fill:'rgb(8,48,107)';
-
 function strokeColor() {
   return '#FFF';
 }
@@ -81,7 +71,7 @@ const Map = ({ updateInfo, totals, info, width = 500, height = 500 }) => {
   return (
     <div>
       <div className="county-info">
-        <h1>{info.location}</h1>
+        <h1>{info.location} ({info.total})</h1>
       </div>
       <Svg width={width} height={height}>
         <g className="counties">
