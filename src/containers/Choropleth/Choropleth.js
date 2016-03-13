@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { getChoroInfo, updateChoroInfo } from 'actions/charts';
 import tooltipData from 'seed/counties';
+import { firebase } from 'actions/firebase';
 import Map from 'components/charts/Map';
 import styles from './Choropleth.css';
 
@@ -13,13 +14,11 @@ class Choropleth extends Component {
   }
 
   componentDidMount() {
-    for (let i = 0; i < tooltipData.length; i++) {
-      let random = (Math.round(Math.random() * 10000));
-      console.log(random);
-      Object.assign(tooltipData[i], { total: random.toString() });
-    }
-    console.log(JSON.stringify(tooltipData), 'tooltipData');
     this.props.dispatch(getChoroInfo());
+  }
+
+  componentWillMount() {
+
   }
 
   _updateInfo(e) {

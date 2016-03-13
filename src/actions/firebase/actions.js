@@ -7,6 +7,7 @@ import {
   UPDATE_DOCUMENT_SUCCESS,
   UPDATE_COUNT_SUCCESS,
   UPDATE_COUNTY_SUCCESS,
+  CREATE_COUNTY_SUCCESS,
 } from './action-types';
 
 export function createDocument(document) {
