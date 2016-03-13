@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const Input = ({ id, className, type, placeholder, name, text, value, onChange, onKeyDown }) => (
+const Input = ({ id, className, type, placeholder, name, text, value, onChange, onKeyDown, onBlur }) => (
   <div>
     <label
       type={type}
@@ -16,6 +16,7 @@ const Input = ({ id, className, type, placeholder, name, text, value, onChange, 
       value={value}
       onChange={onChange}
       onKeyDown={onKeyDown}
+      onBlur={onBlur}
     />
   </div>
 );

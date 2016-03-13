@@ -1,0 +1,1622 @@
+[
+   {
+      "id":"940000",
+      "location":"Anahola",
+      "total":"114"
+   },
+   {
+      "id":"940001",
+      "location":"Waimanalo Beach-Homesteads",
+      "total":"7023"
+   },
+   {
+      "id":"940002",
+      "location":"Nanakuli",
+      "total":"7625"
+   },
+   {
+      "id":"980000",
+      "location":"Kaho’olawe",
+      "total":"6191"
+   },
+   {
+      "id":"980200",
+      "location":"Honolulu International Airport",
+      "total":"8239"
+   },
+   {
+      "id":"980300",
+      "location":"Campbell Industrial Park",
+      "total":"258"
+   },
+   {
+      "id":"980600",
+      "location":"Schofield Forest Reserve",
+      "total":"8261"
+   },
+   {
+      "id":"980700",
+      "location":"Schofield Barracks East Range",
+      "total":"4820"
+   },
+   {
+      "id":"980800",
+      "location":"oomaluhia Botanical Garden",
+      "total":"9469"
+   },
+   {
+      "id":"981000",
+      "location":"Kawainui Marsh",
+      "total":"194"
+   },
+   {
+      "id":"981100",
+      "location":"Bellows Air Force Base",
+      "total":"3112"
+   },
+   {
+      "id":"981200",
+      "location":"Northwestern Hawaiian Islands",
+      "total":"484"
+   },
+   {
+      "id":"981300",
+      "location":"Mapunapuna Industrial",
+      "total":"974"
+   },
+   {
+      "id":"981400",
+      "location":"Nimitz-Airport Commercial",
+      "total":"3782"
+   },
+   {
+      "id":"000106",
+      "location":"Hahaione-Mariners Ridge",
+      "total":"5260"
+   },
+   {
+      "id":"000107",
+      "location":"Kuapa Isle",
+      "total":"1424"
+   },
+   {
+      "id":"000108",
+      "location":"Hawaii Kai Marina",
+      "total":"3642"
+   },
+   {
+      "id":"000110",
+      "location":"Kalama Valley",
+      "total":"9574"
+   },
+   {
+      "id":"000111",
+      "location":"Lunalilo Park Subdivision",
+      "total":"578"
+   },
+   {
+      "id":"000112",
+      "location":"Koko Marina",
+      "total":"5429"
+   },
+   {
+      "id":"000114",
+      "location":"Portlock",
+      "total":"2954"
+   },
+   {
+      "id":"000200",
+      "location":"Kuliouou",
+      "total":"4130"
+   },
+   {
+      "id":"000301",
+      "location":"Aina Haina-Hawaii Loa Ridge",
+      "total":"8078"
+   },
+   {
+      "id":"000302",
+      "location":"Wailupe",
+      "total":"3905"
+   },
+   {
+      "id":"000401",
+      "location":"Waialae Nui Ridge-Ainakoa",
+      "total":"9835"
+   },
+   {
+      "id":"000402",
+      "location":"Waialae Iki",
+      "total":"3069"
+   },
+   {
+      "id":"000500",
+      "location":"Waialae-Kahala",
+      "total":"7970"
+   },
+   {
+      "id":"000600",
+      "location":"Diamond Head",
+      "total":"8887"
+   },
+   {
+      "id":"000700",
+      "location":"Kaimuki: 22nd Avenue",
+      "total":"7920"
+   },
+   {
+      "id":"000800",
+      "location":"Kaimuki: Kapiolani Community College",
+      "total":"5383"
+   },
+   {
+      "id":"000901",
+      "location":"Waialae Nui Valley",
+      "total":"2775"
+   },
+   {
+      "id":"000902",
+      "location":"Maunalani Heights",
+      "total":"9071"
+   },
+   {
+      "id":"000903",
+      "location":"Lower Wilhelmina",
+      "total":"950"
+   },
+   {
+      "id":"001000",
+      "location":"Upper Palolo",
+      "total":"8339"
+   },
+   {
+      "id":"001100",
+      "location":"Central Palolo",
+      "total":"5324"
+   },
+   {
+      "id":"001201",
+      "location":"Waialae Avenue-Pukele Avenue",
+      "total":"8535"
+   },
+   {
+      "id":"001202",
+      "location":"Lower Palolo",
+      "total":"1052"
+   },
+   {
+      "id":"001300",
+      "location":"Kaimuki: 6th Avenue",
+      "total":"7659"
+   },
+   {
+      "id":"001400",
+      "location":"Kapaolono Field",
+      "total":"1152"
+   },
+   {
+      "id":"001500",
+      "location":"Upper Kapahulu",
+      "total":"6703"
+   },
+   {
+      "id":"001600",
+      "location":"Lower Kapahulu",
+      "total":"6447"
+   },
+   {
+      "id":"001700",
+      "location":"Kapiolani Park",
+      "total":"3618"
+   },
+   {
+      "id":"001801",
+      "location":"Koa Avenue",
+      "total":"3522"
+   },
+   {
+      "id":"001803",
+      "location":"Tusitala Street",
+      "total":"572"
+   },
+   {
+      "id":"001804",
+      "location":"Jefferson School",
+      "total":"6469"
+   },
+   {
+      "id":"001901",
+      "location":"Waikiki Beach",
+      "total":"9791"
+   },
+   {
+      "id":"001903",
+      "location":"Ena Road",
+      "total":"8002"
+   },
+   {
+      "id":"001904",
+      "location":"Hobron Lane",
+      "total":"1946"
+   },
+   {
+      "id":"002003",
+      "location":"Seaside Avenue",
+      "total":"2206"
+   },
+   {
+      "id":"002004",
+      "location":"International Market Place",
+      "total":"235"
+   },
+   {
+      "id":"002005",
+      "location":"Ala Wai-Niu Street",
+      "total":"4985"
+   },
+   {
+      "id":"002006",
+      "location":"Ala Wai-Olohana Street",
+      "total":"5735"
+   },
+   {
+      "id":"002100",
+      "location":"Olokele Avenue",
+      "total":"2894"
+   },
+   {
+      "id":"002201",
+      "location":"Kamoku Street-Iolani School",
+      "total":"9543"
+   },
+   {
+      "id":"002202",
+      "location":"Ala Wai Park-Lauiki Street",
+      "total":"3289"
+   },
+   {
+      "id":"002300",
+      "location":"Moiliili",
+      "total":"8059"
+   },
+   {
+      "id":"002401",
+      "location":"Lower McCully",
+      "total":"1869"
+   },
+   {
+      "id":"002402",
+      "location":"Upper McCully",
+      "total":"5762"
+   },
+   {
+      "id":"002500",
+      "location":"Lower Pawaa",
+      "total":"4494"
+   },
+   {
+      "id":"002600",
+      "location":"Bingham Tract",
+      "total":"3680"
+   },
+   {
+      "id":"002701",
+      "location":"UH Manoa Campus",
+      "total":"5485"
+   },
+   {
+      "id":"002702",
+      "location":"Punahou School",
+      "total":"9727"
+   },
+   {
+      "id":"002800",
+      "location":"St. Louis Heights",
+      "total":"154"
+   },
+   {
+      "id":"002900",
+      "location":"East Manoa",
+      "total":"2406"
+   },
+   {
+      "id":"003000",
+      "location":"Judd Hillside-Lowrey Avenue",
+      "total":"5797"
+   },
+   {
+      "id":"003101",
+      "location":"Woodlawn",
+      "total":"8785"
+   },
+   {
+      "id":"003102",
+      "location":"Upper Manoa",
+      "total":"3701"
+   },
+   {
+      "id":"003200",
+      "location":"Round Top-Tantalus",
+      "total":"4262"
+   },
+   {
+      "id":"003300",
+      "location":"Makiki Heights",
+      "total":"5657"
+   },
+   {
+      "id":"003403",
+      "location":"Thurston Street",
+      "total":"8943"
+   },
+   {
+      "id":"003404",
+      "location":"Makiki Fire Station",
+      "total":"398"
+   },
+   {
+      "id":"003405",
+      "location":"Poki Street",
+      "total":"8887"
+   },
+   {
+      "id":"003406",
+      "location":"Lower Makiki",
+      "total":"7529"
+   },
+   {
+      "id":"003407",
+      "location":"Maryknoll School",
+      "total":"6912"
+   },
+   {
+      "id":"003501",
+      "location":"Academy of Arts",
+      "total":"5789"
+   },
+   {
+      "id":"003502",
+      "location":"Upper Pawaa",
+      "total":"8394"
+   },
+   {
+      "id":"003601",
+      "location":"Sheridan Street",
+      "total":"2602"
+   },
+   {
+      "id":"003603",
+      "location":"Ahana Street",
+      "total":"6301"
+   },
+   {
+      "id":"003604",
+      "location":"Kaheka Street-Makaloa Street",
+      "total":"9947"
+   },
+   {
+      "id":"003700",
+      "location":"Ala Moana",
+      "total":"3768"
+   },
+   {
+      "id":"003800",
+      "location":"Kakaako",
+      "total":"9808"
+   },
+   {
+      "id":"003900",
+      "location":"Civic Center",
+      "total":"2294"
+   },
+   {
+      "id":"004000",
+      "location":"Financial District",
+      "total":"9129"
+   },
+   {
+      "id":"004100",
+      "location":"Queen's Hospital",
+      "total":"7607"
+   },
+   {
+      "id":"004200",
+      "location":"Queen Emma Gardens",
+      "total":"3853"
+   },
+   {
+      "id":"004300",
+      "location":"Punchbowl",
+      "total":"2248"
+   },
+   {
+      "id":"004400",
+      "location":"Pauoa",
+      "total":"8016"
+   },
+   {
+      "id":"004500",
+      "location":"Dowsett Highlands",
+      "total":"8479"
+   },
+   {
+      "id":"004600",
+      "location":"Puunui-Waokanaka Street",
+      "total":"7991"
+   },
+   {
+      "id":"004700",
+      "location":"Alewa-Kawananakoa",
+      "total":"750"
+   },
+   {
+      "id":"004800",
+      "location":"Kamehameha Heights",
+      "total":"5054"
+   },
+   {
+      "id":"004900",
+      "location":"Lanakila",
+      "total":"8931"
+   },
+   {
+      "id":"005000",
+      "location":"Kuakini",
+      "total":"800"
+   },
+   {
+      "id":"005100",
+      "location":"Foster Botanical Garden",
+      "total":"3223"
+   },
+   {
+      "id":"005200",
+      "location":"Chinatown",
+      "total":"3026"
+   },
+   {
+      "id":"005300",
+      "location":"Aala",
+      "total":"6912"
+   },
+   {
+      "id":"005400",
+      "location":"Mayor Wright Housing",
+      "total":"1084"
+   },
+   {
+      "id":"005500",
+      "location":"Palama",
+      "total":"9824"
+   },
+   {
+      "id":"005600",
+      "location":"Kapalama",
+      "total":"56"
+   },
+   {
+      "id":"005700",
+      "location":"Iwilei-Anuenue",
+      "total":"1347"
+   },
+   {
+      "id":"005800",
+      "location":"Waiakamilo Road",
+      "total":"3907"
+   },
+   {
+      "id":"005900",
+      "location":"Mokauea Street",
+      "total":"6499"
+   },
+   {
+      "id":"006000",
+      "location":"Umi Street",
+      "total":"4406"
+   },
+   {
+      "id":"006100",
+      "location":"Kalihi Waena",
+      "total":"5088"
+   },
+   {
+      "id":"006201",
+      "location":"Kam IV Road",
+      "total":"6568"
+   },
+   {
+      "id":"006202",
+      "location":"Linapuni Street",
+      "total":"3785"
+   },
+   {
+      "id":"006301",
+      "location":"Kalihi Valley Park",
+      "total":"8384"
+   },
+   {
+      "id":"006302",
+      "location":"Kalena Drive",
+      "total":"2194"
+   },
+   {
+      "id":"006401",
+      "location":"Gulick Avenue-Likelike",
+      "total":"3289"
+   },
+   {
+      "id":"006402",
+      "location":"Kamanaiki Street",
+      "total":"5005"
+   },
+   {
+      "id":"006500",
+      "location":"Upper Kalihi Valley",
+      "total":"1349"
+   },
+   {
+      "id":"006600",
+      "location":"Kahauiki Street",
+      "total":"8599"
+   },
+   {
+      "id":"006701",
+      "location":"Tripler-Moanalua",
+      "total":"7536"
+   },
+   {
+      "id":"006702",
+      "location":"Red Hill",
+      "total":"7830"
+   },
+   {
+      "id":"006802",
+      "location":"Aliamanu",
+      "total":"1483"
+   },
+   {
+      "id":"006804",
+      "location":"Aliamanu Crater",
+      "total":"5238"
+   },
+   {
+      "id":"006805",
+      "location":"Salt Lake Country Club",
+      "total":"4968"
+   },
+   {
+      "id":"006806",
+      "location":"Ala Lilikoi",
+      "total":"7262"
+   },
+   {
+      "id":"006808",
+      "location":"Ala Ilima Mauka",
+      "total":"9683"
+   },
+   {
+      "id":"006809",
+      "location":"Ala Ilima Makai",
+      "total":"9684"
+   },
+   {
+      "id":"006900",
+      "location":"Arizona Road",
+      "total":"7545"
+   },
+   {
+      "id":"007000",
+      "location":"Navy Marine Golf Course",
+      "total":"5288"
+   },
+   {
+      "id":"007100",
+      "location":"Nimitz Elementary School",
+      "total":"4546"
+   },
+   {
+      "id":"007302",
+      "location":"Hangar Avenue-Vickers Avenue",
+      "total":"9315"
+   },
+   {
+      "id":"007303",
+      "location":"Hickam Air Force Base",
+      "total":"1917"
+   },
+   {
+      "id":"007400",
+      "location":"Ford Island",
+      "total":"6724"
+   },
+   {
+      "id":"007502",
+      "location":"Halawa Valley",
+      "total":"1132"
+   },
+   {
+      "id":"007503",
+      "location":"Halawa Heights",
+      "total":"4668"
+   },
+   {
+      "id":"007504",
+      "location":"Aloha Stadium",
+      "total":"9416"
+   },
+   {
+      "id":"007505",
+      "location":"Foster Village",
+      "total":"5500"
+   },
+   {
+      "id":"007506",
+      "location":"Red Hill Military Housing",
+      "total":"6421"
+   },
+   {
+      "id":"007701",
+      "location":"Lower Aiea",
+      "total":"6595"
+   },
+   {
+      "id":"007702",
+      "location":"Aiea Heights",
+      "total":"7324"
+   },
+   {
+      "id":"007804",
+      "location":"Lower Pearl City",
+      "total":"6414"
+   },
+   {
+      "id":"007805",
+      "location":"Waiau Townhouses",
+      "total":"4697"
+   },
+   {
+      "id":"007807",
+      "location":"Pearl Ridge High Rise",
+      "total":"7055"
+   },
+   {
+      "id":"007808",
+      "location":"Pearlridge Center",
+      "total":"1787"
+   },
+   {
+      "id":"007809",
+      "location":"Newtown",
+      "total":"9118"
+   },
+   {
+      "id":"007810",
+      "location":"Royal Summit",
+      "total":"7321"
+   },
+   {
+      "id":"007811",
+      "location":"Pearl Country Club",
+      "total":"3144"
+   },
+   {
+      "id":"008001",
+      "location":"Hale Mohalu Hospital",
+      "total":"5592"
+   },
+   {
+      "id":"008002",
+      "location":"Lower Waiau",
+      "total":"5708"
+   },
+   {
+      "id":"008003",
+      "location":"Manana",
+      "total":"1264"
+   },
+   {
+      "id":"008005",
+      "location":"Pacific Palisades",
+      "total":"9492"
+   },
+   {
+      "id":"008006",
+      "location":"Pearl City",
+      "total":"3266"
+   },
+   {
+      "id":"008007",
+      "location":"Pearl City Highlands",
+      "total":"3678"
+   },
+   {
+      "id":"008301",
+      "location":"Iroquois Point",
+      "total":"4196"
+   },
+   {
+      "id":"008302",
+      "location":"Campbell High School",
+      "total":"2996"
+   },
+   {
+      "id":"008402",
+      "location":"Ewa Beach",
+      "total":"4514"
+   },
+   {
+      "id":"008405",
+      "location":"Holomua School",
+      "total":"1628"
+   },
+   {
+      "id":"008406",
+      "location":"Hawaii Prince Golf Course",
+      "total":"9991"
+   },
+   {
+      "id":"008407",
+      "location":"Ocean Pointe",
+      "total":"7223"
+   },
+   {
+      "id":"008408",
+      "location":"Hoakalei Country Club",
+      "total":"2271"
+   },
+   {
+      "id":"008410",
+      "location":"Coral Creek Golf Course",
+      "total":"3337"
+   },
+   {
+      "id":"008411",
+      "location":"Geiger Road",
+      "total":"3017"
+   },
+   {
+      "id":"008412",
+      "location":"Ewa Gentry",
+      "total":"4254"
+   },
+   {
+      "id":"008502",
+      "location":"Kalaeloa",
+      "total":"2381"
+   },
+   {
+      "id":"008606",
+      "location":"Kapolei Golf Course",
+      "total":"4704"
+   },
+   {
+      "id":"008609",
+      "location":"Ko Olina-Honokai Hale",
+      "total":"5965"
+   },
+   {
+      "id":"008610",
+      "location":"Ko Olina Resort",
+      "total":"3973"
+   },
+   {
+      "id":"008611",
+      "location":"Kahe",
+      "total":"7990"
+   },
+   {
+      "id":"008612",
+      "location":"Upper Makakilo",
+      "total":"913"
+   },
+   {
+      "id":"008613",
+      "location":"Makakilo: Wainohia Street",
+      "total":"885"
+   },
+   {
+      "id":"008614",
+      "location":"Kunia West",
+      "total":"5105"
+   },
+   {
+      "id":"008617",
+      "location":"Ewa Villages",
+      "total":"5449"
+   },
+   {
+      "id":"008622",
+      "location":"Lower Makakilo",
+      "total":"158"
+   },
+   {
+      "id":"008701",
+      "location":"Leeward Community College",
+      "total":"5510"
+   },
+   {
+      "id":"008702",
+      "location":"St. Joseph School",
+      "total":"1297"
+   },
+   {
+      "id":"008703",
+      "location":"West Loch",
+      "total":"6122"
+   },
+   {
+      "id":"008800",
+      "location":"Managers Drive",
+      "total":"884"
+   },
+   {
+      "id":"008906",
+      "location":"Mililani Golf Course",
+      "total":"6963"
+   },
+   {
+      "id":"008907",
+      "location":"Mililani High School",
+      "total":"1445"
+   },
+   {
+      "id":"008908",
+      "location":"Mililani Marketplace",
+      "total":"8242"
+   },
+   {
+      "id":"008909",
+      "location":"Mililani District Park",
+      "total":"3315"
+   },
+   {
+      "id":"008912",
+      "location":"August Ahrens School",
+      "total":"212"
+   },
+   {
+      "id":"008913",
+      "location":"Robinson Heights",
+      "total":"8807"
+   },
+   {
+      "id":"008914",
+      "location":"Honowai School",
+      "total":"5209"
+   },
+   {
+      "id":"008915",
+      "location":"Waipio Acres",
+      "total":"3575"
+   },
+   {
+      "id":"008917",
+      "location":"Mililani Town Center",
+      "total":"3915"
+   },
+   {
+      "id":"008918",
+      "location":"Mililani: Nob Hill",
+      "total":"9114"
+   },
+   {
+      "id":"008920",
+      "location":"Waipio Gentry",
+      "total":"873"
+   },
+   {
+      "id":"008921",
+      "location":"Waipio",
+      "total":"20"
+   },
+   {
+      "id":"008922",
+      "location":"Waikele",
+      "total":"5828"
+   },
+   {
+      "id":"008923",
+      "location":"Seaview",
+      "total":"4577"
+   },
+   {
+      "id":"008924",
+      "location":"Royal Kunia",
+      "total":"4826"
+   },
+   {
+      "id":"008925",
+      "location":"Village Park",
+      "total":"221"
+   },
+   {
+      "id":"008926",
+      "location":"Laulani Valley-Mililani Technology Park",
+      "total":"8790"
+   },
+   {
+      "id":"008927",
+      "location":"Koolani Drive",
+      "total":"9145"
+   },
+   {
+      "id":"008928",
+      "location":"Mililani Mauka Middle School",
+      "total":"5858"
+   },
+   {
+      "id":"008929",
+      "location":"Mililani Mauka-Meheula Parkway",
+      "total":"8351"
+   },
+   {
+      "id":"008930",
+      "location":"Mililani: Ainamakua Drive",
+      "total":"894"
+   },
+   {
+      "id":"008931",
+      "location":"Waiawa",
+      "total":"5370"
+   },
+   {
+      "id":"009000",
+      "location":"Wheeler-East Range",
+      "total":"6279"
+   },
+   {
+      "id":"009100",
+      "location":"Kaukonahua Road",
+      "total":"7664"
+   },
+   {
+      "id":"009200",
+      "location":"Wahiawa Mauka",
+      "total":"3034"
+   },
+   {
+      "id":"009300",
+      "location":"Wahiawa Waena",
+      "total":"6353"
+   },
+   {
+      "id":"009400",
+      "location":"Wahiawa Makai",
+      "total":"2365"
+   },
+   {
+      "id":"009501",
+      "location":"Kolekole Avenue",
+      "total":"7097"
+   },
+   {
+      "id":"009502",
+      "location":"Menoher Street",
+      "total":"2900"
+   },
+   {
+      "id":"009503",
+      "location":"Foote Avenue",
+      "total":"5837"
+   },
+   {
+      "id":"009504",
+      "location":"Leilehua Avenue",
+      "total":"3190"
+   },
+   {
+      "id":"009507",
+      "location":"Schofield: McCarthy Field",
+      "total":"8414"
+   },
+   {
+      "id":"009603",
+      "location":"Maili",
+      "total":"8108"
+   },
+   {
+      "id":"009608",
+      "location":"Lualualei Transmitter",
+      "total":"4655"
+   },
+   {
+      "id":"009701",
+      "location":"Waianae Kai",
+      "total":"9948"
+   },
+   {
+      "id":"009703",
+      "location":"Lualualei-Camp Waianae",
+      "total":"9822"
+   },
+   {
+      "id":"009704",
+      "location":"Lualualei: Halona Road",
+      "total":"4349"
+   },
+   {
+      "id":"009801",
+      "location":"Makua Valley",
+      "total":"8913"
+   },
+   {
+      "id":"009802",
+      "location":"Makaha",
+      "total":"5969"
+   },
+   {
+      "id":"009902",
+      "location":"Haleiwa",
+      "total":"4942"
+   },
+   {
+      "id":"009904",
+      "location":"Kaena Point",
+      "total":"7386"
+   },
+   {
+      "id":"010000",
+      "location":"Kawailoa",
+      "total":"523"
+   },
+   {
+      "id":"010100",
+      "location":"Waimea-Kahuku",
+      "total":"3034"
+   },
+   {
+      "id":"010201",
+      "location":"Hauula-Kaaawa",
+      "total":"4361"
+   },
+   {
+      "id":"010202",
+      "location":"Laie",
+      "total":"7166"
+   },
+   {
+      "id":"010303",
+      "location":"Kahaluu-Waikane",
+      "total":"4910"
+   },
+   {
+      "id":"010305",
+      "location":"Ahuimanu",
+      "total":"8225"
+   },
+   {
+      "id":"010306",
+      "location":"Haiku",
+      "total":"3704"
+   },
+   {
+      "id":"010308",
+      "location":"Kapunahala",
+      "total":"5321"
+   },
+   {
+      "id":"010503",
+      "location":"Kaneohe District Park",
+      "total":"8427"
+   },
+   {
+      "id":"010504",
+      "location":"Waikalua Road",
+      "total":"1855"
+   },
+   {
+      "id":"010505",
+      "location":"Heeia Kea",
+      "total":"9979"
+   },
+   {
+      "id":"010507",
+      "location":"Kahuhipa Street",
+      "total":"6505"
+   },
+   {
+      "id":"010508",
+      "location":"Lilipuna Road",
+      "total":"2684"
+   },
+   {
+      "id":"010601",
+      "location":"Puohala",
+      "total":"2783"
+   },
+   {
+      "id":"010602",
+      "location":"Castle High School-Halekou Road",
+      "total":"8266"
+   },
+   {
+      "id":"010701",
+      "location":"Kokokahi",
+      "total":"9715"
+   },
+   {
+      "id":"010702",
+      "location":"Mokulele Drive",
+      "total":"3234"
+   },
+   {
+      "id":"010801",
+      "location":"Mokapu West",
+      "total":"7028"
+   },
+   {
+      "id":"010802",
+      "location":"Mokapu East",
+      "total":"5832"
+   },
+   {
+      "id":"010901",
+      "location":"Kalaheo Hillside",
+      "total":"4225"
+   },
+   {
+      "id":"010903",
+      "location":"Oneawa Street-Kawainui",
+      "total":"2499"
+   },
+   {
+      "id":"010904",
+      "location":"Maluniu Avenue",
+      "total":"2745"
+   },
+   {
+      "id":"010905",
+      "location":"Ulupaina Street",
+      "total":"3547"
+   },
+   {
+      "id":"011000",
+      "location":"Maunawili",
+      "total":"7685"
+   },
+   {
+      "id":"011103",
+      "location":"Olomana",
+      "total":"7816"
+   },
+   {
+      "id":"011104",
+      "location":"Enchanted Lakes",
+      "total":"3920"
+   },
+   {
+      "id":"011105",
+      "location":"Kailua Town",
+      "total":"8001"
+   },
+   {
+      "id":"011106",
+      "location":"Keolu",
+      "total":"384"
+   },
+   {
+      "id":"011201",
+      "location":"Kalaheo Avenue",
+      "total":"309"
+   },
+   {
+      "id":"011202",
+      "location":"Lanikai",
+      "total":"1204"
+   },
+   {
+      "id":"011300",
+      "location":"Waimanalo",
+      "total":"736"
+   },
+   {
+      "id":"011400",
+      "location":"Waipio Peninsula",
+      "total":"424"
+   },
+   {
+      "id":"011500",
+      "location":"Kapolei",
+      "total":"834"
+   },
+   {
+      "id":"020100",
+      "location":"Pauka‘a-Wailea",
+      "total":"1296"
+   },
+   {
+      "id":"020202",
+      "location":"Hilo: Upper Waiakea Forest Reserve",
+      "total":"7641"
+   },
+   {
+      "id":"020300",
+      "location":"Hilo: Pu‘u‘eo-Downtown",
+      "total":"5206"
+   },
+   {
+      "id":"020400",
+      "location":"Hilo: Villa Franca-Kaiko’o",
+      "total":"8919"
+   },
+   {
+      "id":"020500",
+      "location":"Hilo: University-Houselots",
+      "total":"2839"
+   },
+   {
+      "id":"020600",
+      "location":"Hilo: Keaukaha-Pana‘ewa",
+      "total":"8282"
+   },
+   {
+      "id":"020701",
+      "location":"Hilo: Puainako",
+      "total":"4159"
+   },
+   {
+      "id":"020702",
+      "location":"Hilo: Kawailani",
+      "total":"9884"
+   },
+   {
+      "id":"020801",
+      "location":"Hilo: Kahuku-Kaumana",
+      "total":"7293"
+   },
+   {
+      "id":"020802",
+      "location":"Hilo: Piihonua-Kaumana",
+      "total":"2272"
+   },
+   {
+      "id":"020900",
+      "location":"Hilo: Haihai",
+      "total":"3619"
+   },
+   {
+      "id":"021003",
+      "location":"Orchidland-Ainaloa",
+      "total":"7161"
+   },
+   {
+      "id":"021005",
+      "location":"Hawaiian Paradise Park",
+      "total":"823"
+   },
+   {
+      "id":"021010",
+      "location":"Upper Puna (Puna Mauka)",
+      "total":"3690"
+   },
+   {
+      "id":"021011",
+      "location":"Volcano-Mt. View",
+      "total":"8802"
+   },
+   {
+      "id":"021013",
+      "location":"Kea‘au",
+      "total":"2256"
+   },
+   {
+      "id":"021101",
+      "location":"Kalapana-Kapoho",
+      "total":"4158"
+   },
+   {
+      "id":"021106",
+      "location":"Pahoa",
+      "total":"1719"
+   },
+   {
+      "id":"021202",
+      "location":"Ka‘u",
+      "total":"9928"
+   },
+   {
+      "id":"021300",
+      "location":"South Kona",
+      "total":"3427"
+   },
+   {
+      "id":"021402",
+      "location":"Konawaena",
+      "total":"1086"
+   },
+   {
+      "id":"021502",
+      "location":"Hualalai",
+      "total":"6667"
+   },
+   {
+      "id":"021504",
+      "location":"Kealakehe",
+      "total":"4060"
+   },
+   {
+      "id":"021507",
+      "location":"Kalaoa",
+      "total":"5657"
+   },
+   {
+      "id":"021509",
+      "location":"Kaumalumalu-Keahou",
+      "total":"9231"
+   },
+   {
+      "id":"021601",
+      "location":"Kailua",
+      "total":"9402"
+   },
+   {
+      "id":"021604",
+      "location":"Holualoa",
+      "total":"9522"
+   },
+   {
+      "id":"021702",
+      "location":"Waimea-Pu‘u Anahulu",
+      "total":"578"
+   },
+   {
+      "id":"021704",
+      "location":"Kawaihae-Waikoloa",
+      "total":"6103"
+   },
+   {
+      "id":"021800",
+      "location":"North Kohala",
+      "total":"6447"
+   },
+   {
+      "id":"021902",
+      "location":"Honoka‘a-Kukuihaele",
+      "total":"4114"
+   },
+   {
+      "id":"022000",
+      "location":"Pa‘auhau-Pa‘auilo",
+      "total":"1570"
+   },
+   {
+      "id":"022102",
+      "location":"North Hilo",
+      "total":"314"
+   },
+   {
+      "id":"030100",
+      "location":"Hana",
+      "total":"4753"
+   },
+   {
+      "id":"030201",
+      "location":"Huelo",
+      "total":"2645"
+   },
+   {
+      "id":"030202",
+      "location":"Ha’iku",
+      "total":"1787"
+   },
+   {
+      "id":"030301",
+      "location":"Kula",
+      "total":"5154"
+   },
+   {
+      "id":"030303",
+      "location":"Wailea",
+      "total":"1597"
+   },
+   {
+      "id":"030402",
+      "location":"Pukalani",
+      "total":"994"
+   },
+   {
+      "id":"030403",
+      "location":"Makawao",
+      "total":"1368"
+   },
+   {
+      "id":"030404",
+      "location":"Hali’imaile",
+      "total":"6232"
+   },
+   {
+      "id":"030501",
+      "location":"Pa’ia",
+      "total":"5521"
+   },
+   {
+      "id":"030705",
+      "location":"Kihei Mauka",
+      "total":"6925"
+   },
+   {
+      "id":"030706",
+      "location":"Kealia",
+      "total":"8053"
+   },
+   {
+      "id":"030707",
+      "location":"Waipuilani",
+      "total":"2796"
+   },
+   {
+      "id":"030708",
+      "location":"Halama",
+      "total":"8805"
+   },
+   {
+      "id":"030709",
+      "location":"Kamaole",
+      "total":"3621"
+   },
+   {
+      "id":"030710",
+      "location":"Keawakapu",
+      "total":"940"
+   },
+   {
+      "id":"030800",
+      "location":"Waihee-Waikapu",
+      "total":"78"
+   },
+   {
+      "id":"030901",
+      "location":"West Central Wailuku",
+      "total":"7504"
+   },
+   {
+      "id":"030902",
+      "location":"East Central Wailuku",
+      "total":"9144"
+   },
+   {
+      "id":"030903",
+      "location":"North Wailuku",
+      "total":"7622"
+   },
+   {
+      "id":"031000",
+      "location":"South Wailuku",
+      "total":"692"
+   },
+   {
+      "id":"031101",
+      "location":"West Kahului",
+      "total":"3295"
+   },
+   {
+      "id":"031102",
+      "location":"Central Kahului",
+      "total":"4982"
+   },
+   {
+      "id":"031103",
+      "location":"Southeast Kahului",
+      "total":"178"
+   },
+   {
+      "id":"031402",
+      "location":"Kahoma",
+      "total":"942"
+   },
+   {
+      "id":"031404",
+      "location":"Lahaina",
+      "total":"2117"
+   },
+   {
+      "id":"031405",
+      "location":"Lahainaluna",
+      "total":"7037"
+   },
+   {
+      "id":"031501",
+      "location":"Kapalua",
+      "total":"8848"
+   },
+   {
+      "id":"031502",
+      "location":"Honokahua",
+      "total":"7837"
+   },
+   {
+      "id":"031503",
+      "location":"Honokowai",
+      "total":"1149"
+   },
+   {
+      "id":"031900",
+      "location":"Kalawao",
+      "total":"9"
+   },
+   {
+      "id":"032000",
+      "location":"Launiupoko",
+      "total":"6761"
+   },
+   {
+      "id":"031601",
+      "location":"Lana’i",
+      "total":"6044"
+   },
+   {
+      "id":"031700",
+      "location":"East Moloka’i",
+      "total":"6228"
+   },
+   {
+      "id":"031801",
+      "location":"West Moloka’i",
+      "total":"6680"
+   },
+   {
+      "id":"040103",
+      "location":"Princeville-Kilauea",
+      "total":"2762"
+   },
+   {
+      "id":"040104",
+      "location":"Ha’ena-Hanalei",
+      "total":"420"
+   },
+   {
+      "id":"040204",
+      "location":"Wailua Houselots",
+      "total":"1580"
+   },
+   {
+      "id":"040205",
+      "location":"Wailua Homesteads",
+      "total":"5001"
+   },
+   {
+      "id":"040300",
+      "location":"Kapa’a",
+      "total":"4191"
+   },
+   {
+      "id":"040400",
+      "location":"Puhi-Hanama’ulu",
+      "total":"3286"
+   },
+   {
+      "id":"040500",
+      "location":"Lihu’e",
+      "total":"2251"
+   },
+   {
+      "id":"040603",
+      "location":"Koloa-Po’ipu",
+      "total":"4947"
+   },
+   {
+      "id":"040604",
+      "location":"Omao-Kukui’ula",
+      "total":"1622"
+   },
+   {
+      "id":"040700",
+      "location":"Eleele-Kalaheo",
+      "total":"2842"
+   },
+   {
+      "id":"040800",
+      "location":"Kaumakani-Hanapepe",
+      "total":"6827"
+   },
+   {
+      "id":"040900",
+      "location":"Kekaha-Waimea",
+      "total":"7414"
+   },
+   {
+      "id":"041200",
+      "location":"Ni’ihau-Kaula",
+      "total":"3101"
+   }
+]

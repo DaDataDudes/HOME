@@ -5,6 +5,9 @@ import {
   DELETE_DOCUMENT_SUCCESS,
   UPDATE_DOCUMENT_ERROR,
   UPDATE_DOCUMENT_SUCCESS,
+  UPDATE_COUNT_SUCCESS,
+  UPDATE_COUNTY_SUCCESS,
+  CREATE_COUNTY_SUCCESS,
 } from './action-types';
 
 export function createDocument(document) {
@@ -89,6 +92,19 @@ export function registerListeners() {
 
     ref.on('child_removed', snapshot => dispatch({
       type: DELETE_DOCUMENT_SUCCESS,
+      payload: _recordFromSnapShot(snapshot),
+    }));
+
+  };
+}
+
+export function registerListenersCounties() {
+  return (dispatch, getState) => {
+    const { firebase }  = getState();
+    const ref = firebase.child(`counties`);
+
+    ref.on('child_changed', snapshot => dispatch({
+      type: UPDATE_COUNT_SUCCESS,
       payload: _recordFromSnapShot(snapshot),
     }));
 

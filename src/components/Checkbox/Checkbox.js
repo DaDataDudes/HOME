@@ -1,14 +1,20 @@
 import React, { PropTypes } from 'react';
 
-const Checkbox = ({ id, className, name, value, checked, onChange}) => (
-  <input id={id}
-    className={className}
-    type='checkbox'
-    name={name}
-    value={value}
-    checked={checked}
-    onChange={onChange}
-  />
+const Checkbox = ({ id, text, className, name, value, checked, onChange}) => (
+  <div>
+    <label
+        htmlFor={name}
+      > {text}
+      </label>
+    <input id={id}
+      className={className}
+      type='checkbox'
+      name={name}
+      value={value}
+      checked={checked}
+      onChange={onChange}
+    />
+  </div>
 );
 
 Checkbox.defaultProps = {
