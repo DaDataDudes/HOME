@@ -16,9 +16,9 @@ class HumanList extends Component {
   render() {
     const { documents } = this.props;
     return (
-      <div className={styles}>
+      <div className={styles.griddle}>
         <Griddle results={documents} tableClassName="table" showFilter={true} showSettings={true}
-                 resultsPerPage={20} enableInfiniteScroll={true} bodyHeight={1000} useFixedHeader={true}
+                 resultsPerPage={20} enableInfiniteScroll={true} bodyHeight={550} useFixedHeader={true}
                  columns={["age", "ethnicity", "employmentCurPay", "veteran","educationLevel"]}/>
       </div>
     );
