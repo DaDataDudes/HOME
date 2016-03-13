@@ -15,6 +15,7 @@ export default (
     <Route path="login" component={Login} />
     <Route path="choropleth" component={Choropleth} />
     <Route path="dashboard" component={Dashboard} >
+      <IndexRoute component={ChartsD3} />
       <Route path="humanList" component={HumanList} />
     </Route>
     <Route path="form" component={FormPage} />
