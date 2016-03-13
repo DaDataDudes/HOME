@@ -5,7 +5,7 @@
 */
 var Firebase = require('firebase');
 var casual = require('casual');
-var FIREBASE_URL_DB = 'documents';
+var FIREBASE_URL_DB = 'counties';
 var FIREBASE_URL = 'https://home-ddd.firebaseio.com/' + FIREBASE_URL_DB;
 var firebase = new Firebase(FIREBASE_URL);
 var i = 0;
@@ -33,8 +33,8 @@ var date = {
 };
 
 // loop through count and push to firebase
-for (i = 0; i < MOCK_COUNT; i++) {
-  firebase.push(seed(date));
+for (i = 0; i < counties.length; i++) {
+  firebase.push(counties[i]);
 }
 
 function seed(selectedDate) {

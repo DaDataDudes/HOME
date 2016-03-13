@@ -23,8 +23,12 @@ function randomNum(min = 1, max = 100) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function randomRgb() {
-  return `rgb(${randomNum(0, 255)}, ${randomNum(0, 255)}, ${randomNum(0, 255)})`;
+function strokeColor() {
+  return '#FFF';
+}
+
+function fillColor() {
+  return '#C0C0C0';
 }
 
 const Map = ({ updateInfo, data, info, width = 500, height = 500 }) => {
@@ -38,7 +42,7 @@ const Map = ({ updateInfo, data, info, width = 500, height = 500 }) => {
         <g className="counties">
           {counties.map((county, i) => {
             return (
-              <path key={i} d={pathGenerator(county)} name={county.id} className={quantize(randomNum())} fill={randomRgb()} onMouseOver={updateInfo} />
+              <path key={i} d={pathGenerator(county)} name={county.id} fill={fillColor()} className={quantize(randomNum())} stroke={strokeColor()} onMouseOver={updateInfo} />
             );
           })}
         </g>

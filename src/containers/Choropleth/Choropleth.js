@@ -13,6 +13,12 @@ class Choropleth extends Component {
   }
 
   componentDidMount() {
+    for (let i = 0; i < tooltipData.length; i++) {
+      let random = (Math.round(Math.random() * 10000));
+      console.log(random);
+      Object.assign(tooltipData[i], { total: random.toString() });
+    }
+    console.log(JSON.stringify(tooltipData), 'tooltipData');
     this.props.dispatch(getChoroInfo());
   }
 
