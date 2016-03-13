@@ -7,6 +7,7 @@ import {
   UPDATE_DOCUMENT_SUCCESS,
   UPDATE_COUNT_SUCCESS,
   UPDATE_COUNTY_SUCCESS,
+  UPDATE_COUNTY_ERROR,
   CREATE_COUNTY_SUCCESS,
 } from './action-types';
 
@@ -74,6 +75,25 @@ export function updateDocument(document, changes) {
       });
   };
 }
+
+
+export function updateCounty(county, changes) {
+  return (dispatch, getState) => {
+    const { firebase } = getState();
+
+    firebase.child(`counties/${county.key}`)
+      .update(changes, error => {
+        if (error) {
+          console.error('ERROR @ updateCounty :', error);
+          dispatch({
+            type: UPDATE_COUNTY_ERROR,
+            payload: error,
+          });
+        }
+      });
+  };
+}
+
 
 export function registerListeners() {
   return (dispatch, getState) => {

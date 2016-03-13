@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './FormPage.css';
 import { firebase } from 'actions/firebase';
+import locations from 'seed/counties';
 import Input from 'components/Input';
 import Dropdown from 'components/Dropdown';
 import Checkbox from 'components/Checkbox';
@@ -20,6 +21,14 @@ class FormPage extends Component {
       key: null,
       firstName : '',
       lastName : '',
+      locations: locations.map(location => {
+        return {
+          ...location,
+          value: location.id,
+          text: location.location,
+        };
+      }),
+      location: 'Anahola',
       age : null,
       gender : '',
       ethnicity : '',
@@ -354,6 +363,7 @@ class FormPage extends Component {
       gender: event.target.gender.value,
       ethnicity: event.target.ethnicity.value,
       social: event.target.social.value,
+      location: event.target.location.value,
       shelterStatus: event.target.shelterStatus.value,
       shelterName: event.target.shelterName.value,
       familyMembersTotal: +adultCount + +childrenCount,
@@ -385,6 +395,7 @@ class FormPage extends Component {
       this.props.dispatch(firebase.createDocument(this.state));
     }
     this.setState(this._formState);
+
   }
 
   render() {
@@ -691,6 +702,17 @@ class FormPage extends Component {
                 name="otherDisability"
                 value={this.state.otherDisability}
               />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} className={styles.inputSpacing}>
+              <Dropdown
+                className={styles.dropDown}
+                text="Current Location?"
+                name="location"
+                items={this.state.locations}
+                value={this.state.location}
+                onChange={this._onInputChange} />
             </Col>
           </Row>
         </Grid>
