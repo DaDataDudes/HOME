@@ -12,7 +12,7 @@ class ChartsD3 extends Component {
   constructor(props) {
     super(props);
     this._updateData = this._updateData.bind(this);
-   
+
     this._lineBoxContainer = {
       x: 0,
       y: 0,
@@ -79,6 +79,60 @@ class ChartsD3 extends Component {
     }else{
       return null;
     }
+
+    //gather 2 deep bar graph for non-shelter vs shelter homeless
+    if (documents.length) {
+      let yearSnapshot = documents.reduce((previous,current) =>{
+      if(!current.dateCreated){
+        return previous;
+      }
+      if(current.shelterStatus == 'no' && undefined) {
+        return previous;
+      }
+      if(previous[current.dateCreated.month]){
+        previous[current.dateCreated.month]++;
+      }else{
+        previous[current.dateCreated.month] = 1;
+      }
+      return previous;
+     }, {});
+
+      let yearSnapshot2 = documents.reduce((previous, current) =>{
+      if(!current.dateCreated){
+        return previous;
+      }
+      if(current.shelterStatus == 'yes' && undefined) {
+        return previous;
+      }
+      if(previous[current.dateCreated.month]){
+        previous[current.dateCreated.month]++;
+      }else{
+        previous[current.dateCreated.month] = 1;
+      }
+      return previous;
+     }, {});
+      let months = Object.keys(yearSnapshot);
+      let values = months.map((month) => {
+          return {x:Number(month), y:yearSnapshot[month]};
+      });
+      let values2 = months.map((month) => {
+          return {x:Number(month), y:yearSnapshot2[month]};
+      });
+      console.log('values',values2);
+      console.log('values',values);
+      this._barShelterData = [
+        {
+          name:'series1',
+          values: values
+        },
+        {
+          name: 'series2',
+          values: values2
+        }
+      ];
+    }else{
+      return null;
+    }
     return (
       <div className={styles.chart}>
         <h1>ChartsD3</h1>
@@ -102,6 +156,15 @@ class ChartsD3 extends Component {
             yAxisLabel="Average Income"
             xAxisLabel="Months"
             gridHorizontal={true}
+          />
+          <BarChart
+            data={this._barShelterData}
+            width={300}
+            height={300}
+            fill={'#3182bd'}
+            title='Shelter vs Non-Shelter 2015'
+            yAxisLabel='Label'
+            xAxisLabel='Value'
           />
         </div>
         <div className="chart"></div>
