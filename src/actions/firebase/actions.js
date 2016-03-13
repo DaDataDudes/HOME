@@ -9,6 +9,7 @@ import {
   UPDATE_COUNTY_SUCCESS,
   UPDATE_COUNTY_ERROR,
   CREATE_COUNTY_SUCCESS,
+  GET_DOCUMENT_SUCCESS,
 } from './action-types';
 
 export function createDocument(document) {
@@ -99,6 +100,11 @@ export function registerListeners() {
   return (dispatch, getState) => {
     const { firebase }  = getState();
     const ref = firebase.child(`documents`);
+
+    ref.on('value', snapshot => dispatch({
+      type: GET_DOCUMENT_SUCCESS,
+      payload: _recordFromSnapShot(snapshot),
+    }));
 
     ref.on('child_added', snapshot => dispatch({
       type: CREATE_DOCUMENT_SUCCESS,

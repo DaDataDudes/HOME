@@ -2,6 +2,7 @@ import {
   CREATE_DOCUMENT_SUCCESS,
   DELETE_DOCUMENT_SUCCESS,
   UPDATE_DOCUMENT_SUCCESS,
+  GET_DOCUMENT_SUCCESS,
 } from 'actions/firebase';
 
 export const initialState = {
@@ -12,8 +13,19 @@ export const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case CREATE_DOCUMENT_SUCCESS:
+
+    case GET_DOCUMENT_SUCCESS:
       let list;
+      list = Object.keys(action.payload).map(current => {
+        action.payload[current][key] = current;
+      });
+      return {
+        deleted: null,
+        list,
+        previous: [],
+      };
+
+    case CREATE_DOCUMENT_SUCCESS:
       if (state.deleted && state.deleted.key === action.payload.key) {
         list = [ ...state.previous ];
       }
