@@ -1,29 +1,19 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import styles from './LoginForm.css';
 
 const LoginForm = ({ handleSubmit }) => (
-  <div className="login-form">
+  <div className={styles.base}>
     <form method="POST" onSubmit={handleSubmit}>
-      <h1>Login</h1>
+      <h1 className={styles.heading}>Login</h1>
       <div className="row">
-        <div className="four columns">
-          <label htmlFor="username">Username</label>
-        </div>
-        <div className="eight columns">
-          <input name="username" type="username" id="username" className="u-full-width" required />
-        </div>
+        <input name="username" type="username" id="username" placeholder="Username" className={styles.textInput} required />
       </div>
       <div className="row">
-        <div className="four columns">
-          <label htmlFor="password">Password</label>
-        </div>
-        <div className="eight columns">
-          <input name="password" type="password" id="password" className="u-full-width" required />
-        </div>
+        <input name="password" type="password" id="password" placeholder="Password" className={styles.textInput} required />
       </div>
-      <hr />
-      <p>If you forgot your password <Link to="/reset">reset it</Link>.</p>
-      <button className="button button-primary" type="submit">Login</button>
+      <p className={styles.forgot}>If you forgot your password <Link to="/reset">reset it</Link>.</p>
+      <button className={styles.button} type="submit">Login</button>
     </form>
   </div>
 );
