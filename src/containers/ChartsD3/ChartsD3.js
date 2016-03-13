@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { firebase } from 'actions/firebase'
-import { getChartData, updateChartData } from 'actions/charts';
+import { getChartData, updateChartData, getChoroInfo, updateChoroInfo } from 'actions/charts';
+import tooltipData from 'seed/counties';
 import Map from 'components/charts/Map';
 import styles from './ChartsD3.css';
 import { BarChart, LineChart, PieChart } from 'react-d3';
@@ -13,6 +14,7 @@ class ChartsD3 extends Component {
   constructor(props) {
     super(props);
     this._updateData = this._updateData.bind(this);
+    this._updateInfo = this._updateInfo.bind(this);
 
     this._lineBoxContainer = {
       x: 0,
@@ -24,6 +26,7 @@ class ChartsD3 extends Component {
 
   componentDidMount() {
     this.props.dispatch(getChartData());
+    this.props.dispatch(getChoroInfo());
   }
 
   componentWillMount() {
@@ -32,6 +35,12 @@ class ChartsD3 extends Component {
 
   _updateData() {
     this.props.dispatch(updateChartData());
+  }
+
+  _updateInfo(e) {
+    const county = e.target.getAttribute('name');
+    let tool = tooltipData.find(name => name.id === county);
+    this.props.dispatch(updateChoroInfo(tool));
   }
 
   render() {
@@ -217,6 +226,13 @@ class ChartsD3 extends Component {
       <div className={styles.chart}>
         <Grid>
           <Row>
+            <Col xsOffset={2}>
+              <Map {...this.props} updateInfo={this._updateInfo} />
+            </Col>
+          </Row>
+        </Grid>
+        <Grid>
+          <Row>
             <Col xs={6}>
               <LineChart
                 data={this._lineDataPopulation}
@@ -273,6 +289,8 @@ class ChartsD3 extends Component {
 function mapStateToProps(state) {
   return {
     documents: state.documents.list,
+    info: state.chartData.info,
+    totals: state.chartData.choroInfo,
   };
 }
 
