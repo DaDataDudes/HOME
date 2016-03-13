@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 import { firebase } from 'actions/firebase'
 import { getChartData, updateChartData } from 'actions/charts';
 import Map from 'components/charts/Map';
@@ -214,55 +215,57 @@ class ChartsD3 extends Component {
 
     return (
       <div className={styles.chart}>
-        <h1>ChartsD3</h1>
-        <div className="sidebar">
-          <LineChart
-            data={this._lineDataPopulation}
-            width={300}
-            height={300}
-            viewBoxObject={this._lineBoxContainer}
-            title="Overall Population for 2015"
-            yAxisLabel="Total Population"
-            xAxisLabel="Months"
-            gridHorizontal={true}
-          />
-          <LineChart
-            data={this._lineDataMonthlyIncome}
-            width={300}
-            height={300}
-            viewBoxObject={this._lineBoxContainer}
-            title="Average income for 2015"
-            yAxisLabel="Average Income"
-            xAxisLabel="Months"
-            gridHorizontal={true}
-          />
-          <BarChart
-            data={this._barShelterData}
-            width={300}
-            height={300}
-            fill={'#3182bd'}
-            title='Shelter vs Non-Shelter 2015'
-            yAxisLabel='Label'
-            xAxisLabel='Value'
-          />
-          <PieChart
-            data={this._pieDataBenefits}
-            width={400}
-            height={400}
-            radius={150}
-            innerRadius={15}
-            title="Government Benefits"
-          />
-          <PieChart
-            data={this._pieDataFamilies}
-            width={400}
-            height={400}
-            radius={150}
-            innerRadius={15}
-            title="Family Homelessness"
-          />
-        </div>
-        <div className="chart"></div>
+        <Grid>
+          <Row>
+            <LineChart
+              data={this._lineDataPopulation}
+              width={300}
+              height={300}
+              viewBoxObject={this._lineBoxContainer}
+              title="Overall Population for 2015"
+              yAxisLabel="Total Population"
+              xAxisLabel="Months"
+              gridHorizontal={true}
+            />
+            <LineChart
+              data={this._lineDataMonthlyIncome}
+              width={300}
+              height={300}
+              viewBoxObject={this._lineBoxContainer}
+              title="Average income for 2015"
+              yAxisLabel="Average Income"
+              xAxisLabel="Months"
+              gridHorizontal={true}
+            />
+          </Row>
+          <Row>
+            <BarChart
+              data={this._barShelterData}
+              width={300}
+              height={300}
+              fill={'#3182bd'}
+              title='Shelter vs Non-Shelter 2015'
+              yAxisLabel='Label'
+              xAxisLabel='Value'
+            />
+            <PieChart
+              data={this._pieDataBenefits}
+              width={400}
+              height={400}
+              radius={150}
+              innerRadius={15}
+              title="Government Benefits"
+            />
+            <PieChart
+              data={this._pieDataFamilies}
+              width={400}
+              height={400}
+              radius={150}
+              innerRadius={15}
+              title="Family Homelessness"
+            />
+          </Row>
+        </Grid>
       </div>
     );
   }
