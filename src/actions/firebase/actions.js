@@ -11,11 +11,12 @@ import {
   CREATE_COUNTY_SUCCESS,
   GET_DOCUMENT_SUCCESS,
 } from './action-types';
+import choroData from 'seed/counties';
 
 export function createDocument(document) {
   return (dispatch, getState) => {
     const { firebase } = getState();
-
+    // const locationchoroData.find()
     firebase.child(`documents`)
       .push(document, error => {
         if (error) {

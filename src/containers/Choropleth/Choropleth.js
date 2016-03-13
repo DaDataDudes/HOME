@@ -21,6 +21,10 @@ class Choropleth extends Component {
 
   }
 
+  componentWillUpdate() {
+
+  }
+
   _updateInfo(e) {
     const county = e.target.getAttribute('name');
     let tool = tooltipData.find(name => name.id === county);
