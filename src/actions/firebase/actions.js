@@ -16,7 +16,8 @@ import choroData from 'seed/counties';
 export function createDocument(document) {
   return (dispatch, getState) => {
     const { firebase } = getState();
-    // const locationchoroData.find()
+    const locationId = choroData.find(location => location.id === document.location);
+    locationId.total++;
     firebase.child(`documents`)
       .push(document, error => {
         if (error) {
