@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react';
+import styles from './Checkbox.css';
 
-const Checkbox = ({ id, text, className, name, value, checked, onChange}) => (
-  <div>
-    <label
-        htmlFor={name}
-      > {text}
+const Checkbox = ({ id, text, className, name, value, checked, onChange }) => (
+  <div className={styles.base}>
+    <label htmlFor={name} >
+        {text}
       </label>
     <input id={id}
       className={className}
-      type='checkbox'
+      type="checkbox"
       name={name}
       value={value}
       checked={checked}
@@ -18,7 +18,7 @@ const Checkbox = ({ id, text, className, name, value, checked, onChange}) => (
 );
 
 Checkbox.defaultProps = {
-  checked: ''
+  checked: '',
 };
 
 Checkbox.propTypes = {
@@ -27,7 +27,7 @@ Checkbox.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
-  name: PropTypes.string
+  name: PropTypes.string,
 };
 
 export default Checkbox;
