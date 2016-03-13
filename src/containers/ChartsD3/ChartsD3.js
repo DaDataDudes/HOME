@@ -35,6 +35,12 @@ class ChartsD3 extends Component {
 
   render() {
     const { documents } = this.props;
+    var pieData = [
+      {label: 'Margarita', value: 20.0},
+      {label: 'John', value: 55.0},
+      {label: 'Tim', value: 25.0 }
+    ];
+
     if (documents.length) {
      let yearSnapshot = documents.reduce((previous,current) =>{
       if(!current.dateCreated){
@@ -133,6 +139,79 @@ class ChartsD3 extends Component {
     }else{
       return null;
     }
+
+    //Aggregate analytics for monthly income
+    if (documents.length) {
+      let benefitAlias = {
+        benefitEbt: 'EBT',
+        benefitSsi: '(SSI)',
+        benefitTanf: '(TANF)',
+        benefitUnemployment: 'Unemployment',
+        benefitVeteran: 'Veteran',
+        benefitWelfare: 'Welfare'
+      };
+      let benefitTracker = {
+        benefitEbt: 0,
+        benefitSsi: 0,
+        benefitTanf: 0,
+        benefitUnemployment: 0,
+        benefitVeteran: 0,
+        benefitWelfare: 0
+      };
+
+      documents.forEach((doc) =>{
+        (doc.benefitEbt == 'yes') ? benefitTracker.benefitEbt++ : '';
+        (doc.benefitSsi == 'yes') ? benefitTracker.benefitSsi++ : '';
+        (doc.benefitTanf == 'yes') ? benefitTracker.benefitTanf++ : '';
+        (doc.benefitUnemployment == 'yes') ? benefitTracker.benefitUnemployment++ : '';
+        (doc.benefitVeteran == 'yes') ? benefitTracker.benefitVeteran++ : '';
+        (doc.benefitWelfare == 'yes') ? benefitTracker.benefitWelfare++ : '';
+      });
+      let benefitKeys = Object.keys(benefitTracker);
+
+      let allValueCount = benefitKeys.reduce((previous, current) =>{
+         return previous + benefitTracker[current]
+      },0);
+
+      this._pieDataBenefits = benefitKeys.map((key) => {
+        return {label: benefitAlias[key],  value: (Number(benefitTracker[key] / allValueCount * 100).toFixed(2))}
+      });
+    }else{
+      return null;
+    }
+
+    //Aggregate analytics for families
+    if (documents.length) {
+      let familyAlias = {
+        familyMembersAdult: 'Adult',
+        familyMembersChildren: 'Children',
+      };
+
+      let familyTracker = {
+        familyMembersAdult: 0,
+        familyMembersChildren: 0,
+      };
+
+      documents.forEach((doc) =>{
+        if(!doc.familyMembersAdult) return;
+        if(!doc.familyMembersChildren) return;
+        familyTracker.familyMembersChildren += doc.familyMembersChildren;
+        familyTracker.familyMembersAdult += doc.familyMembersAdult
+      });
+
+      let familyKeys = Object.keys(familyTracker);
+
+      let allValueCount = familyKeys.reduce((previous, current) =>{
+         return previous + familyTracker[current]
+      },0);
+
+      this._pieDataFamilies = familyKeys.map((key) => {
+        return {label: familyAlias[key],  value: (Number(familyTracker[key] / allValueCount * 100).toFixed(2))}
+      });
+    }else{
+      return null;
+    }
+
     return (
       <div className={styles.chart}>
         <h1>ChartsD3</h1>
@@ -165,6 +244,22 @@ class ChartsD3 extends Component {
             title='Shelter vs Non-Shelter 2015'
             yAxisLabel='Label'
             xAxisLabel='Value'
+          />
+          <PieChart
+            data={this._pieDataBenefits}
+            width={400}
+            height={400}
+            radius={150}
+            innerRadius={15}
+            title="Government Benefits"
+          />
+          <PieChart
+            data={this._pieDataFamilies}
+            width={400}
+            height={400}
+            radius={150}
+            innerRadius={15}
+            title="Family Homelessness"
           />
         </div>
         <div className="chart"></div>
