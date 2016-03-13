@@ -405,7 +405,10 @@ class FormPage extends Component {
 
     return (
       <form className={styles.form} ref='homelessForm' onSubmit={this._onSubmit}>
-        <h1 className={styles.heading}>HOME</h1>
+        <h1 className={styles.heading}>
+          H.O.M.E.
+          <small>Homeless Observation & Mapping Engine</small>
+        </h1>
         <Grid className={styles.base}>
           <Row>
             <Col xs={6} className={styles.inputSpacing}>

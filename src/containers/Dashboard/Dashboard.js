@@ -24,7 +24,7 @@ class Dashboard extends Component {
 
     return (
       <div className={styles.chart}>
-        <Header branding="HOME" username={username} />
+        <Header branding="H.O.M.E." username={username} />
         <Sidebar />
         <div className={styles.main}>
           {children}
