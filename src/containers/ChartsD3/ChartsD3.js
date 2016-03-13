@@ -217,53 +217,53 @@ class ChartsD3 extends Component {
       <div className={styles.chart}>
         <Grid>
           <Row>
-            <LineChart
-              data={this._lineDataPopulation}
-              width={300}
-              height={300}
-              viewBoxObject={this._lineBoxContainer}
-              title="Overall Population for 2015"
-              yAxisLabel="Total Population"
-              xAxisLabel="Months"
-              gridHorizontal={true}
-            />
-            <LineChart
-              data={this._lineDataMonthlyIncome}
-              width={300}
-              height={300}
-              viewBoxObject={this._lineBoxContainer}
-              title="Average income for 2015"
-              yAxisLabel="Average Income"
-              xAxisLabel="Months"
-              gridHorizontal={true}
-            />
+            <Col xs={6}>
+              <LineChart
+                data={this._lineDataPopulation}
+                width={450}
+                height={400}
+                viewBoxObject={this._lineBoxContainer}
+                title="Overall Population for 2015"
+                yAxisLabel="Total Population"
+                xAxisLabel="Months"
+                gridHorizontal={true}
+              />
+            </Col>
+            <Col xs={6}>
+              <LineChart
+                data={this._lineDataMonthlyIncome}
+                width={450}
+                height={400}
+                viewBoxObject={this._lineBoxContainer}
+                title="Average income for 2015"
+                yAxisLabel="Average Income"
+                xAxisLabel="Months"
+                gridHorizontal={true}
+              />
+            </Col>
           </Row>
           <Row>
-            <BarChart
-              data={this._barShelterData}
-              width={300}
-              height={300}
-              fill={'#3182bd'}
-              title='Shelter vs Non-Shelter 2015'
-              yAxisLabel='Label'
-              xAxisLabel='Value'
-            />
-            <PieChart
-              data={this._pieDataBenefits}
-              width={400}
-              height={400}
-              radius={150}
-              innerRadius={15}
-              title="Government Benefits"
-            />
-            <PieChart
-              data={this._pieDataFamilies}
-              width={400}
-              height={400}
-              radius={150}
-              innerRadius={15}
-              title="Family Homelessness"
-            />
+            <Col xs={6}>
+              <BarChart
+                data={this._barShelterData}
+                width={450}
+                height={400}
+                fill={'#3182bd'}
+                title='Shelter vs Non-Shelter 2015'
+                yAxisLabel='Label'
+                xAxisLabel='Value'
+              />
+            </Col>
+            <Col xs={6}>
+              <PieChart
+                data={this._pieDataBenefits}
+                width={400}
+                height={400}
+                radius={150}
+                innerRadius={15}
+                title="Government Benefits"
+              />
+            </Col>
           </Row>
         </Grid>
       </div>
