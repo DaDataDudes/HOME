@@ -4,6 +4,7 @@
   width: 300px;
   height: calc(100vh - 60px);
   border-right: 1px solid liteGray;
+  float: left;
 }
 
 .item {

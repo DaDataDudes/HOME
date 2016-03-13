@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import { getChartData, updateChartData } from 'actions/charts';
 import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
@@ -27,8 +26,9 @@ class Dashboard extends Component {
       <div className={styles.chart}>
         <Header branding="HOME" username={username} />
         <Sidebar />
-        {children}
-        <div className="chart"></div>
+        <div className={styles.main}>
+          {children}
+        </div>
       </div>
     );
   }
