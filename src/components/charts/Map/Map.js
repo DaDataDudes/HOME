@@ -45,7 +45,6 @@ function fillColor(total) {
     if (color > 9000){
       return 'rgb(8,48,107)';
     }
-      return '#000';
     if (color > 8000){
       return 'rgb(8,81,156)';
     }
