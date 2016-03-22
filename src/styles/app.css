@@ -1,7 +1,6 @@
 @value primary, secondary, lite, liteDark, white from "styles/utils/variables.css";
 
 :global {
-  @import 'sanitize.css/sanitize.css';
 
   * {
     margin: 0;
@@ -71,4 +70,5 @@
     }
   }
 
+  @import 'normalize.css';
 }
