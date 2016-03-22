@@ -1,0 +1,23 @@
+@value liteDark from "styles/utils/variables.css";
+
+input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+  color: liteDark;
+  box-shadow: 0 2px 3px 1px rgba(#000, 0.3);
+}
+
+input[type="checkbox"] {
+  width: auto;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+  color: liteDark;
+  box-shadow: 0 2px 3px 1px rgba(#000, 0.3);
+}
