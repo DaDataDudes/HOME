@@ -1,0 +1,10 @@
+:global {
+  /* Vendors */
+  @import 'normalize.css/normalize.css';
+
+  /* Global styles */
+  @import 'styles/global/_base.css';
+  @import 'styles/global/_button.css';
+  @import 'styles/global/_input.css';
+  @import 'styles/global/_griddle.css';
+}

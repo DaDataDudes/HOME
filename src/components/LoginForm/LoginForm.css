@@ -1,4 +1,4 @@
-@value primary, secondary, lite, liteDark, white from "variables.css";
+@value primary, secondary, lite, liteDark, white from "styles/utils/colors.css";
 
 .base {
   position: absolute 50% auto auto 50%;
