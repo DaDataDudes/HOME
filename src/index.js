@@ -9,7 +9,7 @@ import routes from 'routes';
 import configureStore from 'store';
 import { FIREBASE_URL } from 'config';
 import 'normalize.css';
-import 'app.css';
+import 'styles/app.css';
 
 const store = configureStore({
   firebase: new Firebase(FIREBASE_URL),

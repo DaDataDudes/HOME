@@ -1,4 +1,4 @@
-@value primary, liteGray, liteDark from "variables.css";
+@value primary, liteGray, liteDark from "styles/utils/variables.css";
 
 .base {
   width: 300px;
