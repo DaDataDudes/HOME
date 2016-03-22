@@ -6,7 +6,6 @@ import { firebase } from 'actions/firebase'
 import { getChartData, updateChartData, getChoroInfo, updateChoroInfo } from 'actions/charts';
 import tooltipData from 'seed/counties';
 import Map from 'components/charts/Map';
-import styles from './ChartsD3.css';
 import { BarChart, LineChart, PieChart } from 'react-d3';
 
 
@@ -223,7 +222,7 @@ class ChartsD3 extends Component {
     }
 
     return (
-      <div className={styles.chart}>
+      <div>
         <Grid>
           <Row>
             <Col xsOffset={2}>
