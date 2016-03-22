@@ -1,4 +1,4 @@
-@value lite, liteDark, white from "styles/utils/variables.css";
+@value lite, liteDark, white from "styles/utils/colors.css";
 
 .base {
   background: liteDark;

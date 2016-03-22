@@ -1,4 +1,4 @@
-@value primary, liteDark from "styles/utils/variables.css";
+@value primary, liteDark from "styles/utils/colors.css";
 
 .form {
   border-top: 4px solid primary;

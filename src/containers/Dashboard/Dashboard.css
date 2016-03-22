@@ -1,4 +1,4 @@
-@value primary from "styles/utils/variables.css";
+@value primary from "styles/utils/colors.css";
 
 .main {
   border-top: 4px solid primary;

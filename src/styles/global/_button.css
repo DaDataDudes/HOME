@@ -1,4 +1,4 @@
-@value primary, white from "styles/utils/variables.css";
+@value primary, white from "styles/utils/colors.css";
 
 button {
   width: 100%;
