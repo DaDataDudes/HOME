@@ -1,7 +1,7 @@
 {
-  "name": "yars",
-  "version": "0.0.1",
-  "description": "Yet Another React Starter",
+  "name": "HOME",
+  "version": "0.1.0",
+  "description": "Homeless Observation & Mapping Engine",
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "webpack-dev-server --config webpack.config.development.js",
