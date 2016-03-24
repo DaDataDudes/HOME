@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { firebase } from 'actions/firebase';
 import { getChartData, updateChartData, getChoroInfo, updateChoroInfo } from 'actions/charts';
-import tooltipData from 'seed/counties';
-import Map from 'components/charts/Map';
 import { BarChart, LineChart, PieChart } from 'react-d3';
+import Map from 'components/charts/Map';
 
 
 class ChartsD3 extends Component {
@@ -37,8 +36,7 @@ class ChartsD3 extends Component {
 
   _updateInfo(e) {
     const county = e.target.getAttribute('name');
-    const tool = tooltipData.find(name => name.id === county);
-    this.props.dispatch(updateChoroInfo(tool));
+    this.props.dispatch(updateChoroInfo(county));
   }
 
   render() {
