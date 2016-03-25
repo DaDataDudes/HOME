@@ -108,11 +108,6 @@ export function registerListeners() {
       payload: _recordFromSnapShot(snapshot),
     }));
 
-    ref.on('child_added', snapshot => dispatch({
-      type: CREATE_DOCUMENT_SUCCESS,
-      payload: _recordFromSnapShot(snapshot),
-    }));
-
     ref.on('child_changed', snapshot => dispatch({
       type: UPDATE_DOCUMENT_SUCCESS,
       payload: _recordFromSnapShot(snapshot),
@@ -139,7 +134,7 @@ export function registerListenersCounties() {
   };
 }
 
-function _recordFromSnapShot(snapshot) {
+function _recordFromSnapShot(snapshot, ref) {
   let record = snapshot.val();
   record.key = snapshot.key();
   return record;

@@ -14,14 +14,11 @@ export const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
 
-    case CREATE_DOCUMENT_SUCCESS:
-      let list;
-      if (state.deleted && state.deleted.key === action.payload.key) {
-        list = [ ...state.previous ];
-      }
-      else {
-        list = [ action.payload, ...state.list ];
-      }
+    case GET_DOCUMENT_SUCCESS:
+      let list = Object.keys(action.payload)
+        .map((key) => { return action.payload[key]; })
+        .filter((value) => { return typeof value == 'object';})
+
       return {
         deleted: null,
         list,

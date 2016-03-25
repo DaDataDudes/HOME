@@ -9,6 +9,10 @@ class HumanList extends Component {
     super(props);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.documents.length !== this.props.documents.length;
+  }
+
   componentWillMount() {
     this.props.dispatch(firebase.registerListeners());
   }
