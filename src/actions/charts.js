@@ -1,10 +1,12 @@
+import choroInfo from 'seed/counties';
+
 export const GET_DATA_SUCCESS = 'GET_DATA';
 export const UPDATE_DATA_SUCCESS = 'UPDATE_DATA_SUCCESS';
 export const GET_CHOROINFO_SUCCESS = 'GET_CHOROINFO_SUCCESS';
 export const UPDATE_CHOROINFO_SUCCESS = 'UPDATE_CHOROINFO_SUCCESS';
-import choroInfo from 'seed/counties';
 
-export function updateChoroInfo(info) {
+export function updateChoroInfo(county) {
+  const info = choroInfo.find(name => name.id === county);
   return {
     type: UPDATE_CHOROINFO_SUCCESS,
     info,
@@ -34,4 +36,3 @@ export function updateChartData() {
     data: newData,
   };
 }
-
