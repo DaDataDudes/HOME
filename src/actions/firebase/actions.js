@@ -34,36 +34,27 @@ export function updateDocument(document, changes) {
 export function updateCounty(county, changes) {
   return (dispatch, getState) => {
     const { base } = getState();
-    base.post(`counties/${county.key}`{
+    base.post(`counties/${county.key}`, {
       data: county
     });
   };
 }
 
-export function registerListeners() {
+export function syncData(data) {
   return (dispatch, getState) => {
-    const { base }  = getState();
-    base.syncState(`documents`, {
-      context: this,
-      state: 'documents',
-      asArray: true
+    dispatch({
+      type: GET_DOCUMENT_SUCCESS,
+      payload: data
     });
   };
 }
 
-export function registerListenersCounties() {
+export function registerListenersCounties(context) {
   return (dispatch, getState) => {
     const { base }  = getState();
-    base.syncState(`counties`, {
-      context: this,
-      state: 'counties',
-      asArray: true
+    dispatch({
+      type: GET_DOCUMENT_SUCCESS,
+      payload: { base, context }
     });
   };
-}
-
-function _recordFromSnapShot(snapshot, ref) {
-  let record = snapshot.val();
-  record.key = snapshot.key();
-  return record;
 }
