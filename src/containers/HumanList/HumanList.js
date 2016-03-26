@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import Rebase from 're-base';
+import base from 'rebase';
 import { connect } from 'react-redux';
 import Griddle from 'griddle-react';
 import styles from './HumanList.css';
 import { firebase } from 'actions/firebase';
-import { FIREBASE_URL } from 'config';
-const base = Rebase.createClass(FIREBASE_URL);
+
 
 class HumanList extends Component {
   constructor(props) {
@@ -17,7 +16,7 @@ class HumanList extends Component {
   }
 
   componentWillMount() {
-    base.listenTo(`documents`, {
+    this.ref = base.listenTo(`documents`, {
       context: this,
       state: 'documents',
       asArray: true,
@@ -25,6 +24,10 @@ class HumanList extends Component {
         this.props.dispatch(firebase.syncData(data));
       }
     });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
 
   render() {

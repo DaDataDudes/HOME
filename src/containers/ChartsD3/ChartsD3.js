@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { firebase } from 'actions/firebase'
+import { firebase } from 'actions/firebase';
+import base from 'rebase';
 import { getChartData, updateChartData, getChoroInfo, updateChoroInfo } from 'actions/charts';
 import tooltipData from 'seed/counties';
 import Map from 'components/charts/Map';
@@ -29,7 +30,18 @@ class ChartsD3 extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(firebase.registerListeners());
+    this.ref = base.listenTo(`documents`, {
+      context: this,
+      state: 'documents',
+      asArray: true,
+      then(data){
+        this.props.dispatch(firebase.syncData(data));
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
 
   _updateData() {
@@ -133,8 +145,6 @@ class ChartsD3 extends Component {
       let values2 = months.map((month) => {
           return {x:Number(month), y:yearSnapshot2[month]};
       });
-      console.log('values',values2);
-      console.log('values',values);
       this._barShelterData = [
         {
           name:'series1',
