@@ -7,10 +7,10 @@ const Dropdown = ({
   items,
   text,
   className,
-  placeholder,
   value,
   onChange,
-  onKeyDown
+  onKeyDown,
+  ...props,
 }) => (
   <div className={styles.base}>
     <label
@@ -22,16 +22,17 @@ const Dropdown = ({
       value={value}
       onChange={onChange}
       onKeyDown={onKeyDown}
+      {...props}
     >
-      {items.map(item => {
-        return <option value={item.value}>{item.text}</option>;
-      })}
+      {items.map((item, i) =>
+        <option key={i} value={item.value}>{item.text}</option>
+      )}
     </select>
   </div>
 );
 
 Dropdown.defaultProps = {
-  items: []
+  items: [],
 };
 
 Dropdown.propTypes = {
@@ -39,9 +40,9 @@ Dropdown.propTypes = {
   name: PropTypes.string,
   items: PropTypes.array,
   className: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.any,
   onChange: PropTypes.func,
-  onKeyDown: PropTypes.func
+  onKeyDown: PropTypes.func,
 };
 
 export default Dropdown;
