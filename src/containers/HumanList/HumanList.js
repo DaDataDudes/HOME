@@ -18,8 +18,8 @@ class HumanList extends Component {
     return (
       <div className={styles.griddle}>
         <Griddle results={documents} tableClassName="table" showFilter={true} showSettings={true}
-                 resultsPerPage={20} enableInfiniteScroll={true} bodyHeight={550} useFixedHeader={true}
-                 columns={["age", "ethnicity", "employmentCurPay", "veteran","educationLevel"]}/>
+                 resultsPerPage={20} enableInfiniteScroll={false} bodyHeight={550} useFixedHeader={true}
+                 columns={["age", "shelterStatus", "ethnicity", "veteran","educationLevel"]} />
       </div>
     );
   }
