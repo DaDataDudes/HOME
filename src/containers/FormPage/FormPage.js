@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import styles from './FormPage.css';
 import { firebase } from 'actions/firebase';
 import base from 'rebase';
@@ -20,36 +19,34 @@ class FormPage extends Component {
     this._onBlur = this._onBlur.bind(this);
     this._formState = {
       key: null,
-      firstName : '',
-      lastName : '',
-      locations: locations.map(location => {
-        return {
-          ...location,
-          value: location.id,
-          text: location.location,
-        };
-      }),
+      firstName: '',
+      lastName: '',
+      locations: locations.map(location => ({
+        ...location,
+        value: location.id,
+        text: location.location,
+      })),
       location: 'Anahola',
-      age : null,
-      gender : '',
-      ethnicity : '',
-      social : '',
-      shelterStatus : '',
-      shelterName:'',
-      familyMembersTotal : null,
-      familyMembersAdult : [],
-      familyMembersChildren : [],
-      homelessDate : '',
-      employmentStatus : false,
-      employmentCurPay : null,
-      employmentLastEmployed : '',
-      benefitVeteran : false,
-      benefitWelfare : false,
-      benefitEbt : false,
-      benefitUnemployment : false,
-      benefitTanf : false,
-      benefitSsi : false,
-      veteran : '',
+      age: null,
+      gender: '',
+      ethnicity: '',
+      social: '',
+      shelterStatus: '',
+      shelterName: '',
+      familyMembersTotal: null,
+      familyMembersAdult: '',
+      familyMembersChildren: '',
+      homelessDate: '',
+      employmentStatus: false,
+      employmentCurPay: null,
+      employmentLastEmployed: '',
+      benefitVeteran: false,
+      benefitWelfare: false,
+      benefitEbt: false,
+      benefitUnemployment: false,
+      benefitTanf: false,
+      benefitSsi: false,
+      veteran: '',
       educationLevel: '',
       homelessCount: '',
       onTheStreets: '',
@@ -57,7 +54,7 @@ class FormPage extends Component {
       alcoholDrugProblem: '',
       otherDisability: '',
       checkInRecord: [],
-      geoLocation : '',
+      geoLocation: '',
       questions: {
         familyMembersAdult: 'How many ADULTS are in your household?',
         familyMembersChildren: 'How many CHILDREN UNDER 18?',
@@ -69,212 +66,212 @@ class FormPage extends Component {
         mentalHealthDisability: 'Do you have a mental health disability that limits your ability to work or perform activities of daily living?',
         alcoholDrugProblem: 'Do you have an alcohol or drug problem that limits your ability to work or perform activities of daily living?',
         governmentBenefits: 'Select all Benefits that you are currently receiving:',
-        otherDisability: 'Do you have a physical, developmental, or other disability that limits your ability to work or perform activities of daily living?'
+        otherDisability: 'Do you have a physical, developmental, or other disability that limits your ability to work or perform activities of daily living?',
       },
       genderOptions: [
         {
           value: '',
-          text: '--'
+          text: '--',
         },
         {
           value: 'male',
-          text:'Male'
+          text: 'Male',
         },
         {
           value: 'female',
-          text:'Female'
+          text: 'Female',
         },
         {
           value: 'transgenderMaleToFemale',
-          text:'Transgender: Male to Female'
+          text: 'Transgender: Male to Female',
         },
         {
           value: 'transgenderFemaleToMale',
-          text:'Transgender: Female to Male'
+          text: 'Transgender: Female to Male',
         },
         {
           value: 'unknown',
-          text:'Unknown'
+          text: 'Unknown',
         },
         {
           value: 'refused',
-          text:'Refused'
-        }
+          text: 'Refused',
+        },
       ],
       ethnicities: [
         {
           value: '',
-          text: '--'
+          text: '--',
         },
         {
           value: 'hawaiian',
-          text: 'Hawaiian'
+          text: 'Hawaiian',
         },
         {
           value: 'white',
-          text: 'White'
+          text: 'White',
         },
         {
           value: 'black',
-          text: 'Black/African-American'
+          text: 'Black/African-American',
         },
         {
           value: 'asian',
-          text: 'Asian'
+          text: 'Asian',
         },
         {
           value: 'americanIndian',
-          text: 'American Indian/Alaska Native'
+          text: 'American Indian/Alaska Native',
         },
         {
           value: 'nativeHawaiian',
-          text: 'Native Hawaiian'
+          text: 'Native Hawaiian',
         },
         {
           value: 'other',
-          text: 'Other Pacific Islander'
+          text: 'Other Pacific Islander',
         },
         {
           value: 'multiple',
-          text: 'Multiple Races'
+          text: 'Multiple Races',
         },
         {
           value: 'unknown',
-          text: 'Unknown'
-        }
+          text: 'Unknown',
+        },
       ],
       yesNoOptions: [
         {
           value: '',
-          text: '--'
+          text: '--',
         },
         {
-          value:'yes',
-          text: 'Yes'
+          value: 'yes',
+          text: 'Yes',
         },
         {
-          value:'no',
-          text: 'No'
-          }
+          value: 'no',
+          text: 'No',
+        },
       ],
       numberOptions: [
         {
           value: '',
-          text: '--'
+          text: '--',
         },
         {
-          value:'oneToTwo',
-          text: '1 - 2'
+          value: 'oneToTwo',
+          text: '1 - 2',
         },
         {
-          value:'threeToFour',
-          text: '3 - 4'
+          value: 'threeToFour',
+          text: '3 - 4',
         },
         {
-          value:'fiveToSix',
-          text: '5 - 6'
+          value: 'fiveToSix',
+          text: '5 - 6',
         },
         {
-          value:'max',
-          text: '7+'
-        }
+          value: 'max',
+          text: '7+',
+        },
       ],
       generalOptions: [
         {
           value: '',
-          text: '--'
+          text: '--',
         },
         {
-          value:'yes',
-          text: 'Yes'
+          value: 'yes',
+          text: 'Yes',
         },
         {
-          value:'no',
-          text: 'No'
+          value: 'no',
+          text: 'No',
         },
         {
-          value:'unknown',
-          text: 'Unknown'
+          value: 'unknown',
+          text: 'Unknown',
         },
         {
-          value:'refused',
-          text: 'Refused'
-        }
+          value: 'refused',
+          text: 'Refused',
+        },
       ],
       educationOptions: [
         {
           value: '',
-          text: '--'
+          text: '--',
         },
         {
-          value:'ged',
-          text: 'GED'
+          value: 'ged',
+          text: 'GED',
         },
         {
-          value:'highSchool',
-          text: 'High School'
+          value: 'highSchool',
+          text: 'High School',
         },
         {
-          value:'someCollege',
-          text: 'Some College'
+          value: 'someCollege',
+          text: 'Some College',
         },
         {
-          value:'associate',
-          text: 'Associate'
+          value: 'associate',
+          text: 'Associate',
         },
         {
-          value:'bachelors',
-          text: 'Bachelors'
+          value: 'bachelors',
+          text: 'Bachelors',
         },
         {
-          value:'masters',
-          text: 'Masters'
-        }
+          value: 'masters',
+          text: 'Masters',
+        },
       ],
       homelessDateOptions: [
         {
           value: '',
-          text: '--'
+          text: '--',
         },
         {
-          value:'lessThanYear',
-          text: 'Less than 1 year'
+          value: 'lessThanYear',
+          text: 'Less than 1 year',
         },
         {
-          value:'oneYearOrLonger',
-          text: '1 year or longer'
+          value: 'oneYearOrLonger',
+          text: '1 year or longer',
         },
         {
-          value:'unknown',
-          text: 'Unknown'
+          value: 'unknown',
+          text: 'Unknown',
         },
         {
-          value:'refused',
-          text: 'Refused'
-        }
+          value: 'refused',
+          text: 'Refused',
+        },
       ],
       homelessCountOptions: [
         {
           value: '',
-          text: '--'
+          text: '--',
         },
         {
-          value:'oneToThreeTimes',
-          text: '1-3 times'
+          value: 'oneToThreeTimes',
+          text: '1-3 times',
         },
         {
-          value:'fourOrMoreTimes',
-          text: '4 or more times'
+          value: 'fourOrMoreTimes',
+          text: '4 or more times',
         },
         {
-          value:'unknown',
-          text: 'Unknown'
+          value: 'unknown',
+          text: 'Unknown',
         },
         {
-          value:'refused',
-          text: 'Refused'
-        }
-      ]
+          value: 'refused',
+          text: 'Refused',
+        },
+      ],
     };
     this.state = this._formState;
   }
@@ -284,9 +281,9 @@ class FormPage extends Component {
       context: this,
       state: 'documents',
       asArray: true,
-      then(data){
+      then(data) {
         this.props.dispatch(firebase.syncData(data));
-      }
+      },
     });
   }
 
@@ -301,12 +298,12 @@ class FormPage extends Component {
 
   _onCheckboxChange(event) {
     var nameAttr = event.target.getAttribute('name');
-    console.log('event.target.value',event.target.value);
-    this.setState({ [nameAttr]: (event.target.value === 'false')});
+    // console.log('event.target.value',event.target.value);
+    this.setState({ [nameAttr]: (event.target.value === 'false') });
   }
 
-  _onBlur(event) {
-    var oldState = this.props.documents.find(current => current.social == this.state.social);
+  _onBlur() {
+    var oldState = this.props.documents.find(current => current.social === this.state.social);
 
     const today = new Date();
     const month = today.getMonth();
@@ -314,13 +311,13 @@ class FormPage extends Component {
     const firstRecord = {
       month,
       year,
-      checkInCount: 1
+      checkInCount: 1,
     };
 
     let checkInRecord;
 
     if (oldState) {
-      let existingRecord = oldState.checkInRecord ?
+      const existingRecord = oldState.checkInRecord ?
         oldState.checkInRecord.slice() :
         [];
 
@@ -333,21 +330,20 @@ class FormPage extends Component {
       } else {
         checkInRecord = [
           ...existingRecord,
-          firstRecord
+          firstRecord,
         ];
       }
 
       this.setState({
         ...oldState,
-        checkInRecord
+        checkInRecord,
       });
-
     } else {
       this.setState({
         ...this.state,
         checkInRecord: [
-          firstRecord
-        ]
+          firstRecord,
+        ],
       });
     }
   }
@@ -356,7 +352,6 @@ class FormPage extends Component {
     const item = event.target.value.trim();
 
     if (event.which === 13 && item) {
-      this.props.dispatch(addItem(item));
       this.setState({ inputValue: '' });
     }
   }
@@ -396,27 +391,26 @@ class FormPage extends Component {
       onTheStreets: event.target.onTheStreets.value,
       mentalHealthDisability: event.target.mentalHealthDisability.value,
       alcoholDrugProblem: event.target.alcoholDrugProblem.value,
-      otherDisability: event.target.otherDisability.value
+      otherDisability: event.target.otherDisability.value,
     });
 
     if (this.state.key) {
       this.props.dispatch(firebase.updateDocument({
-        key: this.state.key
+        key: this.state.key,
       }, this.state));
     } else {
       this.props.dispatch(firebase.createDocument(this.state));
     }
     this.setState(this._formState);
-
   }
 
   render() {
     const {
-      questions
+      questions,
     } = this.state;
 
     return (
-      <form className={styles.form} ref='homelessForm' onSubmit={this._onSubmit}>
+      <form className={styles.form} ref="homelessForm" onSubmit={this._onSubmit}>
         <h1 className={styles.heading}>
           H.O.M.E.
           <small>Homeless Observation & Mapping Engine</small>
@@ -435,7 +429,7 @@ class FormPage extends Component {
               />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
-             <Input
+              <Input
                 className={styles.input}
                 text="First Name"
                 name="firstName"
@@ -477,7 +471,7 @@ class FormPage extends Component {
                 name="gender"
                 text="Gender"
                 className={styles.dropDown}
-                />
+              />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
               <Dropdown
@@ -486,7 +480,8 @@ class FormPage extends Component {
                 name="ethnicity"
                 items={this.state.ethnicities}
                 value={this.state.ethnicity}
-                onChange={this._onInputChange} />
+                onChange={this._onInputChange}
+              />
             </Col>
           </Row>
           <Row>
@@ -551,7 +546,8 @@ class FormPage extends Component {
                 name="veteran"
                 value={this.state.veteran}
                 items={this.state.generalOptions}
-                onChange={this._onInputChange} />
+                onChange={this._onInputChange}
+              />
             </Col>
           </Row>
           <Row>
@@ -562,7 +558,8 @@ class FormPage extends Component {
                 name="educationLevel"
                 items={this.state.educationOptions}
                 value={this.state.educationLevel}
-                onChange={this._onInputChange} />
+                onChange={this._onInputChange}
+              />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
             <p>{questions.governmentBenefits}</p>
@@ -574,68 +571,68 @@ class FormPage extends Component {
                   className={styles.input}
                   onChange={this._onCheckboxChange}
                   value={this.state.benefitVeteran}
-                  checked={(this.state.benefitVeteran) ? 'checked' : ''}
+                  checked={this.state.benefitVeteran ? 'chcecked' : false}
                   name="benefitVeteran"
                 />
               </Col>
               <Col xs={6} className={styles.inputSpacing}>
-                 <Checkbox
+                <Checkbox
                   id="benefitUnemployment"
                   text="Unemployement"
                   className={styles.input}
                   onChange={this._onCheckboxChange}
                   value={this.state.benefitUnemployment}
-                  checked={(this.state.benefitUnemployment) ? 'checked' : ''}
+                  checked={this.state.benefitUnemployment ? 'chcecked' : false}
                   name="benefitUnemployment"
                 />
               </Col>
             </Row>
             <Row>
               <Col xs={6} className={styles.inputSpacing}>
-               <Checkbox
-                id="benefitWelfare"
-                text="Welfare"
-                className={styles.input}
-                onChange={this._onCheckboxChange}
-                value={this.state.benefitWelfare}
-                checked={(this.state.benefitWelfare) ? 'checked' : ''}
-                name="benefitWelfare"
-              />
+                <Checkbox
+                  id="benefitWelfare"
+                  text="Welfare"
+                  className={styles.input}
+                  onChange={this._onCheckboxChange}
+                  value={this.state.benefitWelfare}
+                  checked={this.state.benefitWelfare ? 'chcecked' : false}
+                  name="benefitWelfare"
+                />
               </Col>
               <Col xs={6} className={styles.inputSpacing}>
-               <Checkbox
-                id="benefitEbt"
-                text="EBT"
-                className={styles.input}
-                onChange={this._onCheckboxChange}
-                value={this.state.benefitEbt}
-                checked={(this.state.benefitEbt) ? 'checked' : ''}
-                name="benefitEbt"
-              />
+                <Checkbox
+                  id="benefitEbt"
+                  text="EBT"
+                  className={styles.input}
+                  onChange={this._onCheckboxChange}
+                  value={this.state.benefitEbt}
+                  checked={this.state.benefitEbt ? 'chcecked' : false}
+                  name="benefitEbt"
+                />
               </Col>
             </Row>
             <Row>
               <Col xs={6} className={styles.inputSpacing}>
-               <Checkbox
-                id="benefitTanf"
-                text="TANF"
-                className={styles.input}
-                onChange={this._onCheckboxChange}
-                value={this.state.benefitTanf}
-                checked={(this.state.benefitTanf) ? 'checked' : ''}
-                name="benefitTanf"
-              />
+                <Checkbox
+                  id="benefitTanf"
+                  text="TANF"
+                  className={styles.input}
+                  onChange={this._onCheckboxChange}
+                  value={this.state.benefitTanf}
+                  checked={this.state.benefitTanf ? 'chcecked' : false}
+                  name="benefitTanf"
+                />
               </Col>
               <Col xs={6} className={styles.inputSpacing}>
-               <Checkbox
-                id="benefitSsi"
-                text="SSI"
-                className={styles.input}
-                onChange={this._onCheckboxChange}
-                value={this.state.benefitSsi}
-                checked={(this.state.benefitSsi) ? 'checked' : ''}
-                name="benefitSsi"
-              />
+                <Checkbox
+                  id="benefitSsi"
+                  text="SSI"
+                  className={styles.input}
+                  onChange={this._onCheckboxChange}
+                  value={this.state.benefitSsi}
+                  checked={this.state.benefitSsi ? 'chcecked' : false}
+                  name="benefitSsi"
+                />
               </Col>
             </Row>
             </Col>
@@ -648,7 +645,8 @@ class FormPage extends Component {
                 name="familyMembersAdult"
                 items={this.state.numberOptions}
                 value={this.state.familyMembersAdult}
-                onChange={this._onInputChange} />
+                onChange={this._onInputChange}
+              />
             </Col>
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.familyMembersChildren}</p>
@@ -657,7 +655,8 @@ class FormPage extends Component {
                 name="familyMembersChildren"
                 items={this.state.numberOptions}
                 value={this.state.familyMembersChildren}
-                onChange={this._onInputChange} />
+                onChange={this._onInputChange}
+              />
             </Col>
           </Row>
           <Row>
@@ -673,10 +672,10 @@ class FormPage extends Component {
             <Col xs={6} className={styles.inputSpacing}>
               <p className={styles.input}>{questions.homelessCount}</p>
               <Dropdown
-              onChange={this._onInputChange}
-              items={this.state.homelessCountOptions}
-              name="homelessCount"
-              value={this.state.homelessCount}
+                onChange={this._onInputChange}
+                items={this.state.homelessCountOptions}
+                name="homelessCount"
+                value={this.state.homelessCount}
               />
             </Col>
           </Row>
@@ -728,7 +727,8 @@ class FormPage extends Component {
                 name="location"
                 items={this.state.locations}
                 value={this.state.location}
-                onChange={this._onInputChange} />
+                onChange={this._onInputChange}
+              />
             </Col>
           </Row>
         </Grid>
@@ -746,7 +746,7 @@ class FormPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    documents: state.documents.list
+    documents: state.documents.list,
   };
 }
 

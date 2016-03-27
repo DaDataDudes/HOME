@@ -3,8 +3,6 @@ import d3 from 'd3';
 import topojson from 'topojson';
 import Svg from 'components/charts/Svg';
 
-const hawaii = require('assets/hawaii-topojson.json');
-
 const quantize = d3.scale.quantize()
   .domain([0, 100])
   .range(d3.range(9).map(i => `q-${i}`));
@@ -61,7 +59,7 @@ function fillColor(total) {
   return '#C0C0C0';
 }
 
-const Map = ({ updateInfo, totals, info, width = 500, height = 500 }) => {
+const Map = ({ hawaii, updateInfo, totals, info, width = 500, height = 500 }) => {
   const counties = topojson.feature(hawaii, hawaii.objects.hi_ct).features;
   if (!totals) {
     return <div></div>;
