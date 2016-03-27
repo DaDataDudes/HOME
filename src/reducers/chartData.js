@@ -1,8 +1,7 @@
 import {
-  GET_DATA_SUCCESS,
   UPDATE_DATA_SUCCESS,
   GET_CHOROINFO_SUCCESS,
-  UPDATE_CHOROINFO_SUCCESS
+  UPDATE_CHOROINFO_SUCCESS,
 } from 'actions/charts';
 
 const initialState = {

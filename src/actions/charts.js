@@ -36,3 +36,13 @@ export function updateChartData() {
     data: newData,
   };
 }
+
+export function getHawaiiTopojson() {
+  return new Promise(resolve => {
+    require.ensure([], () => {
+      resolve({
+        hawaii: require('assets/hawaii-topojson.json'),
+      });
+    });
+  });
+}

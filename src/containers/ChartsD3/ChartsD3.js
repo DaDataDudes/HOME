@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { firebase } from 'actions/firebase';
 import base from 'rebase';
-import { getChartData, updateChartData, getChoroInfo, updateChoroInfo } from 'actions/charts';
+import { getChartData, updateChartData, getChoroInfo, updateChoroInfo, getHawaiiTopojson } from 'actions/charts';
 import { BarChart, LineChart, PieChart } from 'react-d3';
 import Map from 'components/charts/Map';
 
@@ -20,11 +20,9 @@ class ChartsD3 extends Component {
       width: 500,
       height: 400,
     };
-  }
-
-  componentDidMount() {
-    this.props.dispatch(getChartData());
-    this.props.dispatch(getChoroInfo());
+    this.state = {
+      hawaii: null,
+    };
   }
 
   componentWillMount() {
@@ -32,10 +30,18 @@ class ChartsD3 extends Component {
       context: this,
       state: 'documents',
       asArray: true,
-      then(data){
+      then(data) {
         this.props.dispatch(firebase.syncData(data));
-      }
+      },
     });
+  }
+
+  componentDidMount() {
+    getHawaiiTopojson().then(hawaii => {
+      this.setState(hawaii);
+    });
+    this.props.dispatch(getChartData());
+    this.props.dispatch(getChoroInfo());
   }
 
   componentWillUnmount() {
@@ -52,7 +58,8 @@ class ChartsD3 extends Component {
   }
 
   render() {
-    const { documents } = this.props;
+    const { documents, info, totals } = this.props;
+    const { hawaii } = this.state;
     // const pieData = [
     //   { label: 'Margarita', value: 20.0 },
     //   { label: 'John', value: 55.0 },
@@ -228,7 +235,15 @@ class ChartsD3 extends Component {
         <Grid>
           <Row>
             <Col xsOffset={2}>
-              <Map {...this.props} updateInfo={this._updateInfo} />
+              {hawaii &&
+                <Map
+                  hawaii={hawaii}
+                  info={info}
+                  totals={totals}
+                  updateInfo={this._updateInfo}
+                  {...this.props}
+                />
+              }
             </Col>
           </Row>
         </Grid>
