@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './FormPage.css';
 import { firebase } from 'actions/firebase';
+import base from 'rebase';
 import locations from 'seed/counties';
 import Input from 'components/Input';
 import Dropdown from 'components/Dropdown';
@@ -279,7 +280,18 @@ class FormPage extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(firebase.registerListeners());
+    this.ref = base.listenTo(`documents`, {
+      context: this,
+      state: 'documents',
+      asArray: true,
+      then(data){
+        this.props.dispatch(firebase.syncData(data));
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
 
   _onInputChange(event) {

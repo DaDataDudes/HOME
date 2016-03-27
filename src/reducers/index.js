@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
 // Reducers
-import firebase from 'reducers/firebase';
+import base from 'reducers/rebase';
 import documents from 'reducers/documents';
 import counties from 'reducers/counties';
 import auth from 'reducers/auth';
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   chartData,
   documents,
   counties,
-  firebase,
+  base,
   routing
 });
 

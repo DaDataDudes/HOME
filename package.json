@@ -1,7 +1,7 @@
 {
-  "name": "yars",
-  "version": "0.0.1",
-  "description": "Yet Another React Starter",
+  "name": "HOME",
+  "version": "0.1.0",
+  "description": "Homeless Observation & Mapping Engine",
   "scripts": {
     "clean": "rm -rf dist",
     "dev": "webpack-dev-server --config webpack.config.development.js",
@@ -14,7 +14,8 @@
     "flexboxgrid": "^6.3.0",
     "griddle-react": "^0.3.1",
     "lodash": "^4.6.1",
-    "normalize.css": "^3.0.3",
+    "normalize.css": "^4.0.0",
+    "re-base": "^1.5.1",
     "react": "^0.14.7",
     "react-d3": "^0.4.0",
     "react-dom": "^0.14.7",
