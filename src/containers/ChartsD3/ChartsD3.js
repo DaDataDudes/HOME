@@ -6,6 +6,7 @@ import base from 'rebase';
 import { getChartData, updateChartData, getChoroInfo, updateChoroInfo, getHawaiiTopojson } from 'actions/charts';
 import { BarChart, LineChart, PieChart } from 'react-d3';
 import Map from 'components/charts/Map';
+import styles from './ChartsD3.css';
 
 
 class ChartsD3 extends Component {
@@ -60,11 +61,16 @@ class ChartsD3 extends Component {
   render() {
     const { documents, info, totals } = this.props;
     const { hawaii } = this.state;
-    // const pieData = [
-    //   { label: 'Margarita', value: 20.0 },
-    //   { label: 'John', value: 55.0 },
-    //   { label: 'Tim', value: 25.0 },
-    // ];
+
+    if (!documents.length || !hawaii) {
+      return (
+        <div className={styles.loading}>
+          <div className={styles.leftEye}></div>
+          <div className={styles.rightEye}></div>
+          <div className={styles.mouth}></div>
+        </div>
+       );
+    }
 
     if (documents.length) {
       const yearSnapshot = documents.reduce((previous, current) => {
