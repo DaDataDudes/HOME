@@ -373,7 +373,7 @@ class FormPage extends Component {
       location: event.target.location.value,
       shelterStatus: event.target.shelterStatus.value,
       shelterName: event.target.shelterName.value,
-      familyMembersTotal: +adultCount + +childrenCount,
+      familyMembersTotal: adultCount + childrenCount,
       familyMembersAdult: adultCount,
       familyMembersChildren: childrenCount,
       homelessDate: event.target.homelessDate.value,
