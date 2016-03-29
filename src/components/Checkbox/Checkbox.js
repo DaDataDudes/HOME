@@ -24,9 +24,9 @@ Checkbox.defaultProps = {
 Checkbox.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.any,
   onChange: PropTypes.func,
-  checked: PropTypes.bool,
+  checked: PropTypes.any,
   name: PropTypes.string,
 };
 
