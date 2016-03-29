@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import base from 'rebase';
 import { connect } from 'react-redux';
 import Griddle from 'griddle-react';
 import styles from './HumanList.css';
 import { firebase } from 'actions/firebase';
+import { formattedColumns } from './formattedColumnList';
+
 
 class HumanList extends Component {
   constructor(props) {
@@ -10,7 +13,18 @@ class HumanList extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(firebase.registerListeners());
+    this.ref = base.listenTo(`documents`, {
+      context: this,
+      state: 'documents',
+      asArray: true,
+      then(data){
+        this.props.dispatch(firebase.syncData(data));
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
 
   render() {
@@ -18,8 +32,9 @@ class HumanList extends Component {
     return (
       <div className={styles.griddle}>
         <Griddle results={documents} tableClassName="table" showFilter={true} showSettings={true}
-                 resultsPerPage={20} enableInfiniteScroll={true} bodyHeight={550} useFixedHeader={true}
-                 columns={["age", "ethnicity", "employmentCurPay", "veteran","educationLevel"]}/>
+                 resultsPerPage={20} enableInfiniteScroll={false} bodyHeight={550} useFixedHeader={true}
+                 columns={["social", "age", "ethnicity", "veteran", "employmentCurPay", "shelterStatus", "familyMembersAdult", "familyMembersChildren"]}
+                 columnMetadata={formattedColumns}/>
       </div>
     );
   }

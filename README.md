@@ -3,7 +3,7 @@
 
 
 ## FIREBASE URL
-https://home-ddd.firebaseio.com/
+https://home-ddd3.firebaseio.com/
 
 
 ## Quick Start
